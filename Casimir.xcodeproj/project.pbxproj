@@ -10,7 +10,6 @@
 		41F91955238C42E40033A564 /* Casimir.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41F9194B238C42E40033A564 /* Casimir.framework */; };
 		41F9195A238C42E40033A564 /* CasimirTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F91959238C42E40033A564 /* CasimirTests.swift */; };
 		41F9195C238C42E40033A564 /* Casimir.h in Headers */ = {isa = PBXBuildFile; fileRef = 41F9194E238C42E40033A564 /* Casimir.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		41F919A9238C445C0033A564 /* DisposablesGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F91966238C445C0033A564 /* DisposablesGroup.swift */; };
 		41F919AB238C445C0033A564 /* PinsLifecycleReportingComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F9196D238C445C0033A564 /* PinsLifecycleReportingComponent.swift */; };
 		41F919AC238C445C0033A564 /* LifecycleEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F9196E238C445C0033A564 /* LifecycleEvent.swift */; };
 		41F919AD238C445C0033A564 /* LifecycleReportingDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F9196F238C445C0033A564 /* LifecycleReportingDelegate.swift */; };
@@ -37,15 +36,6 @@
 		41F919C2238C445C0033A564 /* MKMapView+Zooming.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F91987238C445C0033A564 /* MKMapView+Zooming.swift */; };
 		41F919C3238C445C0033A564 /* MKCoordinateRegion+Offsetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F91988238C445C0033A564 /* MKCoordinateRegion+Offsetting.swift */; };
 		41F919C4238C445C0033A564 /* SFSymbol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F9198A238C445C0033A564 /* SFSymbol.swift */; };
-		41F919C5238C445C0033A564 /* UIControl+ExpandedRx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F9198C238C445C0033A564 /* UIControl+ExpandedRx.swift */; };
-		41F919C6238C445C0033A564 /* RxCocoa+Shorthands.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F9198D238C445C0033A564 /* RxCocoa+Shorthands.swift */; };
-		41F919C7238C445C0033A564 /* Realm+OptionalDelete.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F9198E238C445C0033A564 /* Realm+OptionalDelete.swift */; };
-		41F919C8238C445C0033A564 /* Realm+SimpleOperations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F9198F238C445C0033A564 /* Realm+SimpleOperations.swift */; };
-		41F919C9238C445C0033A564 /* RxSwift+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F91991238C445C0033A564 /* RxSwift+Utils.swift */; };
-		41F919CA238C445C0033A564 /* RxSwift+Subscribe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F91992238C445C0033A564 /* RxSwift+Subscribe.swift */; };
-		41F919CB238C445C0033A564 /* RxSwift+Scan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F91993238C445C0033A564 /* RxSwift+Scan.swift */; };
-		41F919CC238C445C0033A564 /* BehaviorSubject+OptionalValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F91994238C445C0033A564 /* BehaviorSubject+OptionalValue.swift */; };
-		41F919CD238C445C0033A564 /* RxSwift+Logging.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F91995238C445C0033A564 /* RxSwift+Logging.swift */; };
 		41F919CE238C445C0033A564 /* UILabel+setTextOrHide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F91997238C445C0033A564 /* UILabel+setTextOrHide.swift */; };
 		41F919CF238C445C0033A564 /* String+CamelCaseConversion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F91999238C445C0033A564 /* String+CamelCaseConversion.swift */; };
 		41F919D0238C445C0033A564 /* Foundation+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F9199A238C445C0033A564 /* Foundation+Utils.swift */; };
@@ -80,7 +70,6 @@
 		41F91954238C42E40033A564 /* CasimirTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CasimirTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		41F91959238C42E40033A564 /* CasimirTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CasimirTests.swift; sourceTree = "<group>"; };
 		41F9195B238C42E40033A564 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		41F91966238C445C0033A564 /* DisposablesGroup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DisposablesGroup.swift; path = ../Utils/DisposablesGroup.swift; sourceTree = "<group>"; };
 		41F9196D238C445C0033A564 /* PinsLifecycleReportingComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PinsLifecycleReportingComponent.swift; sourceTree = "<group>"; };
 		41F9196E238C445C0033A564 /* LifecycleEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LifecycleEvent.swift; sourceTree = "<group>"; };
 		41F9196F238C445C0033A564 /* LifecycleReportingDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LifecycleReportingDelegate.swift; sourceTree = "<group>"; };
@@ -107,15 +96,6 @@
 		41F91987238C445C0033A564 /* MKMapView+Zooming.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "MKMapView+Zooming.swift"; path = "../Utils/Extensions/PinsUIKitUtils/Extensions/MapKit/MKMapView+Zooming.swift"; sourceTree = "<group>"; };
 		41F91988238C445C0033A564 /* MKCoordinateRegion+Offsetting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "MKCoordinateRegion+Offsetting.swift"; path = "../Utils/Extensions/PinsUIKitUtils/Extensions/MapKit/MKCoordinateRegion+Offsetting.swift"; sourceTree = "<group>"; };
 		41F9198A238C445C0033A564 /* SFSymbol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SFSymbol.swift; sourceTree = "<group>"; };
-		41F9198C238C445C0033A564 /* UIControl+ExpandedRx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIControl+ExpandedRx.swift"; path = "../Utils/Extensions/PinsUIKitUtils/Extensions/Rx/UIControl+ExpandedRx.swift"; sourceTree = "<group>"; };
-		41F9198D238C445C0033A564 /* RxCocoa+Shorthands.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "RxCocoa+Shorthands.swift"; path = "../Utils/Extensions/PinsUIKitUtils/Extensions/Rx/RxCocoa+Shorthands.swift"; sourceTree = "<group>"; };
-		41F9198E238C445C0033A564 /* Realm+OptionalDelete.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Realm+OptionalDelete.swift"; path = "../Utils/Extensions/Realm+OptionalDelete.swift"; sourceTree = "<group>"; };
-		41F9198F238C445C0033A564 /* Realm+SimpleOperations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Realm+SimpleOperations.swift"; path = "../Utils/Extensions/Realm+SimpleOperations.swift"; sourceTree = "<group>"; };
-		41F91991238C445C0033A564 /* RxSwift+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "RxSwift+Utils.swift"; path = "../Utils/Extensions/RxSwift/RxSwift+Utils.swift"; sourceTree = "<group>"; };
-		41F91992238C445C0033A564 /* RxSwift+Subscribe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "RxSwift+Subscribe.swift"; path = "../Utils/Extensions/RxSwift/RxSwift+Subscribe.swift"; sourceTree = "<group>"; };
-		41F91993238C445C0033A564 /* RxSwift+Scan.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "RxSwift+Scan.swift"; path = "../Utils/Extensions/RxSwift/RxSwift+Scan.swift"; sourceTree = "<group>"; };
-		41F91994238C445C0033A564 /* BehaviorSubject+OptionalValue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "BehaviorSubject+OptionalValue.swift"; path = "../Utils/Extensions/RxSwift/BehaviorSubject+OptionalValue.swift"; sourceTree = "<group>"; };
-		41F91995238C445C0033A564 /* RxSwift+Logging.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "RxSwift+Logging.swift"; path = "../Utils/Extensions/RxSwift/RxSwift+Logging.swift"; sourceTree = "<group>"; };
 		41F91997238C445C0033A564 /* UILabel+setTextOrHide.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UILabel+setTextOrHide.swift"; path = "../Utils/Extensions/UIKit/UILabel+setTextOrHide.swift"; sourceTree = "<group>"; };
 		41F91999238C445C0033A564 /* String+CamelCaseConversion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "String+CamelCaseConversion.swift"; path = "../Utils/Extensions/Foundation/String+CamelCaseConversion.swift"; sourceTree = "<group>"; };
 		41F9199A238C445C0033A564 /* Foundation+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Foundation+Utils.swift"; path = "../Utils/Extensions/Foundation/Foundation+Utils.swift"; sourceTree = "<group>"; };
@@ -180,9 +160,6 @@
 				41F919A7238C445C0033A564 /* Typealiases.swift */,
 				41F919DE238C447D0033A564 /* Foundation */,
 				41F919E4238C451C0033A564 /* MapKit */,
-				41F919E1238C44A00033A564 /* Realm */,
-				41F919E5238C45380033A564 /* RxCocoa */,
-				41F919E0238C44830033A564 /* RxSwift */,
 				41F91989238C445C0033A564 /* SFSymbols */,
 				41F919DF238C44800033A564 /* UIKit */,
 			);
@@ -277,28 +254,6 @@
 			path = UIKit;
 			sourceTree = "<group>";
 		};
-		41F919E0238C44830033A564 /* RxSwift */ = {
-			isa = PBXGroup;
-			children = (
-				41F91994238C445C0033A564 /* BehaviorSubject+OptionalValue.swift */,
-				41F91966238C445C0033A564 /* DisposablesGroup.swift */,
-				41F91995238C445C0033A564 /* RxSwift+Logging.swift */,
-				41F91993238C445C0033A564 /* RxSwift+Scan.swift */,
-				41F91992238C445C0033A564 /* RxSwift+Subscribe.swift */,
-				41F91991238C445C0033A564 /* RxSwift+Utils.swift */,
-			);
-			path = RxSwift;
-			sourceTree = "<group>";
-		};
-		41F919E1238C44A00033A564 /* Realm */ = {
-			isa = PBXGroup;
-			children = (
-				41F9198E238C445C0033A564 /* Realm+OptionalDelete.swift */,
-				41F9198F238C445C0033A564 /* Realm+SimpleOperations.swift */,
-			);
-			path = Realm;
-			sourceTree = "<group>";
-		};
 		41F919E4238C451C0033A564 /* MapKit */ = {
 			isa = PBXGroup;
 			children = (
@@ -308,15 +263,6 @@
 				41F91987238C445C0033A564 /* MKMapView+Zooming.swift */,
 			);
 			path = MapKit;
-			sourceTree = "<group>";
-		};
-		41F919E5238C45380033A564 /* RxCocoa */ = {
-			isa = PBXGroup;
-			children = (
-				41F9198D238C445C0033A564 /* RxCocoa+Shorthands.swift */,
-				41F9198C238C445C0033A564 /* UIControl+ExpandedRx.swift */,
-			);
-			path = RxCocoa;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -429,7 +375,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				41F919B2238C445C0033A564 /* UITableView+SelectedCells.swift in Sources */,
-				41F919C8238C445C0033A564 /* Realm+SimpleOperations.swift in Sources */,
 				41F919AD238C445C0033A564 /* LifecycleReportingDelegate.swift in Sources */,
 				41F919BF238C445C0033A564 /* CoreGraphics+Utils.swift in Sources */,
 				41F919D2238C445C0033A564 /* String+DeletingSuffixPrefix.swift in Sources */,
@@ -443,17 +388,11 @@
 				41F919B8238C445C0033A564 /* Cocoa+Animations.swift in Sources */,
 				41F919BC238C445C0033A564 /* Notifications+KeyboardHandling.swift in Sources */,
 				41F919DD238C445C0033A564 /* Randoms.swift in Sources */,
-				41F919C7238C445C0033A564 /* Realm+OptionalDelete.swift in Sources */,
-				41F919C6238C445C0033A564 /* RxCocoa+Shorthands.swift in Sources */,
-				41F919CB238C445C0033A564 /* RxSwift+Scan.swift in Sources */,
-				41F919C9238C445C0033A564 /* RxSwift+Utils.swift in Sources */,
 				41F919B0238C445C0033A564 /* UIKit+ClassNibDescribable.swift in Sources */,
 				41F919D3238C445C0033A564 /* Foundation+Sorting.swift in Sources */,
 				41F919BB238C445C0033A564 /* UIButton+ClickTarget.swift in Sources */,
 				41F919AC238C445C0033A564 /* LifecycleEvent.swift in Sources */,
-				41F919CA238C445C0033A564 /* RxSwift+Subscribe.swift in Sources */,
 				41F919D5238C445C0033A564 /* Foundation+Empties.swift in Sources */,
-				41F919A9238C445C0033A564 /* DisposablesGroup.swift in Sources */,
 				41F919DA238C445C0033A564 /* Swift+KotlinScoping.swift in Sources */,
 				41F919B7238C445C0033A564 /* UIStackView+AddArrangedSubviews.swift in Sources */,
 				41F919D1238C445C0033A564 /* String+Copy.swift in Sources */,
@@ -465,14 +404,11 @@
 				41F919C3238C445C0033A564 /* MKCoordinateRegion+Offsetting.swift in Sources */,
 				41F919AF238C445C0033A564 /* NSLayoutConstraint+Utils.swift in Sources */,
 				41F919B5238C445C0033A564 /* UIViewController+AddingChildren.swift in Sources */,
-				41F919CC238C445C0033A564 /* BehaviorSubject+OptionalValue.swift in Sources */,
 				41F919CF238C445C0033A564 /* String+CamelCaseConversion.swift in Sources */,
 				41F919AE238C445C0033A564 /* UIView+Utils.swift in Sources */,
 				41F919B6238C445C0033A564 /* CALayer+Corners.swift in Sources */,
 				41F919CE238C445C0033A564 /* UILabel+setTextOrHide.swift in Sources */,
 				41F919BD238C445C0033A564 /* UIViewController+KeyboardHandling.swift in Sources */,
-				41F919C5238C445C0033A564 /* UIControl+ExpandedRx.swift in Sources */,
-				41F919CD238C445C0033A564 /* RxSwift+Logging.swift in Sources */,
 				41F919D0238C445C0033A564 /* Foundation+Utils.swift in Sources */,
 				41F919D8238C445C0033A564 /* Array+distinct.swift in Sources */,
 				41F919D7238C445C0033A564 /* NSAttributedString+ChainableAppend.swift in Sources */,

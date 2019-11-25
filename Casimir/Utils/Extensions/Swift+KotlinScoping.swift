@@ -1,11 +1,3 @@
-//
-//  Swift+KotlinScoping.swift
-//  Pins2
-//
-//  Created by Przemyslaw Jablonski on 30/03/2019.
-//  Copyright © 2019 Przemyslaw Jablonski. All rights reserved.
-//
-
 // Kotlin inspired scoping functions.
 // This is a solution for a problem where there is a need for calling substantial amount of
 // methods or property assignments before object will become useful in context of a given task.

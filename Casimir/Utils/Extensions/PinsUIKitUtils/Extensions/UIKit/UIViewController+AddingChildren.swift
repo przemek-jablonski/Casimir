@@ -1,11 +1,3 @@
-//
-//  UIViewController+AddingChildren.swift
-//  Pins2
-//
-//  Created by Przemyslaw Jablonski on 21/05/2019.
-//  Copyright © 2019 Przemyslaw Jablonski. All rights reserved.
-//
-
 import UIKit
 
 extension UIViewController {

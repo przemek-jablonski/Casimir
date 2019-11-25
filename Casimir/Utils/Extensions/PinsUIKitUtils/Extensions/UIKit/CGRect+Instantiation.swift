@@ -4,6 +4,12 @@ import CoreGraphics
 //swiftlint:disable identifier_name
 public extension CGRect {
 
+    /**
+     Convenience method for instantiating copy of given `CGRect`. All parameters are optional with default value,
+     so changing single or multiple values is more idiomatic than with usual `copy(with:)`.
+
+     - Returns: Modified `CGRect`.
+     */
     func copyChanging(
         x: CGFloat? = nil,
         y: CGFloat? = nil,

@@ -1,11 +1,3 @@
-//
-//  CasimirTests.swift
-//  CasimirTests
-//
-//  Created by Przemyslaw Jablonski on 25/11/2019.
-//  Copyright © 2019 com.szparag.ios. All rights reserved.
-//
-
 import XCTest
 @testable import Casimir
 

@@ -1,6 +1,5 @@
 import UIKit
 
-//TODO: this should be in PinsViewController directly or using some component or something
 public extension UIViewController {
 
     func trackKeyboardForResizing(with notificationCenter: NotificationCenter = NotificationCenter.default) {

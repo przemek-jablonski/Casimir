@@ -1,11 +1,3 @@
-//
-//  LifecycleReportingComponent.swift
-//  Pins2
-//
-//  Created by Przemyslaw Jablonski on 19/05/2019.
-//  Copyright © 2019 Przemyslaw Jablonski. All rights reserved.
-//
-
 import UIKit
 
 class LifecycleReportingComponent {
