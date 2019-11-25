@@ -1,6 +1,5 @@
 # Casimir
 ###### The best Swift extension package in the business. From me, for me 🤷‍♀️
-----
 </br>
 
 ## Installation
