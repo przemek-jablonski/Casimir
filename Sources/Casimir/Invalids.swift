@@ -40,7 +40,7 @@ public extension Color {
     }
 }
 
-#if canImport(UIKit)
+#if canImport(UIKit) && !os(watchOS)
 import UIKit
 public extension UIColor {
     static var invalid: UIColor {

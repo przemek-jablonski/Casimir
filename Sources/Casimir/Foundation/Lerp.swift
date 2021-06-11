@@ -9,7 +9,6 @@
 import Foundation
 import CoreGraphics
 
-//swiftlint:disable identifier_name
 
 // MARK: Lerpable protocol
 

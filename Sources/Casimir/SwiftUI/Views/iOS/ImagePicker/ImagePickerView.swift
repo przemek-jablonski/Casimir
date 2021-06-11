@@ -1,4 +1,6 @@
-#if canImport(UIKit)
+#if canImport(UIKit) && !os(tvOS) && !os(watchOS)
+// unavailability: tvOS: because UIImagePickerController is not supported in this OS
+// unavailability: watchOS: UIViewControllerRepresentable translation layer doesn't support this OS
 import SwiftUI
 import UIKit
 
@@ -11,7 +13,6 @@ public struct ImagePickerView: UIViewControllerRepresentable {
         let picker = UIImagePickerController()
         picker.delegate = context.coordinator
 //        picker.allowsEditing = cropToSquare
-        
 //        picker.view.frame = CGRect(origin: picker.view.frame.origin,
 //        size: CGSize(width: 300, height: 50))
         return picker

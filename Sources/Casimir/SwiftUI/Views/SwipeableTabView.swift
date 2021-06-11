@@ -1,11 +1,5 @@
-//
-//  SwipeableTabView.swift
-//  automemo-ios
-//
-//  Created by Przemyslaw Jablonski on 06/08/2020.
-//  Copyright © 2020 com.szparag.ios. All rights reserved.
-//
-
+#if !os(tvOS)
+// TODO: unavailable in tvOS due to the DragGesture not supporting tvOS and Siri Remote, find a workaround
 import SwiftUI
 
 public struct SwipeableTabView: View {
@@ -71,3 +65,4 @@ struct SwipeableTabView_Previews: PreviewProvider {
         SwipeableTabView(tabs: [])
     }
 }
+#endif

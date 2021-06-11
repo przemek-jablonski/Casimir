@@ -1,11 +1,12 @@
-#if canImport(UIKit)
+#if canImport(UIKit) && !os(tvOS) && !os(watchOS)
+// unavailability: tvOS: keyboardHeight field of NotificationCenter is not available in this OS
+// unavailability: watchOS: keyboardHeight field of NotificationCenter is not available in this OS
 import SwiftUI
 import UIKit
 
 /*
     View which will add bottom padding to the `content` exactly the height of soft keyboard, if present.
  */
-@available(iOS 13.0, *)
 public struct KeyboardAwareView<Content: View>: View {
     @State private var keyboardHeight = CGFloat(0)
     var extraPadding: CGFloat = 0

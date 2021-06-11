@@ -4,7 +4,6 @@ public protocol LocalizationErrorDelegate: AnyObject {
     func localizationError(raised error: Error)
 }
 
-//swiftlint:disable identifier_name
 public enum LocalizationError: Error {
 
     public static weak var delegate: LocalizationErrorDelegate? = nil

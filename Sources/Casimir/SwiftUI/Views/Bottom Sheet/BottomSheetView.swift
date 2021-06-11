@@ -1,12 +1,11 @@
-//
-//  BottomSheetView.swift
-//
 //  Created by Majid Jabrayilov
 //  Copyright © 2019 Majid Jabrayilov. All rights reserved.
-//
+
 import SwiftUI
 
-#if canImport(UIKit)
+#if canImport(UIKit) && !os(tvOS) && !os(watchOS)
+// unavailability: tvOS: onTapGesture modifier is unavailable in this OS
+// unavailability: watchOS: having bottom sheet on 1" watch screen is a stupid idea
 private enum Constants {
     static let radius: CGFloat = 16
     static let indicatorHeight: CGFloat = 6

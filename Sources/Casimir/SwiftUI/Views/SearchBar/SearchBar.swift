@@ -1,4 +1,7 @@
-#if canImport(UIKit)
+#if canImport(UIKit) && !os(tvOS) && !os(watchOS)
+// unavailability: tvOS: navigationItem.searchController is unavailable in this OS
+// unavailability: watchOS: UISearchController is unavailable in this OS
+
 //
 //  SearchBar.swift
 //  SwiftUI_Search_Bar_in_Navigation_Bar

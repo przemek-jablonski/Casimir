@@ -1,4 +1,6 @@
-#if canImport(UIKit)
+#if canImport(UIKit) && !os(tvOS) && !os(watchOS)
+// unavailability: tvOS: DragGesture is unavailable in this OS (and it acts as the backbone of this View)
+// unavailability: watchOS: Haptics are not available in watchOS at the moment
 import SwiftUI
 import UIKit
 
