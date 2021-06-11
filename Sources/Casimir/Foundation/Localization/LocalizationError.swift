@@ -1,6 +1,6 @@
 import Foundation
 
-public protocol LocalizationErrorDelegate: class {
+public protocol LocalizationErrorDelegate: AnyObject {
     func localizationError(raised error: Error)
 }
 

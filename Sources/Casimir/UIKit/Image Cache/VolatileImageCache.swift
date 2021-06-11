@@ -1,3 +1,4 @@
+#if canImport(UIKit)
 import UIKit
 
 public class VolatileImageCache: NSObject, ImageCache, NSCacheDelegate {
@@ -43,3 +44,4 @@ extension VolatileImageCache {
         delegate?.cache(self, imageEvictedFromCached: obj as! UIImage)
     }
 }
+#endif

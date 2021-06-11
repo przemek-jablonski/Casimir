@@ -1,3 +1,4 @@
+#if canImport(UIKit)
 import UIKit
 
 public typealias ImagePath = String
@@ -34,3 +35,4 @@ private extension PersistentImageCache {
         (bundle.bundlePath + fileName)
     }
 }
+#endif

@@ -136,7 +136,7 @@ public struct _CocoaTextField: UIViewRepresentable {
         }
         
         uiView.borderStyle = borderStyle
-        uiView.font = uiFont ?? font?.toUIFont()
+        uiView.font = uiFont ?? font?.native
         
         if let kerning = kerning {
             uiView.defaultTextAttributes.updateValue(kerning, forKey: .kern)

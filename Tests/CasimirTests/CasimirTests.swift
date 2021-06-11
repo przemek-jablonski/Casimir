@@ -6,7 +6,8 @@ final class CasimirTests: XCTestCase {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct
         // results.
-        XCTAssertEqual(Casimir().text, "Hello, World!")
+        
+//        XCTAssertEqual(Casimir().text, "Hello, World!")
     }
 
     static var allTests = [

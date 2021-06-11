@@ -8,7 +8,7 @@ public extension View {
 
 private extension Font {
     var size: CGSize? {
-        guard let pointSize = toUIFont()?.pointSize else { return nil }
+        guard let pointSize = self.native?.pointSize else { return nil }
         return CGSize(width: pointSize, height: pointSize)
     }
 }
