@@ -14,15 +14,17 @@ let package = Package(
     products: [
         .library(
             name: "Casimir",
-//            type: .dynamic,
-            targets: ["Casimir"]),
+            targets: ["Casimir"]
+        ),
     ],
     targets: [
         .target(
             name: "Casimir",
-            dependencies: []),
+            dependencies: []
+        ),
         .testTarget(
             name: "CasimirTests",
-            dependencies: ["Casimir"]),
+            dependencies: ["Casimir"]
+        )
     ]
 )
