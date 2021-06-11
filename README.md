@@ -4,11 +4,7 @@
 
 ## Installation
 
-Available for Carthage only. I think.
-
-Add to the `Cartfile`:
-
-`github "sharaquss/Casimir"`
+Available through Swift Package Manager.
 
 </br>
 
