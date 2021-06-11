@@ -114,7 +114,7 @@ extension View {
 }
 #endif
 
-#if canImport(AppKit)
+#if os(macOS) && canImport(AppKit)
 extension View {
     
     /// Finds a `TargetView` from a `SwiftUI.View`

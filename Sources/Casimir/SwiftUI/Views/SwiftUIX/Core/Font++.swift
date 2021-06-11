@@ -39,7 +39,7 @@ public extension SwiftUI.Font {
 #endif
 
 
-#if canImport(AppKit)
+#if os(macOS)
 public extension SwiftUI.Font {
     var native: AppKit.NSFont? {
         .preferredFont(forTextStyle: textStyle.native, options: [:])
