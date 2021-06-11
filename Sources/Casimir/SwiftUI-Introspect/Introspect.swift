@@ -15,6 +15,7 @@ public typealias PlatformViewController = NSViewController
 public typealias PlatformViewController = UIViewController
 #endif
 
+#if !os(watchOS)
 /// Utility methods to inspect the UIKit view hierarchy.
 public enum Introspect {
     
@@ -218,3 +219,4 @@ private extension Array {
         return self[index]
     }
 }
+#endif

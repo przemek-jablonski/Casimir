@@ -12,7 +12,7 @@ extension View {
     }
 }
 
-#if canImport(UIKit)
+#if canImport(UIKit) && !os(watchOS)
 extension View {
     
     /// Finds a `TargetView` from a `SwiftUI.View`

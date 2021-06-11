@@ -1,3 +1,6 @@
+#if os(iOS) || os(macOS) || os(tvOS)
+// unavailability: watchOS: watchOS doesn't include system* color palette
+
 //
 // Copyright (c) Vatsal Manot
 //
@@ -19,8 +22,6 @@ extension Color {
         return .systemPink
     }
 }
-
-#if os(iOS) || os(macOS) || os(tvOS)
 
 extension Color {
     public static var systemRed: Color {

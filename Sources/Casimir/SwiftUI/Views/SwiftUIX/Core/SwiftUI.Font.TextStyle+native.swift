@@ -9,8 +9,10 @@ import SwiftUI
 public extension SwiftUI.Font.TextStyle {
     var native: UIKit.UIFont.TextStyle {
         switch self {
+        #if !os(tvOS)
         case .largeTitle:
             return .largeTitle
+        #endif
         case .title:
             return .title1
         case .headline:

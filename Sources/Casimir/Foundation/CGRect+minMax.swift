@@ -9,7 +9,6 @@
 import Foundation
 import CoreGraphics
 
-//swiftlint:disable identifier_name
 public extension CGRect {
     var min: CGPoint {
         return CGPoint(x: minX, y: minY)

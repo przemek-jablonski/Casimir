@@ -8,7 +8,9 @@
 
 // https://github.com/Geri-Borbas/iOS.Blog.SwiftUI_Search_Bar_in_Navigation_Bar/blob/main/SwiftUI_Search_Bar_in_Navigation_Bar/SearchBar/ViewControllerResolver.swift
 
-#if canImport(UIKit)
+#if canImport(UIKit) && !os(tvOS)  && !os(watchOS)
+// unavailability: tvOS: those haxxes here are operating on older Search* API version which wasn't ported to the tvOS
+// unavailability: watchOS: UISearchController is unavailable in this OS
 import SwiftUI
 import UIKit
 

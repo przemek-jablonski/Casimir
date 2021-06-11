@@ -1,4 +1,5 @@
-#if canImport(UIKit)
+#if canImport(UIKit) && !os(watchOS)
+// unavailability: watchOS: UIViewControllerRepresentable translation layer doesn't support this OS
 import SwiftUI
 import UIKit
 

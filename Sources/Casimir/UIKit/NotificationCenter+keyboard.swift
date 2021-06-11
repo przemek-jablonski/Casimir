@@ -1,4 +1,6 @@
-#if canImport(UIKit)
+#if canImport(UIKit) && !os(tvOS) && !os(watchOS)
+// unavailability: tvOS: UIApplication.* and it's *notifications are unavailable in this OS
+// unavailability: watchOS: UIApplication.* and it's *notifications are unavailable in this OS
 import UIKit
 import Combine
 

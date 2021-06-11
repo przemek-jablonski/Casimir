@@ -1,30 +1,27 @@
-#if canImport(UIKit)
+#if canImport(UIKit) && !os(tvOS) && !os(watchOS)
+// unavailability: tvOS: separatorStyle property for UITableView does not exist in this OS
+// unavailability: watchOS: watchOS lists have cards instead of rows with separators
 import SwiftUI
 import UIKit
 
-extension View {
-    public func hideListSeparators() -> some View {
+public extension View {
+    func hideListSeparators() -> some View {
         introspectTableView(customize: {
             $0.separatorStyle = .none
         })
     }
     
-    public func showListSeparators() -> some View {
+    func showListSeparators() -> some View {
         introspectTableView(customize: { $0.separatorStyle = .singleLine })
     }
     
-    public func hideListExtraneousSeparators() -> some View {
-//        if #available(iOS 14.0, *) {
-//            // iOS 14 doesn't have extra separators below the list by default.
-//        } else {
-//            // To remove only extra separators below the list:
+    func hideListExtraneousSeparators() -> some View {
         introspectTableView(customize: {
             $0.tableFooterView = UIView()
         })
-//        }
     }
     
-    public func showListExtraneousSeparators() -> some View {
+    func showListExtraneousSeparators() -> some View {
         introspectTableView(customize: {
             $0.tableFooterView = nil
         })

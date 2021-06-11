@@ -1,6 +1,5 @@
 import Combine
 
-@available(OSX 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
 public extension Publisher {
     func debug(_ receiveEvent: @escaping (SubscriptionEvent<Output, Failure>) -> ()) -> AnyPublisher<Output, Failure> {
         handleEvents(receiveSubscription: { _ in receiveEvent(.subscription) },

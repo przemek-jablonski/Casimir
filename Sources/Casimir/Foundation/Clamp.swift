@@ -9,9 +9,6 @@
 import Foundation
 import CoreGraphics
 
-//swiftlint:disable identifier_name
-
-
 // MARK: Clampable protocol
 
 public protocol Clampable {

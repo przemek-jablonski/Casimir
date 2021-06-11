@@ -1,3 +1,5 @@
+#if !os(watchOS)
+// TODO: CoreHaptics is not deployable to watchOS, come up with the translation layer, so that it can be multiplatform
 import CoreHaptics
 
 public protocol Haptics {
@@ -61,3 +63,5 @@ private extension HapticsGenerator {
         try? engine?.makePlayer(with: CHHapticPattern(events: haptics, parameters: [])).start(atTime: 0)
     }
 }
+
+#endif

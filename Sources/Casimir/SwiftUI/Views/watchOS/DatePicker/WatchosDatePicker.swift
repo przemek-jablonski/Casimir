@@ -10,21 +10,21 @@ public typealias DateFormattingClosure = (Date) -> String
  */
 @available(watchOS 6.0, *)
 public struct WatchosDatePicker: View {
-
+    
     @Binding private var selectedDate: Date
-
+    
     private let dates: [Date]
     private let pickerTooltipTitle: String?
     private let pickerRowFormattingClosure: DateFormattingClosure
     private let calendar = Calendar.autoupdatingCurrent
-
+    
     public init(_ selectedDate: Binding<Date>,
-         dateLowerRange: Date,
-         dateUpperRange: Date,
-         granularity: Calendar.Component,
-         granularityValue: Int = 1,
-         labelText: String? = nil,
-         pickerRowFormattingClosure: DateFormattingClosure? = nil) {
+                dateLowerRange: Date,
+                dateUpperRange: Date,
+                granularity: Calendar.Component,
+                granularityValue: Int = 1,
+                labelText: String? = nil,
+                pickerRowFormattingClosure: DateFormattingClosure? = nil) {
         self.init(selectedDate,
                   dates: Calendar.autoupdatingCurrent.stride(from: dateLowerRange,
                                                              to: dateUpperRange,
@@ -34,30 +34,30 @@ public struct WatchosDatePicker: View {
                   labelText: labelText,
                   pickerRowFormattingClosure: pickerRowFormattingClosure)
     }
-
+    
     /**
      - Note: Although array of dates is already passed as input, granularity (`enumerating: Calendar.Component`)
      still needs to be provided - it is used in default row formatter closure and for calculating initial date
      to display.
      */
     public init(_ selectedDate: Binding<Date>,
-         dates: [Date],
-         granularity: Calendar.Component,
-         labelText: String? = nil,
-         pickerRowFormattingClosure: DateFormattingClosure? = nil) {
+                dates: [Date],
+                granularity: Calendar.Component,
+                labelText: String? = nil,
+                pickerRowFormattingClosure: DateFormattingClosure? = nil) {
         self.dates = dates
         self.pickerTooltipTitle = labelText
         self._selectedDate = selectedDate
-
+        
         self.pickerRowFormattingClosure = pickerRowFormattingClosure ?? {
             DateFormatter().string(from: $0)
         }
-
+        
         if let alignedInitialDate = dates.first (where: {
             calendar.isDate($0, equalTo: self.selectedDate, toGranularity: granularity)
         }) { self.selectedDate = alignedInitialDate }
     }
-
+    
     public var body: some View {
         Picker(selection: self.$selectedDate, label: pickerLabel) {
             ForEach(self.dates, id: \.self) {
@@ -65,61 +65,27 @@ public struct WatchosDatePicker: View {
             }
         }
     }
-
+    
     private var pickerLabel: some View {
         if let title = pickerTooltipTitle {
             return Text(title).erased()
         } else {
-            return ZiobroView().erased()
+            return EmptyView().erased()
         }
     }
-
+    
 }
 
 struct WatchosDatePickerPreviews: PreviewProvider {
-
+    
     private static let calendar = Calendar.autoupdatingCurrent
     @State private static var selectedDate = Date()
-
+    
     static var previews: some View {
-        appleWatchPreviewGroup(with:
-            List {
-                WatchosDatePicker($selectedDate,
-                                  dateLowerRange: mockDateLowerRange(),
-                                  dateUpperRange: mockDateUpperRange(),
-                                  granularity: .day,
-                                  labelText: "days, default format")
-
-                WatchosDatePicker($selectedDate,
-                                  dateLowerRange: mockDateLowerRange(),
-                                  dateUpperRange: mockDateUpperRange(),
-                                  granularity: .day,
-                                  labelText: nil)
-
-                WatchosDatePicker($selectedDate,
-                                  dateLowerRange: mockDateLowerRange(goBackBy: 92),
-                                  dateUpperRange: mockDateUpperRange(advancingBy: 92),
-                                  granularity: .month,
-                                  labelText: "months, default format")
-
-                WatchosDatePicker($selectedDate,
-                                  dateLowerRange: mockDateLowerRange(goBackBy: 720),
-                                  dateUpperRange: mockDateUpperRange(advancingBy: 720),
-                                  granularity: .year,
-                                  labelText: "years, default format")
-
-                WatchosDatePicker($selectedDate,
-                                  dateLowerRange: mockDateLowerRange(goBackBy: 2),
-                                  dateUpperRange: mockDateUpperRange(advancingBy: 2),
-                                  granularity: .hour,
-                                  labelText: "hours, default format")
-
-                WatchosDatePicker($selectedDate,
-                                  dateLowerRange: mockDateLowerRange(goBackBy: 3),
-                                  dateUpperRange: mockDateUpperRange(advancingBy: 3),
-                                  granularity: .hour)
-
-            }
+        WatchosDatePicker($selectedDate,
+                          dateLowerRange: mockDateLowerRange(goBackBy: 3),
+                          dateUpperRange: mockDateUpperRange(advancingBy: 3),
+                          granularity: .hour
         )
     }
 }
