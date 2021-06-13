@@ -3,7 +3,7 @@ import XCTest
 
 final class CasimirTests: XCTestCase {
     func testExample() {
-        HapticsGenerator.shared
+        
     }
 
     static var allTests = [
