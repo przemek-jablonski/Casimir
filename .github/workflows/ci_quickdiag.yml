@@ -1,0 +1,25 @@
+name: CI machine Quick Diagnostic
+# https://docs.github.com/en/actions/using-github-hosted-runners/about-github-hosted-runners
+# https://github.com/actions/virtual-environments
+# https://github.com/actions/virtual-environments/blob/main/images/macos/macos-10.15-Readme.md
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+  schedule:
+    - cron: 55 9 * * 2
+  
+jobs:
+  build:
+    runs-on: macos-latest
+    steps:
+    - run: sw_vers
+    - run: ls -al
+    - run: ls -al /Applications
+    - run: xcode-select -p
+    - run: xcodebuild -version
+    - run: xcodebuild -list 
+    - run: xcodebuild -showdestinations -scheme Casimir
+  
