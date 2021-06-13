@@ -16,6 +16,7 @@ jobs:
     runs-on: macos-latest
     steps:
     - run: sw_vers
+    - uses: actions/checkout@v2
     - run: ls -al
     - run: ls -al /Applications
     - run: xcode-select -p
