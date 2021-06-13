@@ -10,7 +10,7 @@ on:
     - cron: 0 0 * * *
   
 jobs:
-  building:
+  multiplatform_build:
     continue-on-error: true
     runs-on: macos-latest
     steps:
