@@ -1,4 +1,3 @@
-#if !os(watchOS)
 import XCTest
 @testable import Casimir
 
@@ -11,4 +10,4 @@ final class CasimirTests: XCTestCase {
         ("testExample", testExample),
     ]
 }
-#endif
+

@@ -1,4 +1,4 @@
-#if !os(watchOS) && !canImport(ObjectiveC)
+#if !canImport(ObjectiveC)
 import XCTest
 
 public func allTests() -> [XCTestCaseEntry] {
