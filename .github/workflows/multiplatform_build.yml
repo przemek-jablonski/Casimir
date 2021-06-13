@@ -1,0 +1,20 @@
+name: Build for all  platforms
+# https://stackoverflow.com/questions/60245159/how-can-i-build-a-swift-package-for-ios-over-command-line#62246008
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+  schedule:
+    - cron: 0 10 * * 2
+  
+jobs:
+  build:
+    runs-on: macos-latest
+    steps:
+    - uses: actions/checkout@v2
+    - run: sw_vers
+    - run: xcodebuild -version
+    - run: xcodebuild -list 
+    - run: xcodebuild -showdestinations -scheme Casimir
