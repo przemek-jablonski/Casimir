@@ -12,7 +12,8 @@ on:
     - cron: 0 0 * * *
   
 jobs:
-  build:
+  quickdiag:
+    continue-on-error: true
     runs-on: macos-latest
     steps:
     - name: OS version
