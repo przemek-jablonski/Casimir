@@ -15,12 +15,28 @@ jobs:
   build:
     runs-on: macos-latest
     steps:
-    - run: sw_vers
-    - uses: actions/checkout@v2
-    - run: ls -al
-    - run: ls -al /Applications
-    - run: xcode-select -p
-    - run: xcodebuild -version
-    - run: xcodebuild -list 
-    - run: xcodebuild -showdestinations -scheme Casimir
+    - name: OS version
+      run: sw_vers
+    - name: Code checkout
+      uses: actions/checkout@v2
+    - name: List virtual machine contents
+      run: ls -al
+    - name: List development apps
+      run: ls -al /Applications
+    - name: Select xcode 12.0.1
+      run: sudo xcode-select -switch /Applications/Xcode_12.app
+    - name: (12.0.1) Check xcodebuild version
+      run: xcodebuild -version
+    - name: (12.0.1) Show buildable schemes
+      run: xcodebuild -list 
+    - name: (12.0.1) Show eligible build destinations
+      run: xcodebuild -showdestinations -scheme Casimir
+    - name: Select xcode 12.0.1
+      run: sudo xcode-select -switch /Applications/Xcode_12.4.app
+    - name: (12.4) Check xcodebuild version
+      run: xcodebuild -version
+    - name: (12.4) Show buildable schemes
+      run: xcodebuild -list 
+    - name: (12.4) Show eligible build destinations
+      run: xcodebuild -showdestinations -scheme Casimir
   
