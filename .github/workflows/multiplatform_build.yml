@@ -15,7 +15,7 @@ on:
 
 jobs:
   ci_machine_quickdiag_xcode_12_0_1:
-    runs-on: macos-11.0
+    runs-on: macos-latest
     steps:
     - name: OS version
       run: sw_vers
@@ -36,7 +36,7 @@ jobs:
     - name: Show eligible build destinations
       run: xcodebuild -showdestinations -scheme Casimir
   ci_machine_quickdiag_xcode_latest:
-    runs-on: macos-11.0
+    runs-on: macos-latest
     steps:
     - name: OS version
       run: sw_vers
@@ -57,7 +57,7 @@ jobs:
     - name: Show eligible build destinations
       run: xcodebuild -showdestinations -scheme Casimir
   multiplatform_build_xcode_12_0_1:
-    runs-on: macos-11.0
+    runs-on: macos-latest
     needs: ci_machine_quickdiag_xcode_12_0_1
     steps:
     - name: Code checkout
@@ -75,7 +75,7 @@ jobs:
 #    - name: Build  watchOS (7.0)
 #      run: xcodebuild -scheme Casimir -destination 'platform=watchOS Simulator,OS=7.0,name=Apple Watch Series 4 - 40mm'
   multiplatform_build_xcode_latest:
-    runs-on: macos-11.0
+    runs-on: macos-latest
     needs: ci_machine_quickdiag_xcode_latest
     steps:
     - name: Code checkout
@@ -97,7 +97,7 @@ jobs:
 #    - name: Build  watchOS (7.2)
 #      run: xcodebuild -scheme Casimir -destination 'platform=watchOS Simulator,OS=7.2,name=Apple Watch Series 6 - 44mm' –skip-testing
   multiplatform_test_xcode_12_0_1:
-    runs-on: macos-11.0
+    runs-on: macos-latest
     needs: [ci_machine_quickdiag_xcode_12_0_1, multiplatform_build_xcode_12_0_1]
     steps:
     - name: Code checkout
@@ -113,7 +113,7 @@ jobs:
     - name: Build  tvOS (14.0)
       run: xcodebuild test-without-building -scheme Casimir -destination 'platform=tvOS Simulator,OS=14.0,name=Apple TV'
   multiplatform_test_xcode_latest:
-    runs-on: macos-11.0
+    runs-on: macos-latest
     needs: [ci_machine_quickdiag_xcode_latest, multiplatform_build_xcode_latest]
     steps:
     - name: Code checkout
@@ -124,10 +124,10 @@ jobs:
         xcode-version: latest
     - name: xcodebuild version
       run: xcodebuild -version
-    - name: Build  macOS (10.15)
-      run: xcodebuild test-without-building -scheme Casimir -destination 'platform=macOS,arch=x86_64,id=4203018E-580F-C1B5-9525-B745CECA79EB'
-    - name: Build  macOS Catalyst (10.15)
-      run: xcodebuild test-without-building -scheme Casimir -destination 'platform=macOS,arch=x86_64,variant=Mac Catalyst,id=4203018E-580F-C1B5-9525-B745CECA79EB'
+#    - name: Build  macOS (10.15)
+#      run: xcodebuild test-without-building -scheme Casimir -destination 'platform=macOS,arch=x86_64,id=4203018E-580F-C1B5-9525-B745CECA79EB'
+#    - name: Build  macOS Catalyst (10.15)
+#      run: xcodebuild test-without-building -scheme Casimir -destination 'platform=macOS,arch=x86_64,variant=Mac Catalyst,id=4203018E-580F-C1B5-9525-B745CECA79EB'
     - name: Build  iOS (14.4)
       run: xcodebuild test-without-building -scheme Casimir -destination 'platform=iOS Simulator,OS=14.4,name=iPhone 12'
     - name: Build  tvOS (14.3)
