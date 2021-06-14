@@ -109,9 +109,9 @@ jobs:
     - name: xcodebuild version
       run: xcodebuild -version
     - name: Build  iOS (14.0)
-      run: xcodebuild test-without-building -scheme Casimir -destination 'platform=iOS Simulator,OS=14.0,name=iPad Pro (12.9-inch) (4th generation)'
+      run: xcodebuild test -scheme Casimir -destination 'platform=iOS Simulator,OS=14.0,name=iPad Pro (12.9-inch) (4th generation)'
     - name: Build  tvOS (14.0)
-      run: xcodebuild test-without-building -scheme Casimir -destination 'platform=tvOS Simulator,OS=14.0,name=Apple TV'
+      run: xcodebuild test -scheme Casimir -destination 'platform=tvOS Simulator,OS=14.0,name=Apple TV'
   multiplatform_test_xcode_latest:
     runs-on: macos-latest
     needs: [ci_machine_quickdiag_xcode_latest, multiplatform_build_xcode_latest]
@@ -125,10 +125,10 @@ jobs:
     - name: xcodebuild version
       run: xcodebuild -version
 #    - name: Build  macOS (10.15)
-#      run: xcodebuild test-without-building -scheme Casimir -destination 'platform=macOS,arch=x86_64,id=4203018E-580F-C1B5-9525-B745CECA79EB'
+#      run: xcodebuild test -scheme Casimir -destination 'platform=macOS,arch=x86_64,id=4203018E-580F-C1B5-9525-B745CECA79EB'
 #    - name: Build  macOS Catalyst (10.15)
-#      run: xcodebuild test-without-building -scheme Casimir -destination 'platform=macOS,arch=x86_64,variant=Mac Catalyst,id=4203018E-580F-C1B5-9525-B745CECA79EB'
+#      run: xcodebuild test -scheme Casimir -destination 'platform=macOS,arch=x86_64,variant=Mac Catalyst,id=4203018E-580F-C1B5-9525-B745CECA79EB'
     - name: Build  iOS (14.4)
-      run: xcodebuild test-without-building -scheme Casimir -destination 'platform=iOS Simulator,OS=14.4,name=iPhone 12'
+      run: xcodebuild test -scheme Casimir -destination 'platform=iOS Simulator,OS=14.4,name=iPhone 12'
     - name: Build  tvOS (14.3)
-      run: xcodebuild test-without-building -scheme Casimir -destination 'platform=tvOS Simulator,OS=14.3,name=Apple TV 4K' 
+      run: xcodebuild test -scheme Casimir -destination 'platform=tvOS Simulator,OS=14.3,name=Apple TV 4K' 
