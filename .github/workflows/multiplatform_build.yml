@@ -124,10 +124,10 @@ jobs:
         xcode-version: latest
     - name: xcodebuild version
       run: xcodebuild -version
-   - name: Test  macOS (10.15)
-     run: xcodebuild test -scheme Casimir -destination 'platform=macOS,arch=x86_64,id=4203018E-580F-C1B5-9525-B745CECA79EB'
-   - name: Test  macOS Catalyst (10.15)
-     run: xcodebuild test -scheme Casimir -destination 'platform=macOS,arch=x86_64,variant=Mac Catalyst,id=4203018E-580F-C1B5-9525-B745CECA79EB'
+    - name: Test  macOS (10.15)
+      run: xcodebuild test -scheme Casimir -destination 'platform=macOS,arch=x86_64,id=4203018E-580F-C1B5-9525-B745CECA79EB'
+    - name: Test  macOS Catalyst (10.15)
+      run: xcodebuild test -scheme Casimir -destination 'platform=macOS,arch=x86_64,variant=Mac Catalyst,id=4203018E-580F-C1B5-9525-B745CECA79EB'
     - name: Test  iOS (14.4)
       run: xcodebuild test -scheme Casimir -destination 'platform=iOS Simulator,OS=14.4,name=iPhone 12'
     - name: Test  tvOS (14.3)
