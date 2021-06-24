@@ -33,6 +33,7 @@ public extension SwiftUI.Font.TextStyle {
 #endif
 
 #if os(macOS)
+@available(macOS, introduced: 11.0, message: "return type (NSFont.TextStyle) is available on 11.0+")
 public extension SwiftUI.Font.TextStyle {
     var native: AppKit.NSFont.TextStyle {
         switch self {

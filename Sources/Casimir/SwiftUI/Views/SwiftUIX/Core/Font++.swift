@@ -38,11 +38,15 @@ public extension SwiftUI.Font {
 }
 #endif
 
-
 #if os(macOS)
 public extension SwiftUI.Font {
     var native: AppKit.NSFont? {
-        .preferredFont(forTextStyle: textStyle.native, options: [:])
+        if #available(macOS 11.0, *) {
+            return .preferredFont(forTextStyle: textStyle.native, options: [:])
+        } else {
+            // preferredFont method available from macOS 11.0+
+            return nil
+        }
     }
 }
 #endif

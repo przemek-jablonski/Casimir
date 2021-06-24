@@ -4,6 +4,11 @@ import SwiftUI
  Compound View which consists of `Image` on a circular background and a single `Text` underneath,
  laid out vertically one under another.
  */
+@available(macOS, introduced: 11.0, message: "uses SFSymbols (systemName), available on 11.0+")
+@available(macCatalyst, introduced: 14.0)
+@available(iOS, introduced: 14.0)
+@available(watchOS, introduced: 7.0)
+@available(tvOS, introduced: 14.0)
 public struct SubtitledCircularImage<TextView: View>: View {
     public let systemName: String
     public let text: () -> TextView
@@ -32,6 +37,11 @@ public struct SubtitledCircularImage<TextView: View>: View {
     }
 }
 
+@available(macOS, introduced: 11.0, message: "uses SFSymbols (systemName), available on 11.0+")
+@available(macCatalyst, introduced: 14.0)
+@available(iOS, introduced: 14.0)
+@available(watchOS, introduced: 7.0)
+@available(tvOS, introduced: 14.0)
 struct SwiftUIPreviewSubtitledCircularImage: PreviewProvider {
     static var previews: some View {
         Group {
