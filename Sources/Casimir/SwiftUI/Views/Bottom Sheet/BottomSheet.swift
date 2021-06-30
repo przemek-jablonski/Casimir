@@ -205,7 +205,7 @@ struct BottomSheet_Previews: PreviewProvider {
         }
     }
     
-    static func previewText(with content: String = mockLoremIpsumExtraExtraLong(),
+    static func previewText(with content: String = LoremIpsum.extraExtraLong,
                             repeating: Int = 15) -> some View {
         Text(String(repeating: content, count: repeating)).background(Color.green.opacity(0.33))
     }

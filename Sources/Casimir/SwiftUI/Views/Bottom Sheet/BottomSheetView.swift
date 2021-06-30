@@ -115,7 +115,7 @@ struct BottomSheetView_Previews: PreviewProvider {
         }
     }
     
-    static func expandableText(containing string: String = mockLoremIpsumExtraExtraLong()) -> some View {
+    static func expandableText(containing string: String = LoremIpsum.extraExtraLong) -> some View {
         Text(String(repeating: string, count: 15))
 //            .background(Color.red.opacity(0.33))
     }
