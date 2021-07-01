@@ -1,9 +1,15 @@
 public extension Array where Element: Hashable {
+    /**
+     Removes duplicate items from the Array, preserving order of items.
+     */
     func removeDuplicates() -> [Element] {
         Casimir.removeDuplicates(source: self)
     }
 }
 
+/**
+ Removes duplicate items from the Sequence, preserving order of items.
+ */
 public func removeDuplicates<S: Sequence, T: Hashable>(source: S) -> [T] where S.Iterator.Element == T {
     var buffer = [T]()
     var added = Set<T>()
