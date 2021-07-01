@@ -46,19 +46,19 @@ struct SwiftUIPreviewSubtitledCircularImage: PreviewProvider {
     static var previews: some View {
         Group {
             SubtitledCircularImage(systemName: "bolt",
-                                   text: { Text(mockLoremIpsumShort()) },
+                                   text: { Text(LoremIpsum.short) },
                                    circleColor: .black,
                                    iconColor: .black)
                 .previewDevice(.applewatch_large)
             
             SubtitledCircularImage(systemName: "bolt",
-                                   text: { Text(mockLoremIpsumShort()) },
+                                   text: { Text(LoremIpsum.short) },
                                    circleColor: .clear,
                                    iconColor: .blue)
                 .previewDevice(.applewatch_small)
 
             SubtitledCircularImage(systemName: "bolt",
-                                   text: { Text(mockLoremIpsumShort()) },
+                                   text: { Text(LoremIpsum.short) },
                                    circleColor: .red,
                                    iconColor: .white)
                 .previewDevice(.applewatch_small)
