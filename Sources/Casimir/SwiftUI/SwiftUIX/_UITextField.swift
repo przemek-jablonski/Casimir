@@ -8,7 +8,7 @@ import Swift
 import SwiftUI
 import UIKit
 //swiftlint:disable all
-final class _UITextField: UITextField {
+public final class _UITextField: UITextField {
     var kerning: CGFloat? {
         didSet {
             updateTextAttributes()

@@ -5,8 +5,8 @@
 import Swift
 import SwiftUI
 
-extension Text {
-    public func kerning(_ kerning: CGFloat?) -> Text {
+public extension Text {
+    func kerning(_ kerning: CGFloat?) -> Text {
         kerning.map(self.kerning) ?? self
     }
 }

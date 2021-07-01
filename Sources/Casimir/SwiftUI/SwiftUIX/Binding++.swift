@@ -5,9 +5,9 @@
 import Swift
 import SwiftUI
 //swiftlint:disable all
-extension Binding {
+public extension Binding {
     @inlinable
-    public static func receiveValue<Wrapped>(_ receiveValue: @escaping (Wrapped?) -> ()) -> Binding where Optional<Wrapped> == Value {
+    static func receiveValue<Wrapped>(_ receiveValue: @escaping (Wrapped?) -> ()) -> Binding where Optional<Wrapped> == Value {
         .init(
             get: { nil },
             set: receiveValue
@@ -15,9 +15,9 @@ extension Binding {
     }
 }
 
-extension Binding {
+public extension Binding {
     @inlinable
-    public func forceCast<U>(to type: U.Type) -> Binding<U> {
+    func forceCast<U>(to type: U.Type) -> Binding<U> {
         return .init(
             get: { self.wrappedValue as! U },
             set: { self.wrappedValue = $0 as! Value }
@@ -25,7 +25,7 @@ extension Binding {
     }
     
     @inlinable
-    public func withDefaultValue<T>(_ defaultValue: T) -> Binding<T> where Value == Optional<T> {
+    func withDefaultValue<T>(_ defaultValue: T) -> Binding<T> where Value == Optional<T> {
         return .init(
             get: { self.wrappedValue ?? defaultValue },
             set: { self.wrappedValue = $0 }
@@ -33,9 +33,9 @@ extension Binding {
     }
 }
 
-extension Binding {
+public extension Binding {
     @inlinable
-    public func beforeSet(_ body: @escaping (Value) -> ()) -> Self {
+    func beforeSet(_ body: @escaping (Value) -> ()) -> Self {
         return .init(
             get: { self.wrappedValue },
             set: { body($0); self.wrappedValue = $0 }
@@ -43,7 +43,7 @@ extension Binding {
     }
     
     @inlinable
-    public func onSet(_ body: @escaping (Value) -> ()) -> Self {
+    func onSet(_ body: @escaping (Value) -> ()) -> Self {
         return .init(
             get: { self.wrappedValue },
             set: { self.wrappedValue = $0; body($0) }
@@ -51,9 +51,9 @@ extension Binding {
     }
 }
 
-extension Binding {
+public extension Binding {
     @inlinable
-    public func isNil<Wrapped>() -> Binding<Bool> where Optional<Wrapped> == Value {
+    func isNil<Wrapped>() -> Binding<Bool> where Optional<Wrapped> == Value {
         .init(
             get: { self.wrappedValue == nil },
             set: { isNil in self.wrappedValue = isNil ? nil : self.wrappedValue  }
@@ -61,7 +61,7 @@ extension Binding {
     }
 
     @inlinable
-    public func isNotNil<Wrapped>() -> Binding<Bool> where Optional<Wrapped> == Value {
+    func isNotNil<Wrapped>() -> Binding<Bool> where Optional<Wrapped> == Value {
         .init(
             get: { self.wrappedValue != nil },
             set: { isNotNil in self.wrappedValue = isNotNil ? self.wrappedValue : nil  }
@@ -69,9 +69,9 @@ extension Binding {
     }
 }
 
-extension Binding where Value == Bool {
+public extension Binding where Value == Bool {
     @inlinable
-    public static func && (lhs: Binding, rhs: Bool) -> Binding {
+    static func && (lhs: Binding, rhs: Bool) -> Binding {
         .init(
             get: { lhs.wrappedValue && rhs },
             set: { lhs.wrappedValue = $0 }
@@ -79,9 +79,9 @@ extension Binding where Value == Bool {
     }
 }
 
-extension Binding where Value == Bool? {
+public extension Binding where Value == Bool? {
     @inlinable
-    public static func && (lhs: Binding, rhs: Bool) -> Binding {
+    static func && (lhs: Binding, rhs: Bool) -> Binding {
         .init(
             get: { lhs.wrappedValue.map({ $0 && rhs }) },
             set: { lhs.wrappedValue = $0 }
@@ -89,9 +89,9 @@ extension Binding where Value == Bool? {
     }
 }
 
-extension Binding where Value == String {
+public extension Binding where Value == String {
     @inlinable
-    public func takePrefix(_ count: Int) -> Self {
+    func takePrefix(_ count: Int) -> Self {
         .init(
             get: { self.wrappedValue },
             set: {
@@ -102,7 +102,7 @@ extension Binding where Value == String {
     }
     
     @inlinable
-    public func takeSuffix(_ count: Int) -> Self {
+    func takeSuffix(_ count: Int) -> Self {
         .init(
             get: { self.wrappedValue },
             set: {
@@ -113,9 +113,9 @@ extension Binding where Value == String {
     }
 }
 
-extension Binding where Value == String? {
+public extension Binding where Value == String? {
     @inlinable
-    public func takePrefix(_ count: Int) -> Self {
+    func takePrefix(_ count: Int) -> Self {
         .init(
             get: { self.wrappedValue },
             set: {
@@ -126,7 +126,7 @@ extension Binding where Value == String? {
     }
     
     @inlinable
-    public func takeSuffix(_ count: Int) -> Self {
+    func takeSuffix(_ count: Int) -> Self {
         .init(
             get: { self.wrappedValue },
             set: {

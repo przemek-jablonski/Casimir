@@ -7,23 +7,23 @@ import Swift
 import SwiftUI
 
 //swiftlint:disable all
-extension CGSize {
-    public static var greatestFiniteSize: CGSize {
+public extension CGSize {
+    static var greatestFiniteSize: CGSize {
         .init(
             width: CGFloat.greatestFiniteMagnitude,
             height: CGFloat.greatestFiniteMagnitude
         )
     }
     
-    public var minimumDimensionLength: CGFloat {
+    var minimumDimensionLength: CGFloat {
         min(width, height)
     }
     
-    public var maximumDimensionLength: CGFloat {
+    var maximumDimensionLength: CGFloat {
         max(width, height)
     }
     
-    public func dimensionLength(for axis: Axis) -> CGFloat {
+    func dimensionLength(for axis: Axis) -> CGFloat {
         switch axis {
             case .horizontal:
                 return width
@@ -32,7 +32,7 @@ extension CGSize {
         }
     }
     
-    public func anchorPoint(for alignment: Alignment) {
+    func anchorPoint(for alignment: Alignment) {
         var result: CGPoint = .zero
         
         switch alignment.horizontal {
@@ -59,26 +59,26 @@ extension CGSize {
     }
 }
 
-extension CGSize {
-    public static func * (lhs: Self, rhs: CGFloat) -> Self {
+public extension CGSize {
+    static func * (lhs: Self, rhs: CGFloat) -> Self {
         .init(
             width: lhs.width * rhs,
             height: lhs.height * rhs
         )
     }
     
-    public static func *= (lhs: inout Self, rhs: CGFloat) {
+    static func *= (lhs: inout Self, rhs: CGFloat) {
         lhs = lhs * rhs
     }
     
-    public static func / (lhs: Self, rhs: CGFloat) -> Self {
+    static func / (lhs: Self, rhs: CGFloat) -> Self {
         .init(
             width: lhs.width / rhs,
             height: lhs.height / rhs
         )
     }
     
-    public static func /= (lhs: inout Self, rhs: CGFloat) {
+    static func /= (lhs: inout Self, rhs: CGFloat) {
         lhs = lhs / rhs
     }
 }

@@ -10,57 +10,57 @@ import SwiftUI
 
 //swiftlint:disable all
 
-extension Color {
-    public static var almostClear: Color {
+public extension Color {
+    static var almostClear: Color {
         Color.black.opacity(0.0001)
     }
 }
 
-extension Color {
+public extension Color {
     /// A color for placeholder text in controls or text fields or text views.
-    public static var placeholderText: Color {
+    static var placeholderText: Color {
         return .systemPink
     }
 }
 
-extension Color {
-    public static var systemRed: Color {
+public extension Color {
+    static var systemRed: Color {
         return .init(.systemRed)
     }
     
-    public static var systemGreen: Color {
+    static var systemGreen: Color {
         return .init(.systemGreen)
     }
     
-    public static var systemBlue: Color {
+    static var systemBlue: Color {
         return .init(.systemBlue)
     }
     
-    public static var systemOrange: Color {
+    static var systemOrange: Color {
         return .init(.systemOrange)
     }
     
-    public static var systemYellow: Color {
+    static var systemYellow: Color {
         return .init(.systemYellow)
     }
     
-    public static var systemPink: Color {
+    static var systemPink: Color {
         return .init(.systemPink)
     }
     
-    public static var systemPurple: Color {
+    static var systemPurple: Color {
         return .init(.systemPurple)
     }
     
-    public static var systemTeal: Color {
+    static var systemTeal: Color {
         return .init(.systemTeal)
     }
     
-    public static var systemIndigo: Color {
+    static var systemIndigo: Color {
         return .init(.systemIndigo)
     }
     
-    public static var systemGray: Color {
+    static var systemGray: Color {
         return .init(.systemGray)
     }
 }
@@ -69,97 +69,97 @@ extension Color {
 
 #if os(iOS) || targetEnvironment(macCatalyst)
 
-extension Color {
-    public static var systemGray2: Color {
+public extension Color {
+    static var systemGray2: Color {
         return .init(.systemGray2)
     }
     
-    public static var systemGray3: Color {
+    static var systemGray3: Color {
         return .init(.systemGray3)
     }
     
-    public static var systemGray4: Color {
+    static var systemGray4: Color {
         return .init(.systemGray4)
     }
     
-    public static var systemGray5: Color {
+    static var systemGray5: Color {
         return .init(.systemGray5)
     }
     
-    public static var systemGray6: Color {
+    static var systemGray6: Color {
         return .init(.systemGray6)
     }
 }
 
 /// Foreground colors for static text and related elements.
-extension Color {
-    public static var label: Color {
+public extension Color {
+    static var label: Color {
         return .init(.label)
     }
     
-    public static var secondaryLabel: Color {
+    static var secondaryLabel: Color {
         return .init(.secondaryLabel)
     }
     
-    public static var tertiaryLabel: Color {
+    static var tertiaryLabel: Color {
         return .init(.tertiaryLabel)
     }
     
-    public static var quaternaryLabel: Color {
+    static var quaternaryLabel: Color {
         return .init(.quaternaryLabel)
     }
 }
 
-extension Color {
+public extension Color {
     /// A foreground color for standard system links.
-    public static var link: Color {
+    static var link: Color {
         return .init(.link)
     }
     
     /// A forground color for separators (thin border or divider lines).
-    public static var separator: Color {
+    static var separator: Color {
         return .init(.separator)
     }
     
     /// A forground color intended to look similar to `Color.separated`, but is guaranteed to be opaque, so it will.
-    public static var opaqueSeparator: Color {
+    static var opaqueSeparator: Color {
         return .init(.opaqueSeparator)
     }
 }
 
-extension Color {
-    public static var systemBackground: Color {
+public extension Color {
+    static var systemBackground: Color {
         return .init(.systemBackground)
     }
     
-    public static var secondarySystemBackground: Color {
+    static var secondarySystemBackground: Color {
         return .init(.secondarySystemBackground)
     }
     
-    public static var tertiarySystemBackground: Color {
+    static var tertiarySystemBackground: Color {
         return .init(.tertiarySystemBackground)
     }
     
-    public static var systemGroupedBackground: Color {
+    static var systemGroupedBackground: Color {
         return .init(.systemBackground)
     }
     
-    public static var secondarySystemGroupedBackground: Color {
+    static var secondarySystemGroupedBackground: Color {
         return .init(.secondarySystemGroupedBackground)
     }
     
-    public static var tertiarySystemGroupedBackground: Color {
+    static var tertiarySystemGroupedBackground: Color {
         return .init(.tertiarySystemGroupedBackground)
     }
 }
 
 /// Fill colors for UI elements.
 /// These are meant to be used over the background colors, since their alpha component is less than 1.
-extension Color {
+public extension Color {
     /// A color  appropriate for filling thin and small shapes.
     ///
     /// Example: The track of a slider.
-    public static var systemFill: Color {
+    static var systemFill: Color {
         return .init(.systemFill)
     }
     
@@ -167,7 +167,7 @@ extension Color {
     /// A color appropriate for filling medium-size shapes.
     ///
     /// Example: The background of a switch.
-    public static var secondarySystemFill: Color {
+    static var secondarySystemFill: Color {
         return .init(.secondarySystemFill)
     }
     
@@ -175,7 +175,7 @@ extension Color {
     /// A color appropriate for filling large shapes.
     ///
     /// Examples: Input fields, search bars, buttons.
-    public static var tertiarySystemFill: Color {
+    static var tertiarySystemFill: Color {
         return .init(.tertiarySystemFill)
     }
     
@@ -183,7 +183,7 @@ extension Color {
     /// A color appropriate for filling large areas containing complex content.
     ///
     /// Example: Expanded table cells.
-    public static var quaternarySystemFill: Color {
+    static var quaternarySystemFill: Color {
         return .init(.quaternarySystemFill)
     }
 }
@@ -192,7 +192,7 @@ extension Color {
 
 #if os(iOS) || os(tvOS) || targetEnvironment(macCatalyst)
 
-extension Color {
+public extension Color {
     /// Creates a color from a hexadecimal color code.
     ///
     /// - Parameter hexadecimal: A hexadecimal representation of the color.
