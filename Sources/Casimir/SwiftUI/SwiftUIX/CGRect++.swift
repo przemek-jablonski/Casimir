@@ -7,18 +7,18 @@ import Swift
 import SwiftUI
 
 //swiftlint:disable all
-extension CGRect {
-    public var minimumDimensionLength: CGFloat {
+public extension CGRect {
+    var minimumDimensionLength: CGFloat {
         .minimum(width, height)
     }
     
-    public var maximumDimensionLength: CGFloat {
+    var maximumDimensionLength: CGFloat {
         .maximum(width, height)
     }
 }
 
-extension CGRect {
-    public init(
+public extension CGRect {
+    init(
         size: CGSize,
         container: CGSize,
         alignment: Alignment,
@@ -76,8 +76,8 @@ extension CGRect {
     }
 }
 
-extension CGRect {
-    public func inflate(by factor: CGFloat) -> CGRect {
+public extension CGRect {
+    func inflate(by factor: CGFloat) -> CGRect {
         let x = origin.x
         let y = origin.y
         let w = width

@@ -1,18 +1,16 @@
 public extension Array where Element: Hashable {
+    /**
+     Removes duplicate items from the Array, preserving order of items.
+     */
     func removeDuplicates() -> [Element] {
-        var buffer = Array()
-        var added = Set<Element>()
-        for elem in self {
-            if !added.contains(elem) {
-                buffer.append(elem)
-                added.insert(elem)
-            }
-        }
-        return buffer
+        Casimir.removeDuplicates(source: self)
     }
 }
 
-private func removeDuplicates<S: Sequence, T: Hashable>(source: S) -> [T] where S.Iterator.Element == T {
+/**
+ Removes duplicate items from the Sequence, preserving order of items.
+ */
+public func removeDuplicates<S: Sequence, T: Hashable>(source: S) -> [T] where S.Iterator.Element == T {
     var buffer = [T]()
     var added = Set<T>()
     for elem in source {

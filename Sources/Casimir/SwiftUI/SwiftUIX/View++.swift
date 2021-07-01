@@ -5,9 +5,9 @@
 import Swift
 import SwiftUI
 //swiftlint:disable all
-extension View {
+public extension View {
     @inlinable
-    public func then(_ body: (inout Self) -> Void) -> Self {
+    func then(_ body: (inout Self) -> Void) -> Self {
         var result = self
         
         body(&result)
@@ -17,38 +17,38 @@ extension View {
     
     /// Returns a type-erased version of `self`.
     @inlinable
-    public func eraseToAnyView() -> AnyView {
+    func eraseToAnyView() -> AnyView {
         return .init(self)
     }
 }
 
-extension View {
+public extension View {
     @inlinable
-    public func backgroundColor(_ color: Color) -> some View {
+    func backgroundColor(_ color: Color) -> some View {
         background(color.edgesIgnoringSafeArea(.all))
     }
     
     @inlinable
-    public func backgroundPreference<K: PreferenceKey>(key _: K.Type = K.self, value: K.Value) -> some View {
+    func backgroundPreference<K: PreferenceKey>(key _: K.Type = K.self, value: K.Value) -> some View {
         background(EmptyView().preference(key: K.self, value: value))
     }
 }
 
-extension View {
+public extension View {
     @inlinable
-    public func inset(_ point: CGPoint) -> some View {
+    func inset(_ point: CGPoint) -> some View {
         return offset(x: -point.x, y: -point.y)
     }
     
     @inlinable
-    public func offset(_ point: CGPoint) -> some View {
+    func offset(_ point: CGPoint) -> some View {
         return offset(x: point.x, y: point.y)
     }
 }
 
-extension View {
+public extension View {
     @inlinable
-    public func relativeHeight(
+    func relativeHeight(
         _ ratio: CGFloat,
         alignment: Alignment = .center
     ) -> some View {
@@ -61,7 +61,7 @@ extension View {
     }
     
     @inlinable
-    public func relativeWidth(
+    func relativeWidth(
         _ ratio: CGFloat,
         alignment: Alignment = .center
     ) -> some View {
@@ -74,7 +74,7 @@ extension View {
     }
     
     @inlinable
-    public func relativeSize(
+    func relativeSize(
         width widthRatio: CGFloat,
         height heightRatio: CGFloat,
         alignment: Alignment = .center
@@ -90,12 +90,12 @@ extension View {
     
     /// Causes the view to fill into its superview.
     @inlinable
-    public func fill(alignment: Alignment = .center) -> some View {
+    func fill(alignment: Alignment = .center) -> some View {
         relativeSize(width: 1.0, height: 1.0)
     }
     
     @inlinable
-    public func fit() -> some View {
+    func fit() -> some View {
         GeometryReader { geometry in
             self.frame(
                 width: geometry.size.minimumDimensionLength,
@@ -105,9 +105,9 @@ extension View {
     }
 }
 
-extension View {
+public extension View {
     @inlinable
-    public func frame(minimum dimensionLength: CGFloat, axis: Axis) -> some View {
+    func frame(minimum dimensionLength: CGFloat, axis: Axis) -> some View {
         switch axis {
             case .horizontal:
                 return frame(minWidth: dimensionLength)
@@ -123,7 +123,7 @@ extension View {
     /// resulting view assumes this view's sizing behavior in the other
     /// dimension.
     @inlinable
-    public func frame(_ size: CGSize?, alignment: Alignment = .center) -> some View {
+    func frame(_ size: CGSize?, alignment: Alignment = .center) -> some View {
         frame(width: size?.width, height: size?.height, alignment: alignment)
     }
     
@@ -134,7 +134,7 @@ extension View {
     /// resulting view assumes this view's sizing behavior in the other
     /// dimension.
     @inlinable
-    public func frame(minimum size: CGSize?, alignment: Alignment = .center) -> some View {
+    func frame(minimum size: CGSize?, alignment: Alignment = .center) -> some View {
         frame(minWidth: size?.width, minHeight: size?.height, alignment: alignment)
     }
     
@@ -145,7 +145,7 @@ extension View {
     /// resulting view assumes this view's sizing behavior in the other
     /// dimension.
     @inlinable
-    public func frame(
+    func frame(
         minimum minSize: CGSize?,
         maximum maxSize: CGSize?,
         alignment: Alignment = .center
@@ -160,42 +160,42 @@ extension View {
     }
     
     @inlinable
-    public func frameZeroClipped(_ isZeroClipped: Bool = true) -> some View {
+    func frameZeroClipped(_ isZeroClipped: Bool = true) -> some View {
         frame(isZeroClipped ? CGSize.zero : nil)
             .clipped()
     }
 }
 
-extension View {
+public extension View {
     @inlinable
-    public func width(_ width: CGFloat?) -> some View {
+    func width(_ width: CGFloat?) -> some View {
         frame(width: width)
     }
     
     @inlinable
-    public func height(_ height: CGFloat?) -> some View {
+    func height(_ height: CGFloat?) -> some View {
         frame(height: height)
     }
     
     @inlinable
-    public func maxWidth(_ width: CGFloat?) -> some View {
+    func maxWidth(_ width: CGFloat?) -> some View {
         frame(maxWidth: width)
     }
     
     @inlinable
-    public func maxHeight(_ height: CGFloat?) -> some View {
+    func maxHeight(_ height: CGFloat?) -> some View {
         frame(maxHeight: height)
     }
     
     @inlinable
-    public func square(_ sideLength: CGFloat?) -> some View {
+    func square(_ sideLength: CGFloat?) -> some View {
         frame(width: sideLength, height: sideLength)
     }
 }
 
-extension View {
+public extension View {
     @inlinable
-    public func hidden(_ isHidden: Bool) -> some View {
+    func hidden(_ isHidden: Bool) -> some View {
         Group {
             if isHidden {
                 hidden()
@@ -208,16 +208,16 @@ extension View {
 
 #if os(macOS)
 
-extension View {
+public extension View {
     @available(*, deprecated, message: "This function is currently unavailable on macOS.")
     @inlinable
-    public func navigationBarTitle(_ title: String) -> some View {
+    func navigationBarTitle(_ title: String) -> some View {
         return self
     }
     
     @available(*, deprecated, message: "This function is currently unavailable on macOS.")
     @inlinable
-    public func navigationBarItems<V: View>(trailing: V) -> some View {
+    func navigationBarItems<V: View>(trailing: V) -> some View {
         return self
     }
 }
