@@ -1,9 +1,11 @@
 import SwiftUI
 
+/**
+ Triangle shape with one of the corners having 90 degrees ("right" triangle).
+ Triangle is being rendered on the Square plane.
+ Rotation in which the shape is facing is declared using the `position` variable.
+ */
 public struct RightTriangle: Shape {
-    public enum RightAnglePosition: Int, CaseIterable {
-        case topLeft, topRight, bottomRight, bottomLeft
-    }
     public let position: RightAnglePosition
 
     public func path(in rect: CGRect) -> Path {
@@ -25,6 +27,12 @@ public struct RightTriangle: Shape {
                                  verticeB: CGPoint(x: rect.minX, y: rect.minY),
                                  verticeC: CGPoint(x: rect.maxX, y: rect.maxY))
         }
+    }
+}
+
+public extension RightTriangle {
+    enum RightAnglePosition: Int, CaseIterable {
+        case topLeft, topRight, bottomRight, bottomLeft
     }
 }
 

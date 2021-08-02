@@ -2,6 +2,9 @@
 // TODO: unavailable in tvOS due to the DragGesture not supporting tvOS and Siri Remote, find a workaround
 import SwiftUI
 
+/**
+ SwiftUI's `TabView` wrapper. Enables switching the tabs using the swipe (`DragGesture`).
+ */
 public struct SwipeableTabView: View {
     let minDragTranslationForSwipe: CGFloat = 50
     @State private var selectedTab = 0

@@ -1,8 +1,6 @@
 #if canImport(UIKit)
 import UIKit
 
-public typealias ImagePath = String
-
 public class PersistentImageCache: ImageCache {
     
     private var cache: [ImagePath: UIImage]
