@@ -2,7 +2,8 @@ import SwiftUI
 import MapKit
 import Combine
 
-#if canImport(AppKit)
+/// unavailability: macCatalyst - this environment will use below `UIViewRepresentable`-based struct for compilation.
+#if canImport(AppKit) && !targetEnvironment(macCatalyst)
 import AppKit
 
 /**
@@ -34,7 +35,8 @@ public struct MapView<CustomCoordinator: NSObject & MKMapViewDelegate>: NSViewRe
 
 #endif
 
-#if canImport(UIKit)
+/// unavailability: watchOS - although `Map` exists as part of `SwiftUI`, `MapKit` itself isn't available on watchOS.
+#if canImport(UIKit) && !os(watchOS)
 import UIKit
 
 /**
@@ -67,6 +69,7 @@ public struct MapView<CustomCoordinator: MKMapViewDelegate>: UIViewRepresentable
 
 #endif
 
+#if !os(watchOS)
 public extension MapView {
     class Annotation: NSObject, MKAnnotation & Identifiable {
         public init(title: String, subtitle: String?, coordinates: CLLocationCoordinate2D, _ id: Int) {
@@ -81,20 +84,4 @@ public extension MapView {
         public let subtitle: String?
     }
 }
-
-
-struct MapPreview: PreviewProvider {
-    static var previews: some View {
-        MapView(coordinateRegion: .constant(MKCoordinateRegion(center: CLLocationCoordinate2D(), span: MKCoordinateSpan())),
-                annotations: [],
-                mapUpdateHandler: { _, _ in },
-                makeCoordinatorInstance: { MapCoordinator() }) { map, context in
-            map.delegate = context.coordinator
-            return map
-        }
-    }
-}
-
-class MapCoordinator: NSObject, MKMapViewDelegate {
-    
-}
+#endif
