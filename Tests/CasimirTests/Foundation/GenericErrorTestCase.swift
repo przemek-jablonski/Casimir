@@ -1,6 +1,8 @@
 import XCTest
 @testable import Casimir
 
+#if !os(watchOS)
+
 final class GenericErrorTestCase: XCTestCase {
     func test_storingErrorInGenericErrorInstance_shouldReturnUnalteredError() {
         let error: Error = MTLLibraryError(.compileWarning)
@@ -10,3 +12,5 @@ final class GenericErrorTestCase: XCTestCase {
     }
 }
 
+
+#endif
