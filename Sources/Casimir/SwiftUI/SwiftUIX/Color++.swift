@@ -198,7 +198,7 @@ public extension Color {
     /// - Parameter hexadecimal: A hexadecimal representation of the color.
     ///
     /// - Returns: A `Color` from the given color code. Returns `nil` if the code is invalid.
-    public init!(hexadecimal string: String) {
+    init!(hexadecimal string: String) {
         var string: String = string.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
         
         if string.hasPrefix("#") {
@@ -269,7 +269,7 @@ public extension Color {
     }
 
     /// Creates a color from a 6-digit hexadecimal color code.
-    public init(hexadecimal6: Int) {
+    init(hexadecimal6: Int) {
         let red = Double((hexadecimal6 & 0xFF0000) >> 16) / 255.0
         let green = Double((hexadecimal6 & 0x00FF00) >> 8) / 255.0
         let blue = Double(hexadecimal6 & 0x0000FF) / 255.0
