@@ -10,11 +10,24 @@ import AppKit
  Wrapper for the platform-specific Map view from MapKit
  */
 public struct MapView<CustomCoordinator: NSObject & MKMapViewDelegate>: NSViewRepresentable {
+    
     @Binding public var coordinateRegion: MKCoordinateRegion
     public let annotations: [Annotation]
     public let mapUpdateHandler: ((MKMapView, Context) -> Void)?
     public let makeCoordinatorInstance: (() -> CustomCoordinator)
     public let mapConfiguration: ((MKMapView, Context) -> MKMapView)
+    
+    public init(_ coordinateRegion: Binding<MKCoordinateRegion>,
+                _ annotations: [MapView<CustomCoordinator>.Annotation],
+                mapUpdateHandler: ((MKMapView, MapView<CustomCoordinator>.Context) -> Void)?,
+                makeCoordinatorInstance: @escaping (() -> CustomCoordinator),
+                mapConfiguration: @escaping ((MKMapView, MapView<CustomCoordinator>.Context) -> MKMapView)) {
+        self._coordinateRegion = coordinateRegion
+        self.annotations = annotations
+        self.mapUpdateHandler = mapUpdateHandler
+        self.makeCoordinatorInstance = makeCoordinatorInstance
+        self.mapConfiguration = mapConfiguration
+    }
     
     public func makeNSView(context: Context) -> MKMapView {
         mapConfiguration(MKMapView(), context)
@@ -43,11 +56,24 @@ import UIKit
  Wrapper for the platform-specific Map view from MapKit
  */
 public struct MapView<CustomCoordinator: MKMapViewDelegate>: UIViewRepresentable {
-    @Binding public var coordinateRegion: MKCoordinateRegion
-    public let annotations: [Annotation]
-    public let mapUpdateHandler: ((MKMapView, Context) -> Void)?
-    public let makeCoordinatorInstance: (() -> CustomCoordinator)
-    public let mapConfiguration: ((MKMapView, Context) -> MKMapView)
+    
+    @Binding private var coordinateRegion: MKCoordinateRegion
+    private let annotations: [Annotation]
+    private let mapUpdateHandler: ((MKMapView, Context) -> Void)?
+    private let makeCoordinatorInstance: (() -> CustomCoordinator)
+    private let mapConfiguration: ((MKMapView, Context) -> MKMapView)
+    
+    public init(_ coordinateRegion: Binding<MKCoordinateRegion>,
+                _ annotations: [MapView<CustomCoordinator>.Annotation],
+                mapUpdateHandler: ((MKMapView, MapView<CustomCoordinator>.Context) -> Void)?,
+                makeCoordinatorInstance: @escaping (() -> CustomCoordinator),
+                mapConfiguration: @escaping ((MKMapView, MapView<CustomCoordinator>.Context) -> MKMapView)) {
+        self._coordinateRegion = coordinateRegion
+        self.annotations = annotations
+        self.mapUpdateHandler = mapUpdateHandler
+        self.makeCoordinatorInstance = makeCoordinatorInstance
+        self.mapConfiguration = mapConfiguration
+    }
     
     public func makeUIView(context: Context) -> MKMapView {
         mapConfiguration(MKMapView(), context)
