@@ -12,13 +12,13 @@ import AppKit
 public struct MapView<CustomCoordinator: NSObject & MKMapViewDelegate>: NSViewRepresentable {
     
     @Binding public var coordinateRegion: MKCoordinateRegion
-    public let annotations: [Annotation]
+    public let annotations: [MapViewAnnotation]
     public let mapUpdateHandler: ((MKMapView, Context) -> Void)?
     public let makeCoordinatorInstance: (() -> CustomCoordinator)
     public let mapConfiguration: ((MKMapView, Context) -> MKMapView)
     
     public init(_ coordinateRegion: Binding<MKCoordinateRegion>,
-                _ annotations: [MapView<CustomCoordinator>.Annotation],
+                _ annotations: [MapViewAnnotation],
                 mapUpdateHandler: ((MKMapView, MapView<CustomCoordinator>.Context) -> Void)?,
                 makeCoordinatorInstance: @escaping (() -> CustomCoordinator),
                 mapConfiguration: @escaping ((MKMapView, MapView<CustomCoordinator>.Context) -> MKMapView)) {
@@ -58,13 +58,13 @@ import UIKit
 public struct MapView<CustomCoordinator: MKMapViewDelegate>: UIViewRepresentable {
     
     @Binding private var coordinateRegion: MKCoordinateRegion
-    private let annotations: [Annotation]
+    private let annotations: [MapViewAnnotation]
     private let mapUpdateHandler: ((MKMapView, Context) -> Void)?
     private let makeCoordinatorInstance: (() -> CustomCoordinator)
     private let mapConfiguration: ((MKMapView, Context) -> MKMapView)
     
     public init(_ coordinateRegion: Binding<MKCoordinateRegion>,
-                _ annotations: [MapView<CustomCoordinator>.Annotation],
+                _ annotations: [MapViewAnnotation],
                 mapUpdateHandler: ((MKMapView, MapView<CustomCoordinator>.Context) -> Void)?,
                 makeCoordinatorInstance: @escaping (() -> CustomCoordinator),
                 mapConfiguration: @escaping ((MKMapView, MapView<CustomCoordinator>.Context) -> MKMapView)) {
@@ -96,18 +96,16 @@ public struct MapView<CustomCoordinator: MKMapViewDelegate>: UIViewRepresentable
 #endif
 
 #if !os(watchOS)
-public extension MapView {
-    class Annotation: NSObject, MKAnnotation & Identifiable {
-        public init(title: String, subtitle: String?, coordinates: CLLocationCoordinate2D, _ id: Int) {
-            self.id = id
-            self.coordinate = coordinates
-            self.title = title
-            self.subtitle = subtitle
-        }
-        public let id: Int
-        public let coordinate: CLLocationCoordinate2D
-        public let title: String?
-        public let subtitle: String?
+public class MapViewAnnotation: NSObject, MKAnnotation & Identifiable {
+    public init(title: String, subtitle: String?, coordinates: CLLocationCoordinate2D, _ id: Int) {
+        self.id = id
+        self.coordinate = coordinates
+        self.title = title
+        self.subtitle = subtitle
     }
+    public let id: Int
+    public let coordinate: CLLocationCoordinate2D
+    public let title: String?
+    public let subtitle: String?
 }
 #endif
