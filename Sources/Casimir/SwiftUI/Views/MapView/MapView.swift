@@ -19,9 +19,9 @@ public struct MapView<CustomCoordinator: NSObject & MKMapViewDelegate>: NSViewRe
     
     public init(_ coordinateRegion: Binding<MKCoordinateRegion>,
                 _ annotations: [MapViewAnnotation],
-                mapUpdateHandler: ((MKMapView, MapView<CustomCoordinator>.Context) -> Void)?,
-                makeCoordinatorInstance: @escaping (() -> CustomCoordinator),
-                mapConfiguration: @escaping ((MKMapView, MapView<CustomCoordinator>.Context) -> MKMapView)) {
+                mapConfiguration: @escaping ((MKMapView, MapView<CustomCoordinator>.Context) -> MKMapView),
+                mapUpdateHandler: ((MKMapView, MapView<CustomCoordinator>.Context) -> Void)? = nil,
+                makeCoordinatorInstance: @escaping (() -> CustomCoordinator)) {
         self._coordinateRegion = coordinateRegion
         self.annotations = annotations
         self.mapUpdateHandler = mapUpdateHandler
@@ -30,7 +30,9 @@ public struct MapView<CustomCoordinator: NSObject & MKMapViewDelegate>: NSViewRe
     }
     
     public func makeNSView(context: Context) -> MKMapView {
-        mapConfiguration(MKMapView(), context)
+        let map = mapConfiguration(MKMapView(), context)
+        map.delegate = context.coordinator
+        return map
     }
     
     public func updateNSView(_ nsView: MKMapView, context: Context) {
@@ -65,9 +67,9 @@ public struct MapView<CustomCoordinator: MKMapViewDelegate>: UIViewRepresentable
     
     public init(_ coordinateRegion: Binding<MKCoordinateRegion>,
                 _ annotations: [MapViewAnnotation],
-                mapUpdateHandler: ((MKMapView, MapView<CustomCoordinator>.Context) -> Void)?,
-                makeCoordinatorInstance: @escaping (() -> CustomCoordinator),
-                mapConfiguration: @escaping ((MKMapView, MapView<CustomCoordinator>.Context) -> MKMapView)) {
+                mapConfiguration: @escaping ((MKMapView, MapView<CustomCoordinator>.Context) -> MKMapView),
+                mapUpdateHandler: ((MKMapView, MapView<CustomCoordinator>.Context) -> Void)? = nil,
+                makeCoordinatorInstance: @escaping (() -> CustomCoordinator)) {
         self._coordinateRegion = coordinateRegion
         self.annotations = annotations
         self.mapUpdateHandler = mapUpdateHandler
@@ -76,7 +78,9 @@ public struct MapView<CustomCoordinator: MKMapViewDelegate>: UIViewRepresentable
     }
     
     public func makeUIView(context: Context) -> MKMapView {
-        mapConfiguration(MKMapView(), context)
+        let map = mapConfiguration(MKMapView(), context)
+        map.delegate = context.coordinator
+        return map
     }
     
     public func updateUIView(_ uiView: MKMapView, context: Context) {
