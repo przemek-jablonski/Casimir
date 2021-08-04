@@ -30,7 +30,9 @@ public struct MapView<CustomCoordinator: NSObject & MKMapViewDelegate>: NSViewRe
     }
     
     public func makeNSView(context: Context) -> MKMapView {
-        mapConfiguration(MKMapView(), context)
+        let map = mapConfiguration(MKMapView(), context)
+        map.delegate = context.coordinator
+        return map
     }
     
     public func updateNSView(_ nsView: MKMapView, context: Context) {
@@ -76,7 +78,9 @@ public struct MapView<CustomCoordinator: MKMapViewDelegate>: UIViewRepresentable
     }
     
     public func makeUIView(context: Context) -> MKMapView {
-        mapConfiguration(MKMapView(), context)
+        let map = mapConfiguration(MKMapView(), context)
+        map.delegate = context.coordinator
+        return map
     }
     
     public func updateUIView(_ uiView: MKMapView, context: Context) {
