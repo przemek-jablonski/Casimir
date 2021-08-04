@@ -19,9 +19,9 @@ public struct MapView<CustomCoordinator: NSObject & MKMapViewDelegate>: NSViewRe
     
     public init(_ coordinateRegion: Binding<MKCoordinateRegion>,
                 _ annotations: [MapViewAnnotation],
-                mapUpdateHandler: ((MKMapView, MapView<CustomCoordinator>.Context) -> Void)?,
-                makeCoordinatorInstance: @escaping (() -> CustomCoordinator),
-                mapConfiguration: @escaping ((MKMapView, MapView<CustomCoordinator>.Context) -> MKMapView)) {
+                mapConfiguration: @escaping ((MKMapView, MapView<CustomCoordinator>.Context) -> MKMapView),
+                mapUpdateHandler: ((MKMapView, MapView<CustomCoordinator>.Context) -> Void)? = nil,
+                makeCoordinatorInstance: @escaping (() -> CustomCoordinator)) {
         self._coordinateRegion = coordinateRegion
         self.annotations = annotations
         self.mapUpdateHandler = mapUpdateHandler
@@ -65,9 +65,9 @@ public struct MapView<CustomCoordinator: MKMapViewDelegate>: UIViewRepresentable
     
     public init(_ coordinateRegion: Binding<MKCoordinateRegion>,
                 _ annotations: [MapViewAnnotation],
-                mapUpdateHandler: ((MKMapView, MapView<CustomCoordinator>.Context) -> Void)?,
-                makeCoordinatorInstance: @escaping (() -> CustomCoordinator),
-                mapConfiguration: @escaping ((MKMapView, MapView<CustomCoordinator>.Context) -> MKMapView)) {
+                mapConfiguration: @escaping ((MKMapView, MapView<CustomCoordinator>.Context) -> MKMapView),
+                mapUpdateHandler: ((MKMapView, MapView<CustomCoordinator>.Context) -> Void)? = nil,
+                makeCoordinatorInstance: @escaping (() -> CustomCoordinator)) {
         self._coordinateRegion = coordinateRegion
         self.annotations = annotations
         self.mapUpdateHandler = mapUpdateHandler
