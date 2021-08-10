@@ -1,18 +1,18 @@
 import MapKit
 
 #if !os(watchOS)
+public extension MapViewCoordinator {
+    enum MapLoadingStatus { case loading, loaded, failure(Error) }
+    typealias AnnotationViewDelegate = (MKMapView, MKAnnotation) -> MKAnnotationView?
+    typealias AnnotationClusteringDelegate = (MKMapView, [MKAnnotation]) -> MKClusterAnnotation?
+    typealias AnnotationSelectionDelegate = (MKMapView, MapViewAnnotation, _ selected: Bool) -> ()
+    typealias RegionDidChangeDelegate = (MKMapView) -> ()
+    typealias LoadingStatusDelegate = (MKMapView, MapLoadingStatus) -> ()
+    typealias RenderingDidFinishDelegate = (MKMapView, _ fullyRendered: Bool) -> ()
+}
+
 open class MapViewCoordinator: NSObject, MKMapViewDelegate {
-    public enum MapLoadingStatus { case loading, loaded, failure(Error) }
-    
-    public typealias AnnotationViewDelegate = (MKMapView, MKAnnotation) -> MKAnnotationView?
-    public typealias AnnotationClusteringDelegate = (MKMapView, [MKAnnotation]) -> MKClusterAnnotation?
-    public typealias AnnotationSelectionDelegate = (MKMapView, MapViewAnnotation, _ selected: Bool) -> ()
-    public typealias RegionDidChangeDelegate = (MKMapView) -> ()
-    public typealias LoadingStatusDelegate = (MKMapView, MapLoadingStatus) -> ()
-    public typealias RenderingDidFinishDelegate = (MKMapView, _ fullyRendered: Bool) -> ()
-    
     public var annotationViewClosure: AnnotationViewDelegate? = nil
-    //    private let annotationClusteringClosure: AnnotationClusteringDelegate? = nil
     public var annotationSelectionChanged: AnnotationSelectionDelegate? = nil
     public var regionDidChange: RegionDidChangeDelegate? = nil
     public var loadingStatus: LoadingStatusDelegate? = nil
