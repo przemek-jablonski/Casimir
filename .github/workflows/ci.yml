@@ -22,20 +22,23 @@ jobs:
         command: ['test']
         platform: ['macOS', 'iOS', 'tvOS', 'watchOS', 'mac-catalyst']
         exclude:
+          # excluding xcodes not present on given macOS versions
           - macos: 'macos-11'
             xcode: '12.0.1'
           - macos: 'macos-10.15'
             xcode: '13.0'
           - macos: 'macos-10.15'
             xcode: '12.5.1'
+          # excluding watchOS builds for xcode <12.5 (API restriction)
           - platform: 'watchOS'
             xcode: '12.0.1'
           - platform: 'watchOS'
             xcode: '12.4'
+          # excluding macOS / mac-catalyst builds because of custom platform restrictions
           - platform: 'macOS'
-            xcode: '12.0.1'
+            macos: 'macos-10.15'
           - platform: 'mac-catalyst'
-            xcode: '12.0.1'
+            macos: 'macos-10.15'
           - platform: 'mac-catalyst'
             xcode: '13.0'
     steps:
