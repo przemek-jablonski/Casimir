@@ -55,7 +55,6 @@ open class MapViewCoordinator: NSObject, MKMapViewDelegate {
     
     // MARK: - Visible Region
     public func mapView(_ mapView: MKMapView, regionWillChangeAnimated animated: Bool) {
-        
     }
     public func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
         self.visibleRegion = mapView.region
@@ -118,7 +117,6 @@ open class MapViewCoordinator: NSObject, MKMapViewDelegate {
     }
     
     public func mapView(_ mapView: MKMapView, didAdd views: [MKAnnotationView]) {
-        
     }
 }
 #endif

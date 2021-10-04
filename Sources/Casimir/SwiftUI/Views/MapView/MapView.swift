@@ -15,7 +15,10 @@ public extension MapView {
  */
 public struct MapView: NSViewRepresentable {
     
-    @Binding private var visibleRegion: MKCoordinateRegion // TODO: two-way binding here doesn't work
+    // FIXME: two-way binding here doesn't work
+    @Binding private var visibleRegion: MKCoordinateRegion
+    
+    // FIXME: annotations operations outside of add/remove to Dictionary DOESN'T WORK
     @Binding private var annotations: Annotations
     
     private let mapConfiguration: ((MKMapView) -> MKMapView)
