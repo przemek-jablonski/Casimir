@@ -13,6 +13,13 @@ public extension Array where Element: Hashable {
     }
 }
 
+public extension Array where Element: Identifiable {
+    var dictionary: [Element.ID: Element] {
+        reduce(into: .init()) { $0[$1.id] = $1 }
+    }
+}
+
+
 // MARK: - Set
 public extension Set {
     var array: [Element] {
@@ -21,6 +28,12 @@ public extension Set {
     
     var collection: AnyCollection<Element> {
         AnyCollection(self)
+    }
+}
+
+public extension Set where Element: Identifiable {
+    var dictionary: [Element.ID: Element] {
+        reduce(into: .init()) { $0[$1.id] = $1 }
     }
 }
 
@@ -34,5 +47,11 @@ public extension AnyCollection {
 public extension AnyCollection where Element: Hashable {
     var set: Set<Element> {
         Set(self)
+    }
+}
+
+public extension AnyCollection where Element: Identifiable {
+    var dictionary: [Element.ID: Element] {
+        reduce(into: .init()) { $0[$1.id] = $1 }
     }
 }
