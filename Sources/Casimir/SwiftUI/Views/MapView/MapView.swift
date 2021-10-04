@@ -6,43 +6,52 @@ import Combine
 #if canImport(AppKit) && !targetEnvironment(macCatalyst)
 import AppKit
 
+public extension MapView {
+    typealias Annotations = [MapViewAnnotation.ID: Selectable<MapViewAnnotation>]
+}
+
 /**
  Wrapper for the platform-specific Map view from MapKit (for macOS it's NSView-backed MKMapView).
  */
 public struct MapView: NSViewRepresentable {
     
-    @Binding private var visibleRegion: MKCoordinateRegion
-    private let annotations: [Selectable<MapViewAnnotation>]
+    @Binding private var visibleRegion: MKCoordinateRegion // TODO: two-way binding here doesn't work
+    @Binding private var annotations: Annotations
     
     private let mapConfiguration: ((MKMapView) -> MKMapView)
-    private let coordinator: MapViewCoordinator
+    private var coordinator: MapViewCoordinator
     
     private var cancellables = Set<AnyCancellable>()
     
     public init(_ region: Binding<MKCoordinateRegion>,
-                _ annotations: [Selectable<MapViewAnnotation>],
+                _ annotations: Binding<Annotations>,
                 mapConfiguration: @escaping ((MKMapView) -> MKMapView),
-                viewForAnnotation: @escaping MapViewCoordinator.AnnotationViewDelegate,
-                annotationSelectionChanged: @escaping MapViewCoordinator.AnnotationSelectionDelegate) {
+                viewForAnnotation: @escaping MapViewCoordinator.AnnotationViewDelegate) {
         self._visibleRegion = region
-        self.annotations = annotations
+        self._annotations = annotations
         self.mapConfiguration = mapConfiguration
-        self.coordinator = MapViewCoordinator()
+        self.coordinator = MapViewCoordinator(visibleRegion: region)
         self.coordinator.annotationViewClosure = viewForAnnotation
         self.coordinator.annotationSelectionChanged = annotationSelectionChanged
+    }
+    
+    private func annotationSelectionChanged(map: MKMapView, annotation: MapViewAnnotation, _ selected: Bool) {
+        annotations[annotation.id]?.mutate(selection: selected)
     }
     
     public func makeNSView(context: Context) -> MKMapView {
         let map = mapConfiguration(MKMapView())
         map.setRegion(visibleRegion, animated: true)
-        map.addAnnotations(annotations.map({ $0.model }))
+        map.addAnnotations(annotations.map({ $0.value.model }))
         map.delegate = context.coordinator
         return map
     }
     
-    public func updateNSView(_ nsView: MKMapView, context: Context) {
-        // set appearance (light / dark mode)
-        // set accessibility
+    public func updateNSView(_ mapView: MKMapView, context: Context) {
+        if mapView.annotations.count != annotations.count {
+            mapView.removeAllAnnotations()
+            mapView.addAnnotations(annotations.map({ $0.value.model }))
+        }
     }
     
     public static func dismantleNSView(_ nsView: MKMapView, coordinator: MapViewCoordinator) {
