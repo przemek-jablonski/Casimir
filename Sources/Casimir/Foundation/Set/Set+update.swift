@@ -1,7 +1,9 @@
 import Foundation
 
 public extension Set where Element: CustomDebugStringConvertible {
-    mutating func update(ifContains element: Element, found closure: (inout Element) -> (), failure: (Error) -> ()) {
+    mutating func update(ifContains element: Element,
+                         found closure: (inout Element) -> (),
+                         failure: (Error) -> ()) {
         guard let foundIndex = firstIndex(of: element) else {
             failure(ErrorInstance("Unable to find index for element (\(element.debugDescription))"))
             return
@@ -14,5 +16,12 @@ public extension Set where Element: CustomDebugStringConvertible {
         
         closure(&removedElement)
         insert(removedElement)
+    }
+    
+    @discardableResult
+    mutating func reinsert(_ element: Element, at index: Set<Element>.Index) -> Self {
+        _ = remove(index)
+        insert(element)
+        return self
     }
 }
