@@ -1,6 +1,6 @@
 import SwiftUI
 
-public extension SwiftUI.View {
+public extension View {
     func `if`<Content: View>(_ conditional: Bool, content: (Self) -> Content) -> some View {
         if conditional {
             return content(self).erased()
