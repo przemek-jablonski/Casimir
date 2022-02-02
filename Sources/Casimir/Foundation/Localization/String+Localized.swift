@@ -18,6 +18,18 @@ public extension String {
 
         return LocalizedString(string: localizedString, error: error)
     }
+    
+    func localized(_ formattingArguments: String...) -> LocalizedString {
+        localized(unsafelyFormattedWith: formattingArguments)
+    }
+    
+    func localized(unsafelyFormattedWith formattingArguments: [CVarArg]) -> LocalizedString {
+        let localizedString = self.localized
+        return LocalizedString(
+            string: String(format: localizedString.string, arguments: formattingArguments),
+            error: localizedString.error
+        )
+    }
 
     private func validateLocalized(string localized: String, for key: String) -> LocalizationError? {
         guard localized.lowercased() != key.lowercased() else {
