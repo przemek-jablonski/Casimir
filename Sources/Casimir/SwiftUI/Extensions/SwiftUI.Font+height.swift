@@ -8,7 +8,7 @@ public extension SwiftUI.Font {
 }
 #endif
 
-#if canImport(AppKit)
+#if canImport(AppKit) && !targetEnvironment(macCatalyst)
 public extension SwiftUI.Font {
     var height: CGFloat {
         (self.native?.ascender ?? 0) + (self.native?.descender ?? 0)
