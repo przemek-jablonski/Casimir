@@ -1,7 +1,6 @@
 import SwiftUI
 
 public extension Binding {
-    @inlinable
     /**
      Wraps and converts `Binding` of given `Type?` to navigationBinding (`Binding<Bool>`),
      meaning that it returns `true` whenever Binding's `wrappedValue` is not nil (i.e. is ready for navigation)
@@ -20,9 +19,9 @@ public extension Binding {
 }
 
 public extension NavigationLink {
-    internal init<Selected>(isSelected: Binding<Selected?>,
-                            label: Label,
-                            destination: @escaping () -> Destination) {
-        self.init(isActive: isSelected.navigationBinding(), destination: destination, label: { label })
+    init<Selected>(isSelected: Binding<Selected?>,
+                   label: Label,
+                   destination: @escaping () -> Destination) {
+        self.init(destination: destination(), isActive: isSelected.navigationBinding(), label: { label })
     }
 }

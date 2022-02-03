@@ -10,6 +10,5 @@ public extension RelativeDateTimeFormatter {
         self.unitsStyle = unitsStyle
         self.locale = locale
         self.calendar = calendar
-
     }
 }

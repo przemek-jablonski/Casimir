@@ -14,7 +14,7 @@ public struct InvisibleNavigationLink<Destination: View>: View {
     private let destination: () -> Destination
     
     public var body: some View {
-        NavigationLink("", isActive: isActive, destination: destination)
+        NavigationLink("", destination: destination(), isActive: isActive)
             .frame(width: .zero, height: .zero)
             .hidden()
     }
