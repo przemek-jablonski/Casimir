@@ -55,9 +55,9 @@ public class Screen: ObservableObject {
 extension EnvironmentValues {
     public var screen: Screen {
         get {
-            self[DefaultEnvironmentKey<Screen>] ?? .main
+            self[DefaultEnvironmentKey<Screen>.self] ?? .main
         } set {
-            self[DefaultEnvironmentKey<Screen>] = newValue
+            self[DefaultEnvironmentKey<Screen>.self] = newValue
         }
     }
 }

@@ -18,4 +18,8 @@ public typealias Selected = Bool
 // HTTP
 public typealias HTTPAddress = String
 
-public typealias IsSuccess = Bool
+public typealias Success = Bool
+public typealias Failure = Bool
+
+public typealias Action = () -> ()
+public typealias Operation = () -> ()
