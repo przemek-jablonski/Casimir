@@ -1,4 +1,4 @@
-// swift-tools-version:5.3
+// swift-tools-version:5.5.0
 // The swift-tools-version declares the minimum version of Swift required to build this package.
 
 import PackageDescription
@@ -6,10 +6,10 @@ import PackageDescription
 let package = Package(
     name: "Casimir",
     platforms: [
-        .iOS(.v14),
-        .watchOS(.v7),
-        .tvOS(.v14),
-        .macOS(.v11),
+        .iOS(.v15),
+        .watchOS(.v8),
+        .tvOS(.v15),
+        .macOS(.v12),
     ],
     products: [
         .library(
@@ -17,10 +17,19 @@ let package = Package(
             targets: ["Casimir"]
         ),
     ],
+    dependencies: [
+        .package(url: "https://github.com/CombineCommunity/CombineExt", .exact("1.8.0")),
+        .package(url: "https://github.com/tcldr/Entwine.git", .exact("0.9.1")),
+        .package(url: "https://github.com/SwiftyBeaver/SwiftyBeaver.git", .exact("1.9.6")),
+    ],
     targets: [
         .target(
             name: "Casimir",
-            dependencies: []
+            dependencies: [
+                .product(name: "CombineExt", package: "CombineExt"),
+                "SwiftyBeaver",
+                .product(name: "EntwineTest", package: "Entwine")
+            ]
         ),
         .testTarget(
             name: "CasimirTests",
