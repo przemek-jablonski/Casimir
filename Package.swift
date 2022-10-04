@@ -18,9 +18,9 @@ let package = Package(
         ),
     ],
     dependencies: [
-        .package(url: "https://github.com/CombineCommunity/CombineExt", exact: "1.8.0"),
-        .package(url: "https://github.com/tcldr/Entwine.git", exact: "0.9.1"),
-        .package(url: "https://github.com/SwiftyBeaver/SwiftyBeaver.git", exact: "1.9.6"),
+        .package(url: "https://github.com/CombineCommunity/CombineExt", .exact("1.8.0")),
+        .package(url: "https://github.com/tcldr/Entwine.git", .exact("0.9.1")),
+        .package(url: "https://github.com/SwiftyBeaver/SwiftyBeaver.git", .exact("1.9.6")),
     ],
     targets: [
         .target(
