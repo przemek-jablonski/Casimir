@@ -38,7 +38,7 @@ public final class CasimirConsoleDestination: BaseDestination, CasimirLoggingDes
     }
     
     public func configure(_ loggingLineFormat: inout String) {
-        loggingLineFormat = "$DHH:mm:ss:SSS$d $C$L$c/ $N$X.$F:$l - $M"
+        loggingLineFormat = "$DHH:mm:ss:SSS$d $C$L$c/ $N$X.$F:$l - $M $X"
     }
 }
 #endif
