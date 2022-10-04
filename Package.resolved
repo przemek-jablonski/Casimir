@@ -1,0 +1,34 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "CombineExt",
+        "repositoryURL": "https://github.com/CombineCommunity/CombineExt",
+        "state": {
+          "branch": null,
+          "revision": "aaf1a0981c05360000af972473034cb952be4ca0",
+          "version": "1.8.0"
+        }
+      },
+      {
+        "package": "Entwine",
+        "repositoryURL": "http://github.com/tcldr/Entwine.git",
+        "state": {
+          "branch": null,
+          "revision": "cd90cfb2510c35ba082d9c7a8910bdacc6fa840f",
+          "version": "0.9.1"
+        }
+      },
+      {
+        "package": "SwiftyBeaver",
+        "repositoryURL": "https://github.com/SwiftyBeaver/SwiftyBeaver.git",
+        "state": {
+          "branch": null,
+          "revision": "12b5acf96d98f91d50de447369bd18df74600f1a",
+          "version": "1.9.6"
+        }
+      }
+    ]
+  },
+  "version": 1
+}
