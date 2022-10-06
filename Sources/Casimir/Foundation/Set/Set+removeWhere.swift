@@ -7,7 +7,7 @@ public extension Set {
         }
         return remove(at: index)
     }
-    
+
     mutating func removeFirst(where matches: (Element) -> Bool) {
         _ = removedFirst(where: matches)
     }

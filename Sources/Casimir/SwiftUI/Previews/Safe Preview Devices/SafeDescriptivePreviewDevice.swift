@@ -1,6 +1,6 @@
 import SwiftUI
 
-//swiftlint:disable identifier_name
+// swiftlint:disable identifier_name
 public enum SafeDescriptivePreviewDevice {
     var safePreviewDevice: SafePreviewDevice {
         switch self {
@@ -13,7 +13,7 @@ public enum SafeDescriptivePreviewDevice {
         case .iphone_new_budget: return .iphone11
         case .ipad_tiny: return .ipadMini_5thGen
         case .ipad_small: return .ipad_6thGen
-        case .ipad_large: return .ipadAir_3rdGen //10.5"
+        case .ipad_large: return .ipadAir_3rdGen // 10.5"
         case .ipad_pro: return .ipadPro_12_9_inch_3rdGen
         case .appletv: return .appletv_4k
         case .applewatch_old: return .appleWatch2_38mm

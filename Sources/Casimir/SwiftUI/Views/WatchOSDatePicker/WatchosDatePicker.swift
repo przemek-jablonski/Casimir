@@ -10,14 +10,14 @@ public typealias DateFormattingClosure = (Date) -> String
  */
 @available(watchOS 6.0, *)
 public struct WatchosDatePicker: View {
-    
+
     @Binding private var selectedDate: Date
-    
+
     private let dates: [Date]
     private let pickerTooltipTitle: String?
     private let pickerRowFormattingClosure: DateFormattingClosure
     private let calendar = Calendar.autoupdatingCurrent
-    
+
     public init(_ selectedDate: Binding<Date>,
                 dateLowerRange: Date,
                 dateUpperRange: Date,
@@ -34,7 +34,7 @@ public struct WatchosDatePicker: View {
                   labelText: labelText,
                   pickerRowFormattingClosure: pickerRowFormattingClosure)
     }
-    
+
     /**
      - Note: Although array of dates is already passed as input, granularity (`enumerating: Calendar.Component`)
      still needs to be provided - it is used in default row formatter closure and for calculating initial date
@@ -48,16 +48,16 @@ public struct WatchosDatePicker: View {
         self.dates = dates
         self.pickerTooltipTitle = labelText
         self._selectedDate = selectedDate
-        
+
         self.pickerRowFormattingClosure = pickerRowFormattingClosure ?? {
             DateFormatter().string(from: $0)
         }
-        
-        if let alignedInitialDate = dates.first (where: {
+
+        if let alignedInitialDate = dates.first(where: {
             calendar.isDate($0, equalTo: self.selectedDate, toGranularity: granularity)
         }) { self.selectedDate = alignedInitialDate }
     }
-    
+
     public var body: some View {
         Picker(selection: self.$selectedDate, label: pickerLabel) {
             ForEach(self.dates, id: \.self) {
@@ -65,7 +65,7 @@ public struct WatchosDatePicker: View {
             }
         }
     }
-    
+
     private var pickerLabel: some View {
         if let title = pickerTooltipTitle {
             return Text(title).erased()
@@ -73,14 +73,14 @@ public struct WatchosDatePicker: View {
             return EmptyView().erased()
         }
     }
-    
+
 }
 
 struct WatchosDatePickerPreviews: PreviewProvider {
-    
+
     private static let calendar = Calendar.autoupdatingCurrent
     @State private static var selectedDate = Date()
-    
+
     static var previews: some View {
         WatchosDatePicker($selectedDate,
                           dateLowerRange: mockDateLowerRange(goBackBy: 3),

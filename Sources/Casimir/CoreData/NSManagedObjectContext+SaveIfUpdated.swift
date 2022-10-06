@@ -6,8 +6,8 @@ public extension NSManagedObjectContext {
     /**
      Executes operations contained in the `operations` closure, performs CoreData save and returns the result.
      */
-    func performAndSave(_ operations: @escaping (NSManagedObjectContext) -> ()) -> AnyPublisher<Void, Error> {
-        Future<Void, Error> ({ promise in
+    func performAndSave(_ operations: @escaping (NSManagedObjectContext) -> Void) -> AnyPublisher<Void, Error> {
+        Future<Void, Error>({ promise in
 //            log.verbose(self, "")
             operations(self)
             do {

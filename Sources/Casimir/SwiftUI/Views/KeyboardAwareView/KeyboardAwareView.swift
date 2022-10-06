@@ -11,7 +11,7 @@ public struct KeyboardAwareView<Content: View>: View {
     @State private var keyboardHeight = CGFloat(0)
     var extraPadding: CGFloat = 0
     let content: () -> Content
-    
+
     public var body: some View {
         content()
             .padding(.bottom, keyboardHeight + extraPadding)

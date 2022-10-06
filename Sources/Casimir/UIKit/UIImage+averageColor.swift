@@ -32,7 +32,7 @@ public extension UIImage {
                        blue: CGFloat(bitmap[2]) / 255,
                        alpha: CGFloat(bitmap[3]) / 255)
     }
-    
+
     var averageColor: Color {
         Color(averageUIColor)
     }
@@ -42,7 +42,7 @@ public extension Optional where Wrapped == UIImage {
     var averageUIColor: UIColor {
         self?.averageUIColor ?? .invalid
     }
-    
+
     var averageColor: Color {
         self?.averageColor ?? .invalid
     }

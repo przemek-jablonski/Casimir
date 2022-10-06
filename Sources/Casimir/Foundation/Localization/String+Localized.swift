@@ -5,24 +5,24 @@ public extension String {
         var localizedString = NSLocalizedString(self, comment: "")
         var error: LocalizationError?
         if let localizationError = validateLocalized(string: localizedString, for: self) {
-            
+
             if isRunningAsSwiftUIPreview() {
                 localizedString = self
             } else {
                 localizedString = "🈲[" + localizedString + "]🈲"
             }
-            
+
             error = localizationError
             LocalizationError.delegate?.localizationError(raised: localizationError)
         }
 
         return LocalizedString(string: localizedString, error: error)
     }
-    
+
     func localized(_ formattingArguments: String...) -> LocalizedString {
         localized(unsafelyFormattedWith: formattingArguments)
     }
-    
+
     func localized(unsafelyFormattedWith formattingArguments: [CVarArg]) -> LocalizedString {
         let localizedString = self.localized
         return LocalizedString(
@@ -33,7 +33,7 @@ public extension String {
 
     private func validateLocalized(string localized: String, for key: String) -> LocalizationError? {
         guard localized.lowercased() != key.lowercased() else {
-            
+
 //            // TODO: might want to add this actually, but right now it doesnt really work
 //            guard let path = Bundle.main.path(forResource: Locale.current.identifier, ofType: "lproj") else {
 //                return .pathForLocalizedStringsFileNotFound(for: self)

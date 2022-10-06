@@ -8,7 +8,7 @@ public extension View {
             return self.erased()
         }
     }
-    
+
     func `if`<Content: View>(_ content: ((Self) -> Content)?) -> some View {
         if let content = content {
             return content(self).erased()

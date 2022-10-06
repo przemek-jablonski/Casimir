@@ -13,15 +13,15 @@ final class StringEmojiFlagExtensionTestCase: XCTestCase {
         XCTAssertEqual("PL".emojiFlag, "🇵🇱")
         //        XCTAssertEqual("UK".emojiFlag, "🇬🇧")
     }
-    
+
 //    func test_providingTwoLetterCountryCodeFromRegionalUnicodeSpec_shouldReturnCorrectEmojiFlag() {
 //
 //    }
-    
+
     func test_providingCountryCodeWithZeroCount_shouldReturnEmptyString() {
         XCTAssertEqual("".emojiFlag, "")
     }
-    
+
 //    func test_providingCountryCodeWithOneCount_shouldReturnEmptyString() {
 //        XCTAssertEqual("A".emojiFlag, "")
 //        XCTAssertEqual("B".emojiFlag, "")
@@ -34,7 +34,7 @@ final class StringEmojiFlagExtensionTestCase: XCTestCase {
 //        XCTAssertEqual("D".emojiFlag, "")
 //        XCTAssertEqual("P".emojiFlag, "")
 //    }
-    
+
     func test_providingCorrectCountryCodeWithCountAboveTwo_shouldFixTheStringAndReturnCorrectEmojiFlag() {
         XCTAssertEqual("USA".emojiFlag, "🇺🇸")
         XCTAssertEqual("UAA".emojiFlag, "🇺🇦")
@@ -45,12 +45,12 @@ final class StringEmojiFlagExtensionTestCase: XCTestCase {
         XCTAssertEqual("DEUTSCHLAND".emojiFlag, "🇩🇪")
         XCTAssertEqual("PLCBLN".emojiFlag, "🇵🇱")
     }
-    
+
 //    func test_providingWrongCountryCodeWithCountAboveTwo_shouldReturnEmptyString() {
 //        XCTAssertEqual("AAAA".emojiFlag, "🇺🇸")
 //        XCTAssertEqual("1111UAA".emojiFlag, "🇺🇦")
 //    }
-    
+
     func test_providingCountryCodeWithMixedCases_shouldFixTheStringAndReturnCorrectEmojiFlag() {
         XCTAssertEqual("jP".emojiFlag, "🇯🇵")
 //        XCTAssertEqual("Pj".emojiFlag, "🇯🇵")
@@ -59,11 +59,11 @@ final class StringEmojiFlagExtensionTestCase: XCTestCase {
         XCTAssertEqual("Fr".emojiFlag, "🇫🇷")
         XCTAssertEqual("Gb".emojiFlag, "🇬🇧")
     }
-    
+
     func test_providingCountryCodeWithUppercase_shouldFixTheStringAndReturnCorrectEmojiFlag() {
         XCTAssertEqual("JP".emojiFlag, "🇯🇵")
     }
-    
+
     func test_providingCountryCodeWithLowercase_shouldFixTheStringAndReturnCorrectEmojiFlag() {
         XCTAssertEqual("us".emojiFlag, "🇺🇸")
         XCTAssertEqual("ua".emojiFlag, "🇺🇦")
@@ -74,6 +74,5 @@ final class StringEmojiFlagExtensionTestCase: XCTestCase {
         XCTAssertEqual("de".emojiFlag, "🇩🇪")
         XCTAssertEqual("pl".emojiFlag, "🇵🇱")
     }
-    
-}
 
+}

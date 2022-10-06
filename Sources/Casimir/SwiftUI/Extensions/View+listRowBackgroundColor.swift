@@ -1,6 +1,6 @@
-//import SwiftUI
+// import SwiftUI
 //
-//extension View {
+// extension View {
 //    public func listRowBackgroundColor(_ color: Color) -> some View {
 //        #if os(iOS)
 //            return listRowBackground(color)
@@ -8,4 +8,4 @@
 //            return listRowPlatterColor(color)
 //        #endif
 //    }
-//}
+// }

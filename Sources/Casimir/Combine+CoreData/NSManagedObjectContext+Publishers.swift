@@ -2,7 +2,7 @@ import Combine
 import CoreData
 
 public extension NSManagedObjectContext {
-    
+
     /**
      Returns internal publisher (`ManagedObjectChangesPublisher`) delivering changes of elements
      from given fetch request over time.
@@ -11,7 +11,7 @@ public extension NSManagedObjectContext {
     -> ContextChangesPublisher<T> {
         ContextChangesPublisher(fetchRequest: fetchRequest, context: self)
     }
-    
+
     /**
      Delivers changes (`CollectionDifference<T>`) of elements from given fetch request over time.
      So, when fetch request update is triggered, underlying publisher publishes new event in which CHANGES
@@ -22,7 +22,7 @@ public extension NSManagedObjectContext {
         changesPublisher(from: fetchRequest)
             .eraseToAnyPublisher()
     }
-    
+
     /**
      Delivers updates (`[T]`) of elements from given fetch request over time.
      So, when fetch request update is triggered, underlying publisher publishes new event
@@ -43,7 +43,7 @@ public extension NSManagedObjectContext {
                     }
                 }
                 return new
-                
+
             }
             .eraseToAnyPublisher()
     }
@@ -56,29 +56,29 @@ public extension NSManagedObjectContext {
 public struct ContextChangesPublisher<T: NSManagedObject>: Publisher {
     public typealias Output = CollectionDifference<T>
     public typealias Failure = Error
-    
+
     let fetchRequest: NSFetchRequest<T>
     let context: NSManagedObjectContext
-    
+
     init(fetchRequest: NSFetchRequest<T>, context: NSManagedObjectContext) {
         self.fetchRequest = fetchRequest
         self.context = context
     }
-    
+
     public func receive<S: Subscriber>(subscriber: S) where Failure == S.Failure, Output == S.Input {
         let inner = Inner(downstream: subscriber, fetchRequest: fetchRequest, context: context)
         subscriber.receive(subscription: inner)
     }
-    
+
     private final class Inner<Downstream: Subscriber>: NSObject, Subscription, NSFetchedResultsControllerDelegate
     where Downstream.Input == CollectionDifference<T>, Downstream.Failure == Error {
-        
+
         private let downstream: Downstream
         private let fetchedResultsController: NSFetchedResultsController<T>
         private var demand: Subscribers.Demand = .none
         private var lastSentState = [T]()
         private var currentDifferences = CollectionDifference<T>([])!
-        
+
         init(downstream: Downstream, fetchRequest: NSFetchRequest<T>, context: NSManagedObjectContext) {
             self.downstream = downstream
             fetchedResultsController = NSFetchedResultsController(
@@ -86,7 +86,7 @@ public struct ContextChangesPublisher<T: NSManagedObject>: Publisher {
                 managedObjectContext: context,
                 sectionNameKeyPath: nil,
                 cacheName: nil)
-            
+
             super.init()
             fetchedResultsController.delegate = self
             do {
@@ -96,33 +96,33 @@ public struct ContextChangesPublisher<T: NSManagedObject>: Publisher {
                 downstream.receive(completion: .failure(error))
             }
         }
-        
+
         func request(_ demand: Subscribers.Demand) {
             self.demand += demand
             fulfillDemand()
         }
-        
+
         private func updateDiff() {
             currentDifferences = Array(fetchedResultsController.fetchedObjects ?? []).difference(from: lastSentState)
             fulfillDemand()
         }
-        
+
         private func fulfillDemand() {
             if demand > 0 {
                 let newDemand = downstream.receive(currentDifferences)
                 lastSentState = Array(fetchedResultsController.fetchedObjects ?? [])
                 currentDifferences = lastSentState.difference(from: lastSentState)
-                
+
                 demand += newDemand
                 demand -= 1
             }
         }
-        
+
         func cancel() {
             fetchedResultsController.delegate = nil
             //            fetchedResultsController = nil
         }
-        
+
         func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
             updateDiff()
         }

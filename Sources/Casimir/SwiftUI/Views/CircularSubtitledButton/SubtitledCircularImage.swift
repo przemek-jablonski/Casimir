@@ -50,7 +50,7 @@ struct SwiftUIPreviewSubtitledCircularImage: PreviewProvider {
                                    circleColor: .black,
                                    iconColor: .black)
                 .previewDevice(.applewatch_large)
-            
+
             SubtitledCircularImage(systemName: "bolt",
                                    text: { Text(LoremIpsum.short) },
                                    circleColor: .clear,

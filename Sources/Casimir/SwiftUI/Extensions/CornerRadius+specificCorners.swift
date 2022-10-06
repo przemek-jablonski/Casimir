@@ -11,7 +11,7 @@ public extension View {
 public struct RoundedCornersShape: Shape {
     var radius: CGFloat = .infinity
     var corners: UIRectCorner = .allCorners
-    
+
     public func path(in rect: CGRect) -> Path {
         Path(UIBezierPath(roundedRect: rect,
                           byRoundingCorners: corners,

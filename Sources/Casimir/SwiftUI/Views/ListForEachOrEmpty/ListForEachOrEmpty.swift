@@ -10,12 +10,12 @@ import SwiftUI
  */
 public struct ListForEachOrEmpty<Data, Id, EmptyView: View, ListView: View>: View
 where Data: RandomAccessCollection, Data.Element: Identifiable, Id == Data.Element.ID {
-    
+
     public enum ListStyle {
         case clean
         case lineSeparated
     }
-    
+
     public var data: Data
     public var header: AnyView?
     public var footer: AnyView?
@@ -54,7 +54,7 @@ private extension ListForEachOrEmpty {
     }
 }
 
-//private extension View {
+// private extension View {
 //    func clearSeparators(_ clear: Bool) -> AnyView {
 //        if clear {
 //            return hideListSeparators().hideListExtraneousSeparators().erased()
@@ -62,4 +62,4 @@ private extension ListForEachOrEmpty {
 //            return showListSeparators().showListExtraneousSeparators().erased()
 //        }
 //    }
-//}
+// }

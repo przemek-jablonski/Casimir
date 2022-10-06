@@ -10,7 +10,7 @@ public extension Date {
             hour: hourMinutes?.hour ?? nil,
             minute: hourMinutes?.minutes ?? nil).date else {
                 fatalError("Couldn't construct date object from given input " +
-                    "(YYYY/MM/DD: \(yearMonthDay), HH:mm: \(String(describing:hourMinutes))")
+                    "(YYYY/MM/DD: \(yearMonthDay), HH:mm: \(String(describing: hourMinutes))")
         }
         self.init(timeIntervalSince1970: date.timeIntervalSince1970)
     }

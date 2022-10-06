@@ -4,15 +4,15 @@ public extension View {
     func width(_ exact: CGFloat, alignment: Alignment) -> some View {
         self.frame(width: exact, alignment: alignment)
     }
-    
+
     func height(_ exact: CGFloat, alignment: Alignment) -> some View {
         self.frame(height: exact, alignment: alignment)
     }
-    
+
     func maxWidth(_ limit: CGFloat, alignment: Alignment) -> some View {
         self.frame(maxWidth: limit, alignment: alignment)
     }
-    
+
     func maxHeight(_ limit: CGFloat, alignment: Alignment) -> some View {
         self.frame(maxHeight: limit, alignment: alignment)
     }

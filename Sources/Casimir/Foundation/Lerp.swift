@@ -64,6 +64,7 @@ extension CGFloat: Lerpable {
     }
 }
 
+// swiftlint:disable identifier_name
 extension CGPoint: Lerpable {
     public func lerp(min: CGPoint, max: CGPoint) -> CGPoint {
         let x = self.x.lerp(min: min.x, max: max.x)
@@ -76,6 +77,7 @@ extension CGPoint: Lerpable {
         return CGPoint(x: x, y: y)
     }
 }
+// swiftlint:enable identifier_name
 
 public extension CGPoint {
     func lerp(rect: CGRect) -> CGPoint {
