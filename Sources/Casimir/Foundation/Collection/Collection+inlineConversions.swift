@@ -19,13 +19,12 @@ public extension Array where Element: Identifiable {
     }
 }
 
-
 // MARK: - Set
 public extension Set {
     var array: [Element] {
         Array(self)
     }
-    
+
     var collection: AnyCollection<Element> {
         AnyCollection(self)
     }

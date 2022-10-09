@@ -8,14 +8,14 @@ public extension CGRect {
     var min: CGPoint {
         CGPoint(x: minX, y: minY)
     }
-    
+
     /**
      Returns the "maximum" point of given rectangle (CGPoint composed of the highest X and Y values)
      */
     var max: CGPoint {
         CGPoint(x: maxX, y: maxY)
     }
-    
+
     /**
      Initializes the CGRect using two points, minimum and maximum (lowest and highest X, Y coordinates)
      */

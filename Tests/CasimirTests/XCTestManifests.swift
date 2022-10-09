@@ -3,7 +3,7 @@ import XCTest
 
 public func allTests() -> [XCTestCaseEntry] {
     return [
-        testCase(CasimirTests.allTests),
+        testCase(CasimirTests.allTests)
     ]
 }
 #endif

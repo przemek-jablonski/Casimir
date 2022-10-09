@@ -8,7 +8,7 @@ public extension HorizontalAlignment {
         default: return .center
         }
     }
-    
+
     var invertedAlignment: Alignment {
         switch self {
         case .leading: return .trailing
@@ -16,7 +16,7 @@ public extension HorizontalAlignment {
         default: return .center
         }
     }
-    
+
     var isCenter: Bool { self == .center }
     var isLeading: Bool { self == .leading }
     var isTrailing: Bool { self == .trailing }

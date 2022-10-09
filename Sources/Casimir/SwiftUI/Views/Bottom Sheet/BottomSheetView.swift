@@ -16,17 +16,17 @@ private enum Constants {
 
 public struct BottomSheetView<Content: View>: View {
     @Binding var isOpen: Bool
-    
+
     let maxHeight: CGFloat
     let minHeight: CGFloat
     let content: Content
-    
+
     @GestureState private var translation: CGFloat = 0
-    
+
     private var offset: CGFloat {
         isOpen ? 0 : maxHeight - minHeight
     }
-    
+
     private var indicator: some View {
         RoundedRectangle(cornerRadius: Constants.radius)
             .fill(Color.secondary)
@@ -38,14 +38,14 @@ public struct BottomSheetView<Content: View>: View {
             }
             .opacity(isOpen ? 0.33 : 1.00)
     }
-    
+
     public init(isOpen: Binding<Bool>, maxHeight: CGFloat, @ViewBuilder content: () -> Content) {
         self.minHeight = maxHeight * Constants.minHeightRatio
         self.maxHeight = maxHeight
         self.content = content()
         self._isOpen = isOpen
     }
-    
+
     public var body: some View {
         GeometryReader { geometry in
             VStack(spacing: 0) {
@@ -88,18 +88,18 @@ struct BottomSheetView_Previews: PreviewProvider {
                 expandableText()
             })
             .colorScheme(.light)
-            
+
             previewContainer(with: BottomSheetView(isOpen: .constant(false), maxHeight: 600) {
                 expandableText()
             })
             .colorScheme(.dark)
             .previewDevice("iPhone 8")
-            
+
             previewContainer(with: BottomSheetView(isOpen: .constant(true), maxHeight: 600) {
                 expandableText()
             })
             .colorScheme(.light)
-            
+
             previewContainer(with: BottomSheetView(isOpen: .constant(true), maxHeight: 600) {
                 expandableText()
             })
@@ -107,14 +107,14 @@ struct BottomSheetView_Previews: PreviewProvider {
             .previewDevice("iPhone 8")
         }
     }
-    
+
     static func previewContainer<Content: View>(with view: BottomSheetView<Content>) -> some View {
         ZStack {
 //            mockList()
             view
         }
     }
-    
+
     static func expandableText(containing string: String = LoremIpsum.extraExtraLong) -> some View {
         Text(String(repeating: string, count: 15))
 //            .background(Color.red.opacity(0.33))

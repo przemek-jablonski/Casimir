@@ -2,7 +2,7 @@
 import UIKit
 
 public extension UIColor {
-    //swiftlint:disable identifier_name
+    // swiftlint:disable identifier_name
     convenience init(hex: String) {
         var r, g, b, a: CGFloat
         r = 255 / 255
@@ -26,7 +26,7 @@ public extension UIColor {
                 }
             }
         }
-        
+
         self.init(red: r, green: g, blue: b, alpha: a)
     }
 }

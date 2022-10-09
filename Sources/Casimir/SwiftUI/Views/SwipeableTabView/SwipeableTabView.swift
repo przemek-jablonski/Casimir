@@ -1,11 +1,11 @@
-//#if !os(tvOS)
+// #if !os(tvOS)
 //// TODO: unavailable in tvOS due to the DragGesture not supporting tvOS and Siri Remote, find a workaround
-//import SwiftUI
+// import SwiftUI
 //
-///**
+/// **
 // SwiftUI's `TabView` wrapper. Enables switching the tabs using the swipe (`DragGesture`).
 // */
-//public struct SwipeableTabView: View {
+// public struct SwipeableTabView: View {
 //    private let minDragTranslationForSwipe: CGFloat = 50
 //    @Binding private var selectedTab: Int = 0
 //    public var tabs: [TabItem]
@@ -18,16 +18,16 @@
 //            }
 //        }
 //    }
-//}
+// }
 //
-//public extension SwipeableTabView {
+// public extension SwipeableTabView {
 //    init(selection: Binding<Int>, tabs: [SwipeableTabView.TabItem]) {
 //        self._selectedTab = selection
 //        self.tabs = tabs
 //    }
-//}
+// }
 //
-//public extension View {
+// public extension View {
 //    func tabItem(tag: Int, image: Image, subtitle: LocalizedString) -> SwipeableTabView.TabItem {
 //        SwipeableTabView.TabItem(
 //            tag: tag,
@@ -36,9 +36,9 @@
 //            self.erased()
 //        }
 //    }
-//}
+// }
 //
-//private extension SwipeableTabView {
+// private extension SwipeableTabView {
 //    private func onSwipe(translation: CGFloat) {
 //        if translation > minDragTranslationForSwipe && selectedTab > 0 {
 //            selectedTab -= 1
@@ -46,11 +46,11 @@
 //            selectedTab += 1
 //        }
 //    }
-//}
+// }
 //
-//struct SwipeableTabView_Previews: PreviewProvider {
+// struct SwipeableTabView_Previews: PreviewProvider {
 //    static var previews: some View {
 //        SwipeableTabView(tabs: [])
 //    }
-//}
-//#endif
+// }
+// #endif

@@ -20,7 +20,7 @@ extension Forms {
                 isValidated(value)
             }
         }
-        
+
         public class GenericOptionalAllowed<DataType: Hashable>: Forms.BaseFormField<DataType?> {
             override public var isValueValidated: Forms.ValueValidationResult {
                 // TODO:

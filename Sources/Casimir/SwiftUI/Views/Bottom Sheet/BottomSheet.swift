@@ -2,6 +2,7 @@
 // unavailability: tvOS: DragGesture is unavailable in this OS (and it acts as the backbone of this View)
 // unavailability: watchOS: Haptics are not available in watchOS at the moment
 import SwiftUI
+import SwiftUIX
 import UIKit
 
 public enum BottomSheetPosition {
@@ -16,19 +17,19 @@ public struct BottomSheet<Content: View>: View {
         case inactive
         case dragging(translation: CGSize)
     }
-    
+
     private let geometryProxy: GeometryProxy
     private let minHeight: CGFloat
     private let maxHeight: CGFloat
     private let cornerRadius: CGFloat // = 10.0
     private let shadowRadius: CGFloat
     private var content: () -> Content
-    
+
     @Binding private var position: Position
     @GestureState private var dragState = DragState.inactive
-    
+
     private let haptics: Haptics
-    
+
     public init(position: Binding<Position>,
                 geometryProxy: GeometryProxy,
                 minHeight: CGFloat,
@@ -46,14 +47,14 @@ public struct BottomSheet<Content: View>: View {
         self.haptics = haptics
         self.content = content
     }
-    
+
     public var body: some View {
         let drag = DragGesture()
             .updating($dragState) { drag, state, _ in
                 state = .dragging(translation: drag.translation)
             }
             .onEnded(onDragEnded)
-        
+
         return VStack(spacing: 0) {
             Handle()
                 .padding(.top, 8)
@@ -83,40 +84,40 @@ private extension BottomSheet {
     var isBottom: Bool {
         position == .bottom
     }
-    
+
     var snappingInversionPoint: CGFloat {
         float(from: .bottom) - (float(from: .bottom) - float(from: .top)) / 3
     }
-    
+
     func onDragEnded(drag: DragGesture.Value?) {
         let verticalDirection = (drag?.predictedEndLocation.y ?? 0) - (drag?.location.y ?? 0)
         let cardTopEdgeLocation = float(from: position) + (drag?.translation.height ?? 0)
-        
+
         let topPositionPoints = float(from: .top)
         let bottomPositionPoints = float(from: .bottom)
         let positionsDelta = float(from: .bottom) - float(from: .top)
-        
+
         let closestPosition: Position
-        
+
         if (cardTopEdgeLocation - topPositionPoints) < (bottomPositionPoints - cardTopEdgeLocation) {
             closestPosition = .top
         } else {
             closestPosition = .bottom
         }
-        
+
         if verticalDirection < -(positionsDelta * 0.66) {
             self.position = .top
             return
         }
-        
+
         if verticalDirection > positionsDelta * 0.33 {
             self.position = .bottom
             return
         }
-        
+
         self.position = closestPosition
     }
-    
+
     func float(from sheetPosition: Position) -> CGFloat {
         switch sheetPosition {
         case .top: return geometryProxy.size.height - maxHeight
@@ -166,7 +167,7 @@ struct BottomSheet_Previews: PreviewProvider {
                 })
             }
             .colorScheme(.light)
-            
+
             GeometryReader { geometry in
                 previewContainer(for: BottomSheet(
                     position: .constant(.bottom),
@@ -181,7 +182,7 @@ struct BottomSheet_Previews: PreviewProvider {
             }
             .previewDevice("iPhone 8")
             .colorScheme(.dark)
-            
+
             GeometryReader { geometry in
                 previewContainer(for: BottomSheet(
                     position: .constant(.top),
@@ -197,14 +198,14 @@ struct BottomSheet_Previews: PreviewProvider {
             .colorScheme(.light)
         }
     }
-    
+
     static func previewContainer<Container: View>(for view: BottomSheet<Container>) -> some View {
         ZStack {
 //            mockList()
             view
         }
     }
-    
+
     static func previewText(with content: String = LoremIpsum.extraExtraLong,
                             repeating: Int = 15) -> some View {
         Text(String(repeating: content, count: repeating)).background(Color.green.opacity(0.33))

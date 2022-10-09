@@ -8,7 +8,7 @@ public extension VerticalAlignment {
         default: return .center
         }
     }
-    
+
     var isTop: Bool { self == .top }
     var isBottom: Bool { self == .bottom }
 }

@@ -1,6 +1,6 @@
-//import SwiftUI
+// import SwiftUI
 //
-//public extension SwipeableTabView {
+// public extension SwipeableTabView {
 //    struct TabItem: View, Hashable {
 //        let tag: Int
 //        var image: Image
@@ -22,4 +22,4 @@
 //            lhs.tag == rhs.tag
 //        }
 //    }
-//}
+// }

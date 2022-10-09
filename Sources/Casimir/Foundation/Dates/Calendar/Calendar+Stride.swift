@@ -9,7 +9,7 @@ public extension Calendar {
                 enumerating granularity: Calendar.Component,
                 every enumerationValue: Int = 1) -> [Date] {
         var dates = [Date]()
-        
+
         var temporaryDate = startingDate
         while temporaryDate <= finishingDate {
             dates.append(temporaryDate)
@@ -18,7 +18,7 @@ public extension Calendar {
             }
             temporaryDate = date
         }
-        
+
         return dates
     }
 }

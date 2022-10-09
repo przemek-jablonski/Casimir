@@ -45,6 +45,7 @@ extension CGFloat: Clampable {
     }
 }
 
+// swiftlint:disable identifier_name
 extension CGPoint: Clampable {
     public func clamp(min: Self, max: Self) -> Self {
         let x = self.x.clamp(min: min.x, max: max.x)
@@ -52,6 +53,7 @@ extension CGPoint: Clampable {
         return CGPoint(x: x, y: y)
     }
 }
+// swiftlint:enable identifier_name
 
 public extension CGPoint {
     func clamp(rect: CGRect) -> CGPoint {

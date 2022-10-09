@@ -1,6 +1,6 @@
 import SwiftUI
 
-//swiftlint:disable identifier_name
+// swiftlint:disable identifier_name
 public enum SafePreviewDevice: String {
     var previewDevice: PreviewDevice { PreviewDevice(rawValue: self.rawValue) }
     case mac = "Mac"

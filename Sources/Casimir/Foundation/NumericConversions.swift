@@ -78,4 +78,3 @@ public extension Double {
 public extension Int {
     var cgFloat: CGFloat { self.float.cgFloat }
 }
-

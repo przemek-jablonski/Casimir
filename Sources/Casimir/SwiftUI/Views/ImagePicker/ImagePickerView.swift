@@ -8,7 +8,7 @@ public struct ImagePickerView: UIViewControllerRepresentable {
     @Environment(\.presentationMode) var presentationMode
     @Binding var data: Data?
     var cropToSquare = false
-    
+
     public func makeUIViewController(context: UIViewControllerRepresentableContext<ImagePickerView>) -> UIImagePickerController {
         let picker = UIImagePickerController()
         picker.delegate = context.coordinator
@@ -29,7 +29,7 @@ extension ImagePickerView {
         init(_ parent: ImagePickerView) {
             self.parent = parent
         }
-        
+
         public func imagePickerController(_ picker: UIImagePickerController,
                                           didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
         if let uiImage = info[.originalImage] as? UIImage {
@@ -39,7 +39,7 @@ extension ImagePickerView {
             parent.presentationMode.wrappedValue.dismiss()
         }
     }
-    
+
     public func makeCoordinator() -> Coordinator {
         Coordinator(self)
     }

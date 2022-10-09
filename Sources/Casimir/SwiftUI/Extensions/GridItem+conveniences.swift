@@ -7,13 +7,13 @@ public extension GridItem {
                          alignment: Alignment? = nil) -> Self {
         GridItem(.adaptive(minimum: minimum, maximum: maximum), spacing: spacing, alignment: alignment)
     }
-    
+
     static func fixed(size: CGFloat,
                       spacing: CGFloat? = nil,
                       alignment: Alignment? = nil) -> Self {
         GridItem(.fixed(size), spacing: spacing, alignment: alignment)
     }
-    
+
     static func flexible(maximum: CGFloat = .infinity,
                          spacing: CGFloat? = nil,
                          alignment: Alignment? = nil) -> Self {
@@ -31,7 +31,7 @@ public extension GridItem {
             adaptive(minimum: minimum, maximum: maximum, spacing: spacing, alignment: alignment)
         }
     }
-    
+
     static func fixed(columns: Int,
                       size: CGFloat,
                       spacing: CGFloat? = nil,
@@ -40,7 +40,7 @@ public extension GridItem {
             fixed(size: size, spacing: spacing, alignment: alignment)
         }
     }
-    
+
     static func flexible(columns: Int,
                          maximum: CGFloat = .infinity,
                          spacing: CGFloat? = nil,

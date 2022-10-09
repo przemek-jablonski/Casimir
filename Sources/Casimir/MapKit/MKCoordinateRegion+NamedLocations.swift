@@ -14,4 +14,3 @@ public extension MKCoordinateRegion {
         [.petersburg, .tokyo, .cupertino, .nyc, .santiago, .reykjavik].randomElement() ?? .petersburg
     }
 }
-

@@ -21,5 +21,5 @@ public typealias HTTPAddress = String
 public typealias Success = Bool
 public typealias Failure = Bool
 
-public typealias Action = () -> ()
-public typealias Operation = () -> ()
+public typealias Action = () -> Void
+public typealias Operation = () -> Void

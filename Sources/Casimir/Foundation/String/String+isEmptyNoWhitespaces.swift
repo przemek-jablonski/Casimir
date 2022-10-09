@@ -8,6 +8,6 @@ public extension String {
      */
     var isEmptyNoWhitespaces: Bool {
         // TODO: test that
-        filter ({ !CharacterSet.whitespacesAndNewlines.contains($0.unicodeScalars.first!) }).isEmpty
+        filter({ !CharacterSet.whitespacesAndNewlines.contains($0.unicodeScalars.first!) }).isEmpty
     }
 }

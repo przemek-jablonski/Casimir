@@ -5,7 +5,7 @@ extension MKCoordinateRegion: Equatable {
     public static func == (lhs: MKCoordinateRegion, rhs: MKCoordinateRegion) -> Bool {
         lhs.center == rhs.center && lhs.span == rhs.span
     }
-    
+
     public func equalDegrees(to other: Self, margin: CLLocationDegrees) -> Bool {
         (self.center.latitude - other.center.latitude).magnitude <= margin &&
             (self.center.longitude - other.center.longitude).magnitude <= margin

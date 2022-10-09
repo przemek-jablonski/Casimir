@@ -7,7 +7,7 @@ extension Forms {
 
         case undefined
         case successful
-        
+
         case valueIsInvalidFailure
         case valueIsBelowZeroFailure
         case stringIsEmpty

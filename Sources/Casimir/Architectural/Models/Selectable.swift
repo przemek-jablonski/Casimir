@@ -14,12 +14,12 @@ public extension Selectable {
         case .deselected(let model): return model
         }
     }
-    
+
     var selected: Bool {
         guard case .selected = self else { return false }
         return true
     }
-    
+
     init(_ model: Model, selected: Bool) {
         self = selected ? .selected(model) : .deselected(model)
     }
@@ -28,15 +28,15 @@ public extension Selectable {
 // MARK: - Mutators
 public extension Selectable {
     @discardableResult
-    mutating func mutate(_ mutations: (inout Self) -> ()) -> Self {
+    mutating func mutate(_ mutations: (inout Self) -> Void) -> Self {
         mutations(&self); return self
     }
-    
+
     @discardableResult
     mutating func mutate(selection: Bool) -> Self {
         mutate { $0 = .init($0.model, selected: selection) }
     }
-    
+
     @discardableResult
     mutating func toggle() -> Self {
         mutate(selection: !selected)
@@ -55,7 +55,7 @@ public extension Selectable {
         // TODO:
         self.init(.random, selected: .random())
     }
-    
+
     func encode(to encoder: Encoder) throws {
         // TODO:
         try model.encode(to: encoder)

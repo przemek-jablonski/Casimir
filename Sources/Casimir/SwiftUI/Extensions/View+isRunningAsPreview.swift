@@ -12,4 +12,3 @@ public func preconditionForRunningAsSwiftUIPreviewOnly() {
         "Precondition for running as SwiftUI preview was violated. Aborting."
     )
 }
-
