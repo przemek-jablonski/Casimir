@@ -1,40 +1,40 @@
 import XCTest
 @testable import Casimir
 
-final class ArrayRemoveDuplicatesTestCase: XCTestCase {
+final class ArrayremovingDuplicatesTestCase: XCTestCase {
     func test_removingDupesFromEmptyArray_shouldReturnEmptyArray() {
-        XCTAssertEqual([Int]().removeDuplicates(), [])
+        XCTAssertEqual([Int]().removingDuplicates(), [])
     }
 
     func test_removingDupesFromUniqueIntsArray_shouldNotChangeArrayElements() {
-        XCTAssertEqual([1, 3, 40, 35, 2, -1, 1000].removeDuplicates(), [1, 3, 40, 35, 2, -1, 1000])
+        XCTAssertEqual([1, 3, 40, 35, 2, -1, 1000].removingDuplicates(), [1, 3, 40, 35, 2, -1, 1000])
     }
 
-    func test_removingDupesFromIntsArrayWithOneDuplicate_shouldRemoveDuplicatesAndPreserveOrder() {
-        XCTAssertEqual([1, 3, 40, 35, 2, 2, -1, 1000].removeDuplicates(), [1, 3, 40, 35, 2, -1, 1000])
+    func test_removingDupesFromIntsArrayWithOneDuplicate_shouldremovingDuplicatesAndPreserveOrder() {
+        XCTAssertEqual([1, 3, 40, 35, 2, 2, -1, 1000].removingDuplicates(), [1, 3, 40, 35, 2, -1, 1000])
     }
 
-    func test_removingDupesFromIntsArrayWithMultipleDuplicates_shouldRemoveDuplicatesAndPreserveOrder() {
-        XCTAssertEqual([1, 3, 40, 35, 2, 2, 2, -1, 1000, 3, 1, 3].removeDuplicates(), [1, 3, 40, 35, 2, -1, 1000])
+    func test_removingDupesFromIntsArrayWithMultipleDuplicates_shouldremovingDuplicatesAndPreserveOrder() {
+        XCTAssertEqual([1, 3, 40, 35, 2, 2, 2, -1, 1000, 3, 1, 3].removingDuplicates(), [1, 3, 40, 35, 2, -1, 1000])
     }
 
-    func test_removingDupesFromIntsArrayWithDuplicatesOnly_shouldRemoveDuplicatesAndPreserveOrder() {
-        XCTAssertEqual([6, 6, 6].removeDuplicates(), [6])
+    func test_removingDupesFromIntsArrayWithDuplicatesOnly_shouldremovingDuplicatesAndPreserveOrder() {
+        XCTAssertEqual([6, 6, 6].removingDuplicates(), [6])
     }
 
     func test_removingDupesFromUniqueStringsArray_shouldNotChangeArrayElements() {
-        XCTAssertEqual(["b", "Lorem", "Ipsum", "a"].removeDuplicates(), ["b", "Lorem", "Ipsum", "a"])
+        XCTAssertEqual(["b", "Lorem", "Ipsum", "a"].removingDuplicates(), ["b", "Lorem", "Ipsum", "a"])
     }
 
-    func test_removingDupesFromStringsArrayWithOneDuplicate_shouldRemoveDuplicatesAndPreserveOrder() {
-        XCTAssertEqual(["b", "Lorem", "Ipsum", "a", "Lorem"].removeDuplicates(), ["b", "Lorem", "Ipsum", "a"])
+    func test_removingDupesFromStringsArrayWithOneDuplicate_shouldremovingDuplicatesAndPreserveOrder() {
+        XCTAssertEqual(["b", "Lorem", "Ipsum", "a", "Lorem"].removingDuplicates(), ["b", "Lorem", "Ipsum", "a"])
     }
 
-    func test_removingDupesFromStringsArrayWithMultipleDuplicates_shouldRemoveDuplicatesAndPreserveOrder() {
-        XCTAssertEqual(["b", "Lorem", "Ipsum", "a", "a", "Lorem", "a"].removeDuplicates(), ["b", "Lorem", "Ipsum", "a"])
+    func test_removingDupesFromStringsArrayWithMultipleDuplicates_shouldremovingDuplicatesAndPreserveOrder() {
+        XCTAssertEqual(["b", "Lorem", "Ipsum", "a", "a", "Lorem", "a"].removingDuplicates(), ["b", "Lorem", "Ipsum", "a"])
     }
 
-    func test_removingDupesFromStringsArrayWithDuplicatesOnly_shouldRemoveDuplicatesAndPreserveOrder() {
-        XCTAssertEqual(["6", "6", "6"].removeDuplicates(), ["6"])
+    func test_removingDupesFromStringsArrayWithDuplicatesOnly_shouldremovingDuplicatesAndPreserveOrder() {
+        XCTAssertEqual(["6", "6", "6"].removingDuplicates(), ["6"])
     }
 }
