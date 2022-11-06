@@ -11,6 +11,8 @@
 		1F4B922229186DFB006529CA /* CasimirPlaygroundUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4B922129186DFB006529CA /* CasimirPlaygroundUITests.swift */; };
 		1F4B922429186DFB006529CA /* CasimirPlaygroundUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4B922329186DFB006529CA /* CasimirPlaygroundUITestsLaunchTests.swift */; };
 		1F72523729186F0D00A19AB1 /* Casimir in Frameworks */ = {isa = PBXBuildFile; productRef = 1F72523629186F0D00A19AB1 /* Casimir */; };
+		1F72523929186F5800A19AB1 /* Testimir in Frameworks */ = {isa = PBXBuildFile; productRef = 1F72523829186F5800A19AB1 /* Testimir */; };
+		1F72523B29186F5B00A19AB1 /* Testimir in Frameworks */ = {isa = PBXBuildFile; productRef = 1F72523A29186F5B00A19AB1 /* Testimir */; };
 		1F9B49A829186C6E005EFC49 /* CasimirPlaygroundApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9B49A729186C6E005EFC49 /* CasimirPlaygroundApp.swift */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +49,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F72523929186F5800A19AB1 /* Testimir in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -54,6 +57,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F72523B29186F5B00A19AB1 /* Testimir in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -139,6 +143,9 @@
 				1F4B921729186DF4006529CA /* PBXTargetDependency */,
 			);
 			name = CasimirPlaygroundUnitTests;
+			packageProductDependencies = (
+				1F72523829186F5800A19AB1 /* Testimir */,
+			);
 			productName = CasimirPlaygroundUnitTests;
 			productReference = 1F4B921229186DF4006529CA /* CasimirPlaygroundUnitTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -157,6 +164,9 @@
 				1F4B922629186DFB006529CA /* PBXTargetDependency */,
 			);
 			name = CasimirPlaygroundUITests;
+			packageProductDependencies = (
+				1F72523A29186F5B00A19AB1 /* Testimir */,
+			);
 			productName = CasimirPlaygroundUITests;
 			productReference = 1F4B921F29186DFB006529CA /* CasimirPlaygroundUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
@@ -590,6 +600,14 @@
 		1F72523629186F0D00A19AB1 /* Casimir */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Casimir;
+		};
+		1F72523829186F5800A19AB1 /* Testimir */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Testimir;
+		};
+		1F72523A29186F5B00A19AB1 /* Testimir */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Testimir;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
