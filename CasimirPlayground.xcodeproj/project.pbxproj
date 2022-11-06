@@ -10,6 +10,7 @@
 		1F4B921529186DF4006529CA /* CasimirPlaygroundUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4B921429186DF4006529CA /* CasimirPlaygroundUnitTests.swift */; };
 		1F4B922229186DFB006529CA /* CasimirPlaygroundUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4B922129186DFB006529CA /* CasimirPlaygroundUITests.swift */; };
 		1F4B922429186DFB006529CA /* CasimirPlaygroundUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4B922329186DFB006529CA /* CasimirPlaygroundUITestsLaunchTests.swift */; };
+		1F72523729186F0D00A19AB1 /* Casimir in Frameworks */ = {isa = PBXBuildFile; productRef = 1F72523629186F0D00A19AB1 /* Casimir */; };
 		1F9B49A829186C6E005EFC49 /* CasimirPlaygroundApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9B49A729186C6E005EFC49 /* CasimirPlaygroundApp.swift */; };
 /* End PBXBuildFile section */
 
@@ -36,6 +37,7 @@
 		1F4B921F29186DFB006529CA /* CasimirPlaygroundUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CasimirPlaygroundUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F4B922129186DFB006529CA /* CasimirPlaygroundUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CasimirPlaygroundUITests.swift; sourceTree = "<group>"; };
 		1F4B922329186DFB006529CA /* CasimirPlaygroundUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CasimirPlaygroundUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		1F72523429186F0300A19AB1 /* Casimir */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Casimir; sourceTree = "<group>"; };
 		1F9B49A429186C6E005EFC49 /* CasimirPlayground.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CasimirPlayground.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F9B49A729186C6E005EFC49 /* CasimirPlaygroundApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CasimirPlaygroundApp.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -59,6 +61,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F72523729186F0D00A19AB1 /* Casimir in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -82,13 +85,22 @@
 			path = CasimirPlaygroundUITests;
 			sourceTree = "<group>";
 		};
+		1F72523529186F0D00A19AB1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		1F9B499B29186C6E005EFC49 = {
 			isa = PBXGroup;
 			children = (
+				1F72523429186F0300A19AB1 /* Casimir */,
 				1F9B49A629186C6E005EFC49 /* CasimirPlayground */,
 				1F4B921329186DF4006529CA /* CasimirPlaygroundUnitTests */,
 				1F4B922029186DFB006529CA /* CasimirPlaygroundUITests */,
 				1F9B49A529186C6E005EFC49 /* Products */,
+				1F72523529186F0D00A19AB1 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -162,6 +174,9 @@
 			dependencies = (
 			);
 			name = CasimirPlayground;
+			packageProductDependencies = (
+				1F72523629186F0D00A19AB1 /* Casimir */,
+			);
 			productName = CasimirPlayground;
 			productReference = 1F9B49A429186C6E005EFC49 /* CasimirPlayground.app */;
 			productType = "com.apple.product-type.application";
@@ -570,6 +585,13 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		1F72523629186F0D00A19AB1 /* Casimir */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Casimir;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 1F9B499C29186C6E005EFC49 /* Project object */;
 }
