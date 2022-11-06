@@ -16,7 +16,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        xcode: ['14.1', '14.0.1', '13.2.1']
+        xcode: ['14.1', '14.0.1', '13.2.1', '12.4']
         macos: ['macos-12', 'macos-11']
         scheme: ['Casimir']
         command: ['test']
@@ -27,9 +27,14 @@ jobs:
             xcode: '14.1'
           - macos: 'macos-11'
             xcode: '14.0.1'
+          - macos: 'macos-12'
+            xcode: '12.4'
           # excluding matrix entries with invalid OS version
           - macos: 'macos-11'
             xcode: '13.2.1'
+            platform: 'macOS'
+          - macos: 'macos-11'
+            xcode: '12.4'
             platform: 'macOS'
     steps:
     - name: Switch xcode to ${{ matrix.xcode }}
