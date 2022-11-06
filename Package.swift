@@ -1,4 +1,4 @@
-// swift-tools-version:5.5.0
+// swift-tools-version:5.4.2
 // The swift-tools-version declares the minimum version of Swift required to build this package.
 
 import PackageDescription
@@ -14,7 +14,15 @@ let package = Package(
     products: [
         .library(
             name: "Casimir",
-            targets: ["Casimir"]
+            targets: [
+                "Casimir"
+            ]
+        ),
+        .library(
+            name: "Testimir",
+            targets: [
+                "Casimir"
+            ]
         )
     ],
     dependencies: [
@@ -29,13 +37,22 @@ let package = Package(
             dependencies: [
                 .product(name: "CombineExt", package: "CombineExt"),
                 .product(name: "SwiftyBeaver", package: "SwiftyBeaver"),
-                .product(name: "EntwineTest", package: "Entwine"),
+                .product(name: "Entwine", package: "Entwine"),
                 .product(name: "SwiftUIX", package: "SwiftUIX")
+            ]
+        ),
+        .target(
+            name: "Testimir",
+            dependencies: [
+                .product(name: "Casimir", package: "Casimir"),
+                .product(name: "EntwineTest", package: "Entwine")
             ]
         ),
         .testTarget(
             name: "CasimirTests",
-            dependencies: ["Casimir"]
+            dependencies: [
+                "Casimir"
+            ]
         )
     ]
 )
