@@ -1,4 +1,4 @@
-// swift-tools-version:5.4.2
+// swift-tools-version:5.5.0
 // The swift-tools-version declares the minimum version of Swift required to build this package.
 
 import PackageDescription
@@ -21,7 +21,7 @@ let package = Package(
         .library(
             name: "Testimir",
             targets: [
-                "Casimir"
+                "Testimir"
             ]
         )
     ],
@@ -44,14 +44,15 @@ let package = Package(
         .target(
             name: "Testimir",
             dependencies: [
-                .product(name: "Casimir", package: "Casimir"),
+                "Casimir",
                 .product(name: "EntwineTest", package: "Entwine")
             ]
         ),
         .testTarget(
             name: "CasimirTests",
             dependencies: [
-                "Casimir"
+                "Casimir",
+                "Testimir"
             ]
         )
     ]
