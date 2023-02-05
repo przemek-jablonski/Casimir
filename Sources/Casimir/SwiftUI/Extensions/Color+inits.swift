@@ -23,7 +23,13 @@ public extension Color {
                 }
             }
         }
-        //        log.error(self, Architecture.ApplicationError.unableToSynthesizeColorFromHex(hex))
         self.init(red: 1.0, green: 0.35, blue: 0.5)
     }
+}
+
+@available(iOS 15, *)
+public extension Color {
+  init(_ uiColor: UIColor) {
+    self.init(uiColor: uiColor)
+  }
 }
