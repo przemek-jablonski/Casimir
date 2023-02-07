@@ -29,6 +29,9 @@ public extension Color {
 
 #if canImport(UIKit)
 @available(iOS 15, *)
+@available(macCatalyst, introduced: 15.0)
+@available(watchOS 8.0, *)
+@available(tvOS 15.0, *)
 public extension Color {
   init(_ uiColor: UIColor) {
     self.init(uiColor: uiColor)
