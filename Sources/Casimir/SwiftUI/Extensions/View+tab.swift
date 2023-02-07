@@ -1,16 +1,15 @@
-import SFSafeSymbols
 import SwiftUI
 
 public extension View {
     func tab<Tab: Hashable>(
         _ tag: Tab,
-        symbol: SFSymbol,
+        image: Image,
         title: LocalizedString
     ) -> some View {
         self.tag(tag)
             .tabItem {
                 VStack {
-                    Image(systemSymbol: symbol)
+                    image
                     Text(title.asIs)
                 }
             }
