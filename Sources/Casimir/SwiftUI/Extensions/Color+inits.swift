@@ -27,9 +27,11 @@ public extension Color {
     }
 }
 
+#if canImport(UIKit)
 @available(iOS 15, *)
 public extension Color {
   init(_ uiColor: UIColor) {
     self.init(uiColor: uiColor)
   }
 }
+#endif
