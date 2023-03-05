@@ -1,5 +1,7 @@
 import Foundation
 
+// TODO: remove
+
 public extension Double {
     static var goldenRatio: Double = 1.618
 }
