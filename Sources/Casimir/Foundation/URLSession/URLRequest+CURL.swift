@@ -4,7 +4,7 @@ public extension URLRequest {
     /**
      This `URLRequest` in the form of `curl` command, ready to use in the terminal.
      
-     - Note: Doing `po request.curl` via xcode will add escaping (`\` for every `'` and `"`) - remove manually.
+     - Note: Doing `po request.curl` via xcode console will add escaping (`\` for every `'` and `"`) - needs to be removed manually (or get used to it lol).
      */
     var curl: String {
         let newLine = ""
