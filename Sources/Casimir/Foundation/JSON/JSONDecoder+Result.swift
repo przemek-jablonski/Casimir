@@ -1,11 +1,10 @@
 import Foundation
 
 public extension JSONDecoder {
-    func decode<Target: Decodable>(to type: Target.Type, from data: Data) -> Result<Target, Error> {
-        do {
-            return .success(try decode(type, from: data))
-        } catch {
-            return .failure(error)
-        }
-    }
+  /**
+   Attempts to decode given `data` into object of `Target` type. Returns `Result`.
+   */
+  func decode<Target: Decodable>(_ type: Target.Type, from data: Data) -> Result<Target, Error> {
+    Result { try self.decode(type, from: data) }
+  }
 }

@@ -24,7 +24,7 @@ public extension Result {
    Returns a new `Result`, mapping any success value using the given `async` transformation.
    */
   func map<NewSuccess>(
-    async transform: (Success) async -> NewSuccess
+    _ transform: (Success) async -> NewSuccess
   ) async -> Result<NewSuccess, Failure> {
     switch self {
       case .success(let success): return await .success(transform(success))
@@ -36,7 +36,7 @@ public extension Result {
    Returns a new `Result`, mapping any failure using the given `async` transformation.
    */
   func mapError<NewFailure: Error>(
-    async transform: (Failure) async -> NewFailure
+    _ transform: (Failure) async -> NewFailure
   ) async -> Result<Success, NewFailure> {
     switch self {
       case .success(let success): return .success(success)
@@ -52,7 +52,7 @@ public extension Result {
    Returns a new `Result`, mapping any success value using the given `async` transformation and unwrapping the produced result.
   */
   func flatMap<NewSuccess>(
-    async transform: (Success) async -> Result<NewSuccess, Failure>
+    _ transform: (Success) async -> Result<NewSuccess, Failure>
   ) async -> Result<NewSuccess, Failure> {
     switch self {
       case .success(let success): return await transform(success)
@@ -64,7 +64,7 @@ public extension Result {
    Returns a new `Result`, mapping any failure value using the given `async` transformation and unwrapping the produced result.
    */
   func flatMapError<NewFailure>(
-    async transform: (Failure) async -> Result<Success, NewFailure>
+    _ transform: (Failure) async -> Result<Success, NewFailure>
   ) async -> Result<Success, NewFailure> {
     switch self {
       case .success(let success): return .success(success)
