@@ -35,7 +35,7 @@ public extension URLRequest {
         )
       }
   }
-  
+
   /**
    Constructs the `URLRequest` with given parameters or fails with typed `URLRequestConstructionError`.
    */
@@ -46,22 +46,22 @@ public extension URLRequest {
     queryItems: [String: String] = [:],
     body: Data? = nil
   ) -> Result<Self, ConstructionError> {
-    
+
     guard let urlComponents = URLComponents(url: url, queryItems: queryItems) else {
       return .failure(.constructingURLComponentsWithQueryItemsFailure(url: url, queryItems: queryItems))
     }
-    
+
     guard let url = urlComponents.url else {
       return .failure(.extractingURLFromURLComponentsFailure(url: url, queryItems: queryItems))
     }
-    
+
     var request = URLRequest(url: url)
     request.httpMethod = httpMethod.rawValue
-    
+
     headers.forEach {
       request.addValue($0.value, forHTTPHeaderField: $0.key)
     }
-    
+
     return .success(request)
   }
 }

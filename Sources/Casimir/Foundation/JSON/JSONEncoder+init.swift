@@ -13,27 +13,27 @@ public extension JSONEncoder {
     userInfo: [CodingUserInfoKey: Any]? = nil
   ) {
     self.init()
-    
+
     if let dateEncodingStrategy {
       self.dateEncodingStrategy = dateEncodingStrategy
     }
-    
+
     if let keyEncodingStrategy {
       self.keyEncodingStrategy = keyEncodingStrategy
     }
-    
+
     if let dataEncodingStrategy {
       self.dataEncodingStrategy = dataEncodingStrategy
     }
-    
+
     if let outputFormatting {
       self.outputFormatting = outputFormatting
     }
-    
+
     if let nonConformingFloatEncodingStrategy {
       self.nonConformingFloatEncodingStrategy = nonConformingFloatEncodingStrategy
     }
-    
+
     if let userInfo {
       self.userInfo = userInfo
     }

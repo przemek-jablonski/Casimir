@@ -36,7 +36,7 @@ public extension URLSession {
         .mapError(HTTPNetworkRequestError.httpError)
     }
   }
-  
+
   /**
    Performs a HTTP network request `url`, after attempting to construct the request with given function arguments.
    */

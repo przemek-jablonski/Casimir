@@ -15,7 +15,7 @@ public extension URLSession {
 public extension URLSession {
   typealias DataTaskResponse = (response: Data, request: URLRequest, metadata: URLResponse)
   typealias DataTaskHTTPResponse = (response: Data, request: URLRequest, metadata: HTTPURLResponse)
-  
+
   /**
    Convenience method for async loading of `Data` using `URLSessionDataTask`.
    Returns `Result` type with typed error of type `DataTaskHTTPError`.
@@ -36,11 +36,11 @@ private extension Result<URLSession.DataTaskResponse, URLSession.DataTaskHTTPErr
       guard let metadata = metadata as? HTTPURLResponse else {
         return .failure(.serverReturnedNonHTTPContent)
       }
-      
+
       guard (200..<300) ~= metadata.statusCode else {
         return .failure(.serverReturnedInvalidStatusCode(code: metadata.statusCode))
       }
-      
+
       return .success((response, request, metadata))
     }
   }

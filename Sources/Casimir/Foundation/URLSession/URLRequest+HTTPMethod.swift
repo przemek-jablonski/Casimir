@@ -12,19 +12,19 @@ public extension URLRequest {
     case options
     case trace
     case custom(String)
-    
+
     var rawValue: String {
       switch self {
-        case .get: return "GET"
-        case .post: return "POST"
-        case .put: return "PUT"
-        case .patch: return "PATCH"
-        case .delete: return "DELETE"
-        case .connect: return "CONNECT"
-        case .head: return "HEAD"
-        case .options: return "OPTIONS"
-        case .trace: return "TRACE"
-        case .custom(let string): return string
+      case .get: return "GET"
+      case .post: return "POST"
+      case .put: return "PUT"
+      case .patch: return "PATCH"
+      case .delete: return "DELETE"
+      case .connect: return "CONNECT"
+      case .head: return "HEAD"
+      case .options: return "OPTIONS"
+      case .trace: return "TRACE"
+      case .custom(let string): return string
       }
     }
   }

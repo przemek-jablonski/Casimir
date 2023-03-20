@@ -1,5 +1,8 @@
 import Foundation
 
+// swiftlint:disable force_unwrapping
+// swiftlint:disable no_magic_numbers
+
 public enum LoremIpsum {}
 
 // swiftlint:disable:next line_length
@@ -16,26 +19,26 @@ public extension LoremIpsum {
     LoremIpsum
       .words
       .filter({ $0.count > 4 })
-      .randomElement()!
+      .random
       .filter({ CharacterSet.letters.contains($0.unicodeScalars.first!) })
       .uppercasedFirst
   }
-  
+
   static var short: String {
     (1...3)
       .map({ _ in LoremIpsum.words.random.filter({ CharacterSet.letters.contains($0.unicodeScalars.first!) }) })
       .joined(separator: ", ")
       .uppercasedFirst
   }
-  
+
   static var regular: String {
     (4...9)
       .map({ _ in LoremIpsum.words.random.filter({ CharacterSet.letters.contains($0.unicodeScalars.first!) }) })
       .joined(separator: ", ")
       .uppercasedFirst
-    + "."
+      + "."
   }
-  
+
   static var long: String {
     let random = LoremIpsum.sentences.random
     if !CharacterSet.letters.contains(random.last!.unicodeScalars.first!) {
@@ -43,13 +46,13 @@ public extension LoremIpsum {
     }
     return random + "."
   }
-  
+
   static var extraLong: String {
     (2...3)
       .map({ _ in LoremIpsum.long })
       .joined(separator: " ")
   }
-  
+
   static var extraExtraLong: String {
     (3...5)
       .map({ _ in LoremIpsum.long })

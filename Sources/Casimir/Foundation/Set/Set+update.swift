@@ -8,16 +8,16 @@ public extension Set where Element: CustomDebugStringConvertible {
       failure(GenericError(description: "Unable to find index for element (\(element.debugDescription))"))
       return
     }
-    
+
     guard var removedElement = remove(foundIndex) else {
       failure(GenericError(description: "Unable to remove element at index (\(foundIndex)) (\(element.debugDescription))"))
       return
     }
-    
+
     closure(&removedElement)
     insert(removedElement)
   }
-  
+
   @discardableResult
   mutating func reinsert(_ element: Element, at index: Set<Element>.Index) -> Self {
     _ = remove(index)

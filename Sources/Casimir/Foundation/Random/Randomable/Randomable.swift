@@ -6,7 +6,7 @@ public protocol Randomable {
    Generates single random instance of given type.
    */
   static var random: Self { get }
-  
+
   /**
    Generates array of random instances of given type.
    */

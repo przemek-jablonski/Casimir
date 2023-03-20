@@ -3,7 +3,7 @@ import Foundation
 public extension URLComponents {
   /**
    Convenience initializer where URL components can be expressed inline, as init arguments.
-   
+
    - Note: If configuration of `url` and `queryItems` is conflicting with values passed in `port`, `scheme`, `user` or `password`
    then the latter parameters are taking precedence.
    */
@@ -24,10 +24,10 @@ public extension URLComponents {
       password: password
     )
   }
-  
+
   /**
    Convenience initializer where URL components can be expressed inline, as init arguments.
-   
+
    - Note: If configuration of `url` and `queryItems` is conflicting with values passed in `port`, `scheme`, `user` or `password`
    then the latter parameters are taking precedence.
    */

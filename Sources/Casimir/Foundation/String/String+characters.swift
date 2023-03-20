@@ -1,3 +1,3 @@
 public extension String {
-    var characters: [Character] { Array(self) }
+  var characters: [Character] { Array(self) }
 }

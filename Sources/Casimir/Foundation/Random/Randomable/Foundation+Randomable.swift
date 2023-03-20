@@ -23,7 +23,7 @@ extension String: Randomable {
 }
 
 extension Character: Randomable {
-  public static var random: Self { LoremIpsum.random.characters.first! }
+  public static var random: Self { LoremIpsum.random.characters.first ?? "a" }
 }
 
 extension Range: Randomable where Bound: Randomable {
@@ -40,28 +40,30 @@ extension Dictionary: Randomable where Key: Randomable, Value: Randomable {
   }
 }
 
-// TODO: Set
+// TODO: Implement Set+randoms
 
-//public extension Range: where Bound == Double {
+// public extension Range: where Bound == Double {
 //  static var random: Range<Double> { (0.00..<Int.max.double) }
-//}
+// }
 //
-//public extension Range where Bound == Float {
+// public extension Range where Bound == Float {
 //  static var random: Range<Float> { (0.00..<Int.max.float) }
-//}
+// }
 //
-//public extension Range where Bound == Int {
+// public extension Range where Bound == Int {
 //  static var random: Range<Int> { (0..<Int.max) }
-//}
+// }
+
+// TODO: Implement Array + randoms
 extension Array: Randomable where Element: Randomable {
-  // TODO:
+  //
 }
 
-//public extension Array where Element == String {
+// public extension Array where Element == String {
 //  public var random: Element { randomElement() ?? safeGet(index: 0) ?? "" }
-//}
+// }
 
-//extension URL: Randomable {
+// extension URL: Randomable {
 //  public static var random: Self {
 //    [
 //      "https://google.com",
@@ -73,4 +75,4 @@ extension Array: Randomable where Element: Randomable {
 //      .compactMap(\.url)
 //      .first!
 //  }
-//}
+// }

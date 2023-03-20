@@ -1,7 +1,7 @@
 import Foundation
 
 public extension Date {
-    var unixTimestamp: UnixTimestamp {
-        timeIntervalSince1970
-    }
+  var unixTimestamp: UnixTimestamp {
+    timeIntervalSince1970
+  }
 }

@@ -9,7 +9,6 @@
  */
 public typealias ModelProtocol = Hashable & Codable & Identifiable & Randomable
 
-
 /**
  Base protocol to which all proper Error should conform to for scalability and maintenance reasons.
  Conformances:
