@@ -1,3 +1,6 @@
+/**
+ Signifies ability to quickly generate random/mock instances of given class for realtime mocking.
+ */
 public protocol RandomableCollection: Collection where Element: Randomable {
   /**
    Returns single random element from given collection instance.

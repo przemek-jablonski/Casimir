@@ -19,9 +19,11 @@ public extension Binding {
 }
 
 public extension NavigationLink {
-  init<Selected>(isSelected: Binding<Selected?>,
-                 label: Label,
-                 destination: @escaping () -> Destination) {
+  init<Selected>(
+    isSelected: Binding<Selected?>,
+    label: Label,
+    destination: @escaping () -> Destination
+  ) {
     self.init(destination: destination(), isActive: isSelected.navigationBinding(), label: { label })
   }
 }
