@@ -10,4 +10,4 @@ import Foundation
  - `Randomable` -> easy realtime mocking eg. for `PreviewProvider`
  - `Equatable` (implicitly) -> providing equality checking
  */
-public typealias ErrorProtocol = Error & Equatable & Randomable & CaseIterable
+public typealias ErrorProtocol = Error & Equatable & Randomable

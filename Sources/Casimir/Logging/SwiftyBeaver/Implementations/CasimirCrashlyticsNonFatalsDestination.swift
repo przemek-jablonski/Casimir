@@ -19,13 +19,15 @@ public final class CasimirCrashlyticsNonFatalsDestination: CasimirBaseDestinatio
     configure(&format)
   }
 
-  public override func send(_ level: SwiftyBeaver.Level,
-                            msg: String,
-                            thread: String,
-                            file: String,
-                            function: String,
-                            line: Int,
-                            context: Any? = nil) -> String? {
+  public override func send(
+    _ level: SwiftyBeaver.Level,
+    msg: String,
+    thread: String,
+    file: String,
+    function: String,
+    line: Int,
+    context: Any? = nil
+  ) -> String? {
     if loggingLevelThreshold <= level,
        let string = super.send(
         level,

@@ -29,7 +29,8 @@ public final class CasimirCrashlyticsLoggingDestination: BaseDestination, Casimi
     file: String,
     function: String,
     line: Int,
-    context: Any? = nil) -> String? {
+    context: Any? = nil
+  ) -> String? {
     if loggingLevelThreshold <= level,
        let string = super.send(
         level,

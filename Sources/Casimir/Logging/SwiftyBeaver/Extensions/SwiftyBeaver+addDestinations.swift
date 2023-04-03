@@ -2,7 +2,9 @@
 import SwiftyBeaver
 
 public extension SwiftyBeaver {
-  static func addDestinations(_ destinations: BaseDestination...) {
+  static func addDestinations(
+    _ destinations: BaseDestination...
+  ) {
     destinations.forEach({ SwiftyBeaver.addDestination($0) })
   }
 }

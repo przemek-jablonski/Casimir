@@ -18,11 +18,11 @@ public extension URLRequest {
   static func construct(
     requestTo url: String,
     using httpMethod: HTTPMethod,
-    headers: [String: String] = [:],
-    queryItems: [String: String] = [:],
+    headers: [String: String]? = nil,
+    queryItems: [String: String]? = nil,
     encoding body: Encodable? = nil,
     using jsonEncoder: JSONEncoder
-  ) -> Result<Self, ConstructionError> {
+  ) -> Result<URLRequest, ConstructionError> {
     Result { try body?.data(using: jsonEncoder) }
       .mapError(ConstructionError.encodingRequestBodyFailure(error: ))
       .flatMap { data in
@@ -36,31 +36,48 @@ public extension URLRequest {
       }
   }
 
+  // TODO: TEST THIS
+  // [:] should become nil
   /**
    Constructs the `URLRequest` with given parameters or fails with typed `URLRequestConstructionError`.
    */
   static func construct(
     requestTo url: String,
     using httpMethod: HTTPMethod,
-    headers: [String: String] = [:],
-    queryItems: [String: String] = [:],
+    headers: [String: String]? = nil,
+    queryItems: [String: String]? = nil,
     body: Data? = nil
-  ) -> Result<Self, ConstructionError> {
+  ) -> Result<URLRequest, ConstructionError> {
 
     guard let urlComponents = URLComponents(url: url, queryItems: queryItems) else {
-      return .failure(.constructingURLComponentsWithQueryItemsFailure(url: url, queryItems: queryItems))
+      return .failure(
+        .constructingURLComponentsWithQueryItemsFailure(
+          url: url,
+          queryItems: queryItems ?? [:]
+        )
+      )
     }
 
     guard let url = urlComponents.url else {
-      return .failure(.extractingURLFromURLComponentsFailure(url: url, queryItems: queryItems))
+      return .failure(
+        .extractingURLFromURLComponentsFailure(
+          url: url,
+          queryItems: queryItems ?? [:]
+        )
+      )
     }
 
     var request = URLRequest(url: url)
     request.httpMethod = httpMethod.rawValue
 
-    headers.forEach {
-      request.addValue($0.value, forHTTPHeaderField: $0.key)
-    }
+    headers?
+      .compactMap { $0 }
+      .forEach {
+        request.addValue(
+          $0.value,
+          forHTTPHeaderField: $0.key
+        )
+      }
 
     return .success(request)
   }

@@ -3,15 +3,15 @@ import Foundation
 // TODO: search for all "random" properties and get them together here
 
 extension Double: Randomable {
-  public static var random: Self { .random(in: Range.random) }
+  public static var random: Self { .random(in: -.infinity...infinity) }
 }
 
 extension Float: Randomable {
-  public static var random: Self { .random(in: Range.random) }
+  public static var random: Self { .random(in: -.infinity...infinity) }
 }
 
 extension Int: Randomable {
-  public static var random: Self { .random(in: Range.random) }
+  public static var random: Self { .random(in: .min...max) }
 }
 
 extension Bool: Randomable {
@@ -36,7 +36,7 @@ extension Range: Randomable where Bound: Randomable {
 
 extension Dictionary: Randomable where Key: Randomable, Value: Randomable {
   public static var random: Self {
-    Dictionary(uniqueKeysWithValues: zip(Key.randoms, Value.randoms))
+    Dictionary(uniqueKeysWithValues: zip(Key.randoms.removingDuplicates(), Value.randoms))
   }
 }
 
@@ -63,16 +63,18 @@ extension Array: Randomable where Element: Randomable {
 //  public var random: Element { randomElement() ?? safeGet(index: 0) ?? "" }
 // }
 
-// extension URL: Randomable {
-//  public static var random: Self {
-//    [
-//      "https://google.com",
-//      "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
-//      "https://picsum.photos/id/870/200/300?grayscale&blur=2",
-//      "https://i.redd.it/vwlgciqshjp41.jpg"
-//    ]
-//      .random
-//      .compactMap(\.url)
-//      .first!
-//  }
-// }
+extension URL: Randomable {
+  public static var random: Self {
+    URL(
+      string: [
+        "https://google.com",
+        "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+        "https://picsum.photos/id/870/200/300?grayscale&blur=2",
+        "https://i.redd.it/vwlgciqshjp41.jpg",
+        "https://en.wikipedia.org/wiki/Lorem_ipsum"
+      ]
+      .random
+      // swiftlint:disable:next force_unwrapping
+    )!
+  }
+}

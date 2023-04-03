@@ -59,6 +59,24 @@ public extension Int64 {
   var int: Int { Int(self) }
 }
 
+public extension Int {
+  var uInt16: UInt16 { UInt16(self) }
+  var uInt32: UInt32 { UInt32(self) }
+  var uInt64: UInt64 { UInt64(self) }
+}
+
+public extension UInt16 {
+  var int: Int { Int(self) }
+}
+
+public extension UInt32 {
+  var int: Int { Int(self) }
+}
+
+public extension UInt64 {
+  var int: Int { Int(self) }
+}
+
 // MARK: CGFloat
 
 public extension CGFloat {

@@ -10,6 +10,7 @@ public extension URLSession {
   }
 }
 
+// TODO: Logging should be configurable
 public extension URLSession {
   /**
    Performs a HTTP network request to given `url`, after attempting to construct the request with given function arguments.
@@ -22,19 +23,17 @@ public extension URLSession {
     encoding body: Encodable? = nil,
     using jsonEncoder: JSONEncoder
   ) async -> Result<DataTaskHTTPResponse, HTTPNetworkRequestError> {
-    await URLRequest.construct(
-      requestTo: url,
-      using: httpMethod,
-      headers: headers,
-      queryItems: queryItems,
-      encoding: body,
-      using: jsonEncoder
+    await perform(
+      request:
+        URLRequest.construct(
+          requestTo: url,
+          using: httpMethod,
+          headers: headers,
+          queryItems: queryItems,
+          encoding: body,
+          using: jsonEncoder
+        )
     )
-    .mapError(HTTPNetworkRequestError.requestConstructionError)
-    .flatMap { urlRequest in
-      await self.data(urlRequest)
-        .mapError(HTTPNetworkRequestError.httpError)
-    }
   }
 
   /**
@@ -47,17 +46,30 @@ public extension URLSession {
     queryItems: [String: String] = [:],
     body: Data? = nil
   ) async -> Result<DataTaskHTTPResponse, HTTPNetworkRequestError> {
-    await URLRequest.construct(
-      requestTo: url,
-      using: httpMethod,
-      headers: headers,
-      queryItems: queryItems,
-      body: body
+    await perform(
+      request:
+        URLRequest.construct(
+          requestTo: url,
+          using: httpMethod,
+          headers: headers,
+          queryItems: queryItems,
+          body: body
+        )
     )
-    .mapError(HTTPNetworkRequestError.requestConstructionError)
-    .flatMap { urlRequest in
-      await self.data(urlRequest)
-        .mapError(HTTPNetworkRequestError.httpError)
-    }
+  }
+}
+
+private extension URLSession {
+  func perform(
+    request: Result<URLRequest, URLRequest.ConstructionError>
+  ) async -> Result<DataTaskHTTPResponse, HTTPNetworkRequestError> {
+    await request
+      .logRequest()
+      .mapError(HTTPNetworkRequestError.requestConstructionError)
+      .flatMap { urlRequest in
+        await self.data(urlRequest)
+          //          .logResponse()
+          .mapError(HTTPNetworkRequestError.httpError)
+      }
   }
 }
