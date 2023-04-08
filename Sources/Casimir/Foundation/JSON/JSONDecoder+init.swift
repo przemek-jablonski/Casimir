@@ -1,7 +1,10 @@
 import Foundation
 
+// swiftlint:disable discouraged_optional_boolean
 @available(iOS 15.0, *)
 @available(macOS 12.0, *)
+@available(tvOS 15.0, *)
+@available(watchOS 8.0, *)
 public extension JSONDecoder {
   /**
    Initializes `JSONDecoder`, optionally applying additional settings fetched from `init` parameters.
@@ -32,6 +35,9 @@ public extension JSONDecoder {
 }
 
 public extension JSONDecoder {
+  /**
+   Initializes `JSONDecoder`, optionally applying additional settings fetched from `init` parameters.
+   */
   convenience init(
     dateDecodingStrategy: JSONDecoder.DateDecodingStrategy? = nil,
     keyDecodingStrategy: JSONDecoder.KeyDecodingStrategy? = nil,
@@ -57,3 +63,5 @@ public extension JSONDecoder {
     }
   }
 }
+
+// swiftlint:enable discouraged_optional_boolean

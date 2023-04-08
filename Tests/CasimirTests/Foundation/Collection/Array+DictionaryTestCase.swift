@@ -21,7 +21,7 @@ final class ArrayToDictionaryConversionTestCase: XCTestCase {
       resultsIn: [
         dummy0.id: dummy0,
         dummy1.id: dummy1,
-        dummy2.id: dummy2,
+        dummy2.id: dummy2
       ]
     )
   }
@@ -47,17 +47,43 @@ final class ArrayToDictionaryConversionTestCase: XCTestCase {
       resultsIn: [
         dummy0.id: dummy0,
         dummy1.id: dummy1,
-        dummy2.id: dummy2Duplicate,
+        dummy2.id: dummy2Duplicate
       ]
     )
   }
 
-  func test_convertingArrayWithSharedIdToDictionary_shouldResultInEmptyDictionary() {
+  func test_convertingArrayWithSharedIdToDictionary_shouldResultInOneElementDictionary() {
+    struct DummyIdentifiable: Identifiable, Equatable {
+      let id: Int
+      let string: String
+    }
 
+    let dummy0 = DummyIdentifiable(id: 0, string: "dummy0")
+    let dummy1 = DummyIdentifiable(id: 0, string: "dummy1")
+    let dummy2 = DummyIdentifiable(id: 0, string: "dummy2")
+
+    performDictionaryConversion(
+      from: [
+        dummy0,
+        dummy1,
+        dummy2
+      ],
+      resultsIn: [
+        dummy2.id: dummy2
+      ]
+    )
   }
 
   func test_convertingEmptyArrayToDictionary_shouldResultInEmptyDictionary() {
+    struct DummyIdentifiable: Identifiable, Equatable {
+      let id: Int
+      let string: String
+    }
 
+    performDictionaryConversion(
+      from: [DummyIdentifiable](),
+      resultsIn: [DummyIdentifiable.ID: DummyIdentifiable]()
+    )
   }
 }
 
