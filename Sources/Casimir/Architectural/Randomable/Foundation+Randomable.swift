@@ -3,11 +3,11 @@ import Foundation
 // TODO: search for all "random" properties and get them together here
 
 extension Double: Randomable {
-  public static var random: Self { .random(in: -.infinity...infinity) }
+  public static var random: Self { .random(in: Int.min.double...Int.max.double) }
 }
 
 extension Float: Randomable {
-  public static var random: Self { .random(in: -.infinity...infinity) }
+  public static var random: Self { .random(in: Int.min.float...Int.max.float) }
 }
 
 extension Int: Randomable {
