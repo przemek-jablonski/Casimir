@@ -5,10 +5,10 @@ import PackageDescription
 let package = Package(
   name: "Casimir",
   platforms: [
-    .iOS(.v14),
-    .watchOS(.v7),
-    .tvOS(.v14),
-    .macOS(.v11)
+    .iOS(.v15),
+    .watchOS(.v8),
+    .tvOS(.v15),
+    .macOS(.v12)
   ],
   products: [
     .library(
