@@ -1,3 +1,4 @@
+ENV["SCAN_DERIVED_DATA_PATH"] = '~/Library/Developer/Xcode/DerivedData'
 
 ############################## LIFECYCLE ##############################
 
@@ -20,25 +21,18 @@ lane :run_unit_tests do |options|
   # if not configuration = options[:configuration] then missing_property_error(property_name: 'configuration', options: options) end
   
   # ensure_xcode_version(version: options[:xcode])
-
-  spm(
-    command: 'test',
-    enable_code_coverage: 'true',
+  scan(
+    workspace: 'Casimir.xcworkspace',
     configuration: 'debug',
-    #xcpretty_output: 'test',
-    #verbose: 'true'
+    destination: 
+    # sdk: 'appletvos16.4',
+    clean: true,
+    ensure_devices_found: true,
+    code_coverage: true,
+    result_bundle: true,
+    output_types: "", 
+    output_directory: "./.build/results/scan-",
   )
-
-  # scan(
-  #   scheme: 'Casimir',
-  #   # configuration: configuration,
-  #   clean: true,
-  #   ensure_devices_found: true,
-  #   code_coverage: true,
-  #   result_bundle: true,
-  #   output_types: "", 
-  #   output_directory: "./results/"
-  # )
 end
 
 ############################## PRIVATE LANES (FUNCTIONS) ##############################
