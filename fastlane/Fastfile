@@ -1,0 +1,59 @@
+
+############################## LIFECYCLE ##############################
+
+before_all do |lane, options|
+  ensure_bundle_exec
+  UI.message 'Options:'
+  UI.message options.keys.sort
+  UI.message 'Environment:'
+  UI.message ENV.keys.sort
+  # set_en_locale()
+  # set_xcode(xcode: options[:xcode])
+end
+
+############################## PUBLIC LANES ##############################
+
+lane :run_unit_tests do |options|
+  # if not project = options[:project] then missing_property_error(property_name: 'project', options: options) end
+  # if not scheme = options[:scheme] then missing_property_error(property_name: 'scheme', options: options) end
+  # if not xcode = options[:xcode] then missing_property_error(property_name: 'xcode', options: options) end
+  # if not configuration = options[:configuration] then missing_property_error(property_name: 'configuration', options: options) end
+  
+  # ensure_xcode_version(version: options[:xcode])
+
+  spm(
+    command: 'test',
+    enable_code_coverage: 'true',
+    configuration: 'debug',
+    #xcpretty_output: 'test',
+    #verbose: 'true'
+  )
+
+  # scan(
+  #   scheme: 'Casimir',
+  #   # configuration: configuration,
+  #   clean: true,
+  #   ensure_devices_found: true,
+  #   code_coverage: true,
+  #   result_bundle: true,
+  #   output_types: "", 
+  #   output_directory: "./results/"
+  # )
+end
+
+############################## PRIVATE LANES (FUNCTIONS) ##############################
+
+# private_lane :
+
+############################## UTILITIES ##############################
+private_lane :throw_missing_property_error do |options|
+  UI.error "Options:"
+  UI.error options
+  UI.error "Missing property: #{options[:property_name]}"
+  UI.user_error! "Options are missing property '#{options[:property_name]}'. Consider adding the '#{options[:property_name]}:<value>' part to the 'bundle exec fastlane <lane>' command, so that it becomes 'bundle exec fastlane <lane> #{options[:property_name]}:<value>'."
+end
+
+private_lane :throw_missing_env_var_error do |options|
+  UI.message 'https://docs.fastlane.tools/actions/environment_variable/'
+  UI.user_error! "Environment (env var) is missing required environment variable #{options[:property_name]}. Consider adding it to the ENV dictionary."
+end
