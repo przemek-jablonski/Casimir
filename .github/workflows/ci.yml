@@ -33,7 +33,7 @@ jobs:
             platform: 'macOS'
     steps:
     - name: Switch xcode to ${{ matrix.xcode }}
-      uses: maxim-lobanov/setup-xcode@v1.2.3
+      uses: maxim-lobanov/setup-xcode@v1.5.1
       with:
         xcode-version: ${{ matrix.xcode }}
     - name: Double-check macOS version (${{ matrix.macos }})
@@ -48,7 +48,7 @@ jobs:
       run: xcodebuild -list
     - name: Show eligible build destinations for ${{ matrix.scheme }}
       run: xcodebuild -showdestinations -scheme ${{ matrix.scheme }}
-    - uses: mxcl/xcodebuild@v1.9.2
+    - uses: mxcl/xcodebuild@v2.0.0
       with:
         platform: ${{ matrix.platform }}
         scheme: ${{ matrix.scheme }}
