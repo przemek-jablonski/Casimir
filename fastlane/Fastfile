@@ -24,14 +24,18 @@ lane :run_unit_tests do |options|
   scan(
     workspace: 'Casimir.xcworkspace',
     configuration: 'debug',
-    destination: 
+    scheme: 'Casimir',
+    # destination: '{ platform:watchOS Simulator, id:925EA5C9-BC86-41BB-A1FA-60FB46C93751, OS:9.4, name:Apple Watch Ultra (49mm) }',
+    #destination: 'id=925EA5C9-BC86-41BB-A1FA-60FB46C93751',
+    destination: "id=F92E5B4C-3514-475C-BBF6-29E30FDB207F",
     # sdk: 'appletvos16.4',
+    sdk: 'iphoneos16.4',
     clean: true,
     ensure_devices_found: true,
     code_coverage: true,
     result_bundle: true,
     output_types: "", 
-    output_directory: "./.build/results/scan-",
+    output_directory: "./.build/results/scan",
   )
 end
 
