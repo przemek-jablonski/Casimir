@@ -14,6 +14,10 @@ extension Int: Randomable {
   public static var random: Self { .random(in: .min...max) }
 }
 
+extension UUID: Randomable {
+  public static var random: Self { UUID() }
+}
+
 extension Bool: Randomable {
   public static var random: Self { .random() }
 }

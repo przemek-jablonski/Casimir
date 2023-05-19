@@ -28,6 +28,7 @@ extension Result where Success == URLSession.DataTaskHTTPResponse, Failure == UR
         debugPrint(error)
       case .success(let response):
         debugPrint(response)
+        debugPrint(response.response.prettyPrinted)
       }
     }
     #else

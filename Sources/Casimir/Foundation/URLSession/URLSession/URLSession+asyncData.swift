@@ -27,6 +27,7 @@ public extension URLSession {
       .map { (data, urlResponse) in (data, urlRequest, urlResponse) }
       .mapError { DataTaskHTTPError.internalNetworkClientFailure($0) }
       .processHTTPResponse()
+      .logResponse()
   }
 }
 
