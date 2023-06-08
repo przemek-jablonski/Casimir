@@ -26,14 +26,14 @@ final class ArraySafeGetTestCase: XCTestCase {
       let wrapped2: String
     }
 
-    let dummyObject = DummyStruct(wrapped1: .random, wrapped2: .random)
+    let dummyObject = DummyStruct(wrapped1: .random(), wrapped2: .random())
 
     performSafeGet(
       on: [
-        DummyStruct(wrapped1: .random, wrapped2: .random),
+        DummyStruct(wrapped1: .random(), wrapped2: .random()),
         dummyObject,
-        DummyStruct(wrapped1: .random, wrapped2: .random),
-        DummyStruct(wrapped1: .random, wrapped2: .random)
+        DummyStruct(wrapped1: .random(), wrapped2: .random()),
+        DummyStruct(wrapped1: .random(), wrapped2: .random())
       ],
       index: 1,
       assertions: { _, _, result in
@@ -48,14 +48,14 @@ final class ArraySafeGetTestCase: XCTestCase {
       let wrapped2: String
     }
 
-    let dummyObject = DummyStruct(wrapped1: .random, wrapped2: .random)
+    let dummyObject = DummyStruct(wrapped1: .random(), wrapped2: .random())
 
     performSafeGet(
       on: [
-        DummyStruct(wrapped1: .random, wrapped2: .random),
-        DummyStruct(wrapped1: .random, wrapped2: .random),
+        DummyStruct(wrapped1: .random(), wrapped2: .random()),
+        DummyStruct(wrapped1: .random(), wrapped2: .random()),
         dummyObject,
-        DummyStruct(wrapped1: .random, wrapped2: .random)
+        DummyStruct(wrapped1: .random(), wrapped2: .random())
       ],
       index: 2,
       assertions: { _, _, result in

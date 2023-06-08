@@ -60,6 +60,7 @@ public extension Int64 {
 }
 
 public extension Int {
+  var uInt8: UInt8 { UInt8(self) }
   var uInt16: UInt16 { UInt16(self) }
   var uInt32: UInt32 { UInt32(self) }
   var uInt64: UInt64 { UInt64(self) }

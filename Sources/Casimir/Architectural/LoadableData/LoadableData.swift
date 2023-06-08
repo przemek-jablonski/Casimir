@@ -13,21 +13,21 @@ public enum LoadableData<Model: Equatable>: Equatable {
 
   public var loaded: Void? {
     switch self {
-    case .loaded(let data):
-      return ()
-    //        return data
-    default:
-      return nil
+      case .loaded(_):
+        return ()
+        //        return data
+      default:
+        return nil
     }
   }
 
   public var failure: Void? {
     switch self {
-    case .failure(let error):
-      return ()
-    //        return error
-    default:
-      return nil
+      case .failure(_):
+        return ()
+        //        return error
+      default:
+        return nil
     }
   }
 
@@ -36,14 +36,14 @@ public enum LoadableData<Model: Equatable>: Equatable {
     rhs: LoadableData<Model>
   ) -> Bool {
     switch (lhs, rhs) {
-    case (.loading, .loading):
-      return true
-    case (.loaded(let lhs), .loaded(let rhs)):
-      return lhs == rhs
-    case (.failure(let lhs), .failure(let rhs)):
-      return lhs.localizedDescription == rhs.localizedDescription
-    default:
-      return false
+      case (.loading, .loading):
+        return true
+      case (.loaded(let lhs), .loaded(let rhs)):
+        return lhs == rhs
+      case (.failure(let lhs), .failure(let rhs)):
+        return lhs.localizedDescription == rhs.localizedDescription
+      default:
+        return false
     }
   }
 }
@@ -54,8 +54,10 @@ public enum GenericLoadError: ErrorProtocol {
 }
 
 extension GenericLoadError {
-  public static var random: GenericLoadError {
-    .genericError(EmptyError())
+  public static func random(
+    _ randomNumberGenerator: inout RandomNumberGenerator
+  ) -> Self {
+    .genericError(GenericError(description: .random(&randomNumberGenerator)))
   }
 
   public static func == (lhs: GenericLoadError, rhs: GenericLoadError) -> Bool {

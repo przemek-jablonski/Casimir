@@ -22,7 +22,7 @@ public protocol RandomableCollection: Collection where Element: Randomable {
 
 extension Array: RandomableCollection where Element: Randomable {
   public var random: Element {
-    randomElement() ?? Element.random
+    randomElement() ?? Element.random()
   }
 
   public var randomChunk: [Element] {

@@ -23,14 +23,17 @@ open class MapViewCoordinator: NSObject, MKMapViewDelegate {
   public var annotationSelectionSpan = MKCoordinateSpan(latitudeDelta: 16, longitudeDelta: 16)
   public var annotationDeselectionSpanMultiplier = 1.25
 
-  internal init(visibleRegion: Binding<MKCoordinateRegion>? = nil,
-                annotationViewClosure: MapViewCoordinator.AnnotationViewDelegate? = nil,
-                annotationSelectionChanged: MapViewCoordinator.AnnotationSelectionDelegate? = nil,
-                regionDidChange: MapViewCoordinator.RegionDidChangeDelegate? = nil,
-                loadingStatus: MapViewCoordinator.LoadingStatusDelegate? = nil,
-                renderingDidFinish: MapViewCoordinator.RenderingDidFinishDelegate? = nil,
-                annotationSelectionSpan: MKCoordinateSpan = MKCoordinateSpan(latitudeDelta: 16, longitudeDelta: 16),
-                annotationDeselectionSpanMultiplier: Double = 1.25) {
+  internal init(
+    visibleRegion: Binding<MKCoordinateRegion>? = nil,
+    annotationViewClosure: MapViewCoordinator.AnnotationViewDelegate? = nil,
+    annotationSelectionChanged: MapViewCoordinator.AnnotationSelectionDelegate? = nil,
+    regionDidChange: MapViewCoordinator.RegionDidChangeDelegate? = nil,
+    loadingStatus: MapViewCoordinator.LoadingStatusDelegate? = nil,
+    renderingDidFinish: MapViewCoordinator.RenderingDidFinishDelegate? = nil,
+    annotationSelectionSpan: MKCoordinateSpan = MKCoordinateSpan(latitudeDelta: 16,
+    longitudeDelta: 16),
+    annotationDeselectionSpanMultiplier: Double = 1.25
+  ) {
     self._visibleRegion = visibleRegion ?? .constant(.init())
     self.annotationViewClosure = annotationViewClosure
     self.annotationSelectionChanged = annotationSelectionChanged

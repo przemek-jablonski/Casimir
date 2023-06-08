@@ -44,20 +44,36 @@ public extension Selectable {
 }
 
 // MARK: - ModelProtocol conformance
-public extension Selectable {
-  var id: Model.ID { model.id }
-  static var random: Selectable<Model> { Selectable(Model.random, selected: .random()) }
+extension Selectable {
+  public var id: Model.ID { model.id }
+  public static func random(
+    _ randomNumberGenerator: inout RandomNumberGenerator
+  ) -> Selectable<Model> {
+    Selectable(
+      .random(&randomNumberGenerator),
+      selected: .random(using: &randomNumberGenerator)
+    )
+  }
 }
 
 // MARK: - Codable conformance (inferred from ModelProtocol)
-public extension Selectable {
-  init(from decoder: Decoder) throws {
+extension Selectable {
+  public init(
+    from decoder: Decoder
+  ) throws {
     // TODO:
-    self.init(.random, selected: .random())
+    self.init(
+      .random(),
+      selected: .random()
+    )
   }
 
-  func encode(to encoder: Encoder) throws {
+  public func encode(
+    to encoder: Encoder
+  ) throws {
     // TODO:
-    try model.encode(to: encoder)
+    try model.encode(
+      to: encoder
+    )
   }
 }

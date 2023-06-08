@@ -8,9 +8,9 @@ final class ArrayToDictionaryConversionTestCase: XCTestCase {
       let string: String
     }
 
-    let dummy0 = DummyIdentifiable(id: 0, string: .random)
-    let dummy1 = DummyIdentifiable(id: 1, string: .random)
-    let dummy2 = DummyIdentifiable(id: 2, string: .random)
+    let dummy0 = DummyIdentifiable(id: 0, string: .random())
+    let dummy1 = DummyIdentifiable(id: 1, string: .random())
+    let dummy2 = DummyIdentifiable(id: 2, string: .random())
 
     performDictionaryConversion(
       from: [
