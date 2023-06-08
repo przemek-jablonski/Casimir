@@ -9,7 +9,7 @@ public protocol RandomableCollection: Collection where Element: Randomable {
    using static `Randomable.random` property.
    - Note: To prevent "fake" element synthesis in above scenario, use `randomElement()` function from Swift's standard library.
    */
-  var random: Element { get }
+  func random() -> Element
 
   /**
    Returns random chunk of elements from given collection instance.
@@ -17,15 +17,15 @@ public protocol RandomableCollection: Collection where Element: Randomable {
    - Note: Do note that due to the randomness nature of this property, it may exhibit some corner cases on runtime, eg. returned chunk may be empty or
    may be exactly the same length as original collection etc.
    */
-  var randomChunk: [Element] { get }
+  func randomChunk() -> [Element]
 }
 
 extension Array: RandomableCollection where Element: Randomable {
-  public var random: Element {
+  public func random() -> Element {
     randomElement() ?? Element.random()
   }
 
-  public var randomChunk: [Element] {
+  public func randomChunk() -> [Element] {
     self.shuffled() // TODO:
   }
 }

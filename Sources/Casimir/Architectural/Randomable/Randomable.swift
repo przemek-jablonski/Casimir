@@ -16,7 +16,7 @@ public protocol Randomable {
    Generates single random instance of given type. Uses system's default `RandomNumberGenerator`to seed randomness.
    */
   static func random() -> Self
-  
+
   /**
    Generates array of random instances of given type.
 
@@ -52,5 +52,5 @@ public extension Randomable {
     return Self.randoms(&randomNumberGenerator)
   }
 
-  var random: Self { Self.random() }
+  func random() -> Self { Self.random() }
 }

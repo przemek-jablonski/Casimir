@@ -25,28 +25,28 @@ extension LoremIpsum {
     LoremIpsum
       .words
       .filter({ $0.count > 4 })
-      .random
+      .random()
       .filter({ CharacterSet.letters.contains($0.unicodeScalars.first!) })
       .uppercasedFirst
   }
 
   public static var short: String {
     (1...3)
-      .map({ _ in LoremIpsum.words.random.filter({ CharacterSet.letters.contains($0.unicodeScalars.first!) }) })
+      .map({ _ in LoremIpsum.words.random().filter({ CharacterSet.letters.contains($0.unicodeScalars.first!) }) })
       .joined(separator: ", ")
       .uppercasedFirst
   }
 
   public static var regular: String {
     (4...9)
-      .map({ _ in LoremIpsum.words.random.filter({ CharacterSet.letters.contains($0.unicodeScalars.first!) }) })
+      .map({ _ in LoremIpsum.words.random().filter({ CharacterSet.letters.contains($0.unicodeScalars.first!) }) })
       .joined(separator: ", ")
       .uppercasedFirst
       + "."
   }
 
   public static var long: String {
-    let random = LoremIpsum.sentences.random
+    let random = LoremIpsum.sentences.random()
     if !CharacterSet.letters.contains(random.last!.unicodeScalars.first!) {
       return random.dropLast() + "."
     }

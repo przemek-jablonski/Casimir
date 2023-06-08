@@ -31,7 +31,7 @@ open class MapViewCoordinator: NSObject, MKMapViewDelegate {
     loadingStatus: MapViewCoordinator.LoadingStatusDelegate? = nil,
     renderingDidFinish: MapViewCoordinator.RenderingDidFinishDelegate? = nil,
     annotationSelectionSpan: MKCoordinateSpan = MKCoordinateSpan(latitudeDelta: 16,
-    longitudeDelta: 16),
+                                                                 longitudeDelta: 16),
     annotationDeselectionSpanMultiplier: Double = 1.25
   ) {
     self._visibleRegion = visibleRegion ?? .constant(.init())

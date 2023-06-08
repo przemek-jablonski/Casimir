@@ -5,6 +5,6 @@ extension LocalizedString: Randomable {
     String.random(&randomNumberGenerator).localized
   }
 
-//  public static var random: LocalizedString { String.random.localized }
-//  public static var randomShort: LocalizedString { LoremIpsum.short.localized }
+  //  public static var random: LocalizedString { String.random.localized }
+  //  public static var randomShort: LocalizedString { LoremIpsum.short.localized }
 }

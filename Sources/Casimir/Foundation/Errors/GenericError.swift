@@ -3,7 +3,7 @@
 
  Can be used in places where usage of objects conforming to the `Error` protocol is required, but creating unique, dedicated error type is unecessary.
  */
-public struct GenericError: Error {
+public struct GenericError: Error, Randomable {
   public let description: String
   public var localizedDescription: String {
     description
@@ -21,5 +21,13 @@ public struct GenericError: Error {
    */
   public init(unimplemented: Void = ()) {
     self.description = "unimplemented"
+  }
+}
+
+extension GenericError {
+  public static func random(
+    _ randomNumberGenerator: inout RandomNumberGenerator
+  ) -> Self {
+    GenericError(description: .random(&randomNumberGenerator))
   }
 }

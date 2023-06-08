@@ -84,6 +84,7 @@ extension Bool: Randomable {
 
 // MARK: - Additional types support
 extension URL: Randomable {
+  // swiftlint:disable force_unwrapping
   public static func random(
     _ randomNumberGenerator: inout RandomNumberGenerator
   ) -> URL {
@@ -93,8 +94,9 @@ extension URL: Randomable {
       "https://picsum.photos/id/870/200/300?grayscale&blur=2",
       "https://i.redd.it/vwlgciqshjp41.jpg",
       "https://en.wikipedia.org/wiki/Lorem_ipsum"
-    ].randomElement(using: &randomNumberGenerator)!.url!
+    ].random().url!
   }
+  // swiftlint:enable force_unwrapping
 }
 
 extension Data: Randomable {
@@ -154,13 +156,12 @@ extension Set: Randomable where Element: Randomable {
 extension Dictionary: Randomable where Key: Randomable, Value: Randomable {
   public static func random(
     _ randomNumberGenerator: inout RandomNumberGenerator
-  ) -> Self {
-    Dictionary.init(
-      uniqueKeysWithValues: zip(
-        Key.randoms(&randomNumberGenerator).set,
-        Value.randoms(&randomNumberGenerator)
-      )
+  ) -> Self {Dictionary(
+    uniqueKeysWithValues: zip(
+      Key.randoms(&randomNumberGenerator).set,
+      Value.randoms(&randomNumberGenerator)
     )
+  )
   }
 }
 
@@ -175,6 +176,7 @@ extension Range: Randomable where Bound: Randomable {
 }
 
 extension Locale: Randomable {
+  // swiftlint:disable force_unwrapping
   public static func random(
     _ randomNumberGenerator: inout RandomNumberGenerator
   ) -> Locale {
@@ -185,4 +187,5 @@ extension Locale: Randomable {
         )!
     )
   }
+  // swiftlint:enable force_unwrapping
 }
