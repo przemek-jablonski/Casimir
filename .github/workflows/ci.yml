@@ -21,16 +21,11 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        xcode: ['14.2', '14.0.1']
-        macos: ['macos-12', 'macos-11']
+        xcode: ['14.2']
+        macos: ['macos-12']
         scheme: ['Casimir']
         command: ['test']
         platform: ['macOS', 'iOS', 'tvOS', 'watchOS']
-        exclude:
-          - macos: 'macos-11'
-            xcode: '14.2'
-          - macos: 'macos-11'
-            xcode: '14.0.1'
     steps:
     - name: Switch xcode to ${{ matrix.xcode }}
       uses: maxim-lobanov/setup-xcode@v1.5.1
