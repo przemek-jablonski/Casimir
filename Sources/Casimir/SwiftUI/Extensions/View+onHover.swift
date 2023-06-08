@@ -6,7 +6,7 @@ import SwiftUI
 @available(tvOS, unavailable)
 @available(watchOS, unavailable)
 public extension View {
-    func onHover(toggling: Binding<Bool>) -> some View {
-        onHover { toggling.wrappedValue = $0 }
-    }
+  func onHover(toggling: Binding<Bool>) -> some View {
+    onHover { toggling.wrappedValue = $0 }
+  }
 }

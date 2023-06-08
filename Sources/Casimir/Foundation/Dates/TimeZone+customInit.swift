@@ -1,11 +1,9 @@
 import Foundation
 
-public extension TimeZone {
-    init() {
-        self.init(secondsFromGMT: 0)!
-    }
+// swiftlint:disable force_unwrapping
 
-    static var gmt0: TimeZone {
-        TimeZone(secondsFromGMT: 0)!
-    }
+public extension TimeZone {
+  static var gmt0: TimeZone {
+    TimeZone(secondsFromGMT: 0)!
+  }
 }

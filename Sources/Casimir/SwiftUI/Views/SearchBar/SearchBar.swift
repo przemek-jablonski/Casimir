@@ -17,41 +17,41 @@ import UIKit
 
 public class SearchBar: NSObject, UISearchResultsUpdating, ObservableObject {
 
-    @Published public var text: String = ""
+  @Published public var text: String = ""
 
-    private let searchController: UISearchController = UISearchController(searchResultsController: nil)
+  private let searchController: UISearchController = UISearchController(searchResultsController: nil)
 
-    public override init() {
-        super.init()
-        self.searchController.obscuresBackgroundDuringPresentation = false
-        self.searchController.searchResultsUpdater = self
+  public override init() {
+    super.init()
+    self.searchController.obscuresBackgroundDuringPresentation = false
+    self.searchController.searchResultsUpdater = self
+  }
+
+  public func updateSearchResults(for searchController: UISearchController) {
+    if let searchBarText = searchController.searchBar.text {
+      self.text = searchBarText
     }
-
-    public func updateSearchResults(for searchController: UISearchController) {
-        if let searchBarText = searchController.searchBar.text {
-            self.text = searchBarText
-        }
-    }
+  }
 }
 
 public extension SearchBar {
-    struct Modifier: ViewModifier {
-        let searchBar: SearchBar
-        public func body(content: Content) -> some View {
-            content
-                .overlay(
-                    ViewControllerResolver { viewController in
-                        viewController.navigationItem.searchController = self.searchBar.searchController
-                    }
-                    .frame(width: 0, height: 0)
-                )
-        }
+  struct Modifier: ViewModifier {
+    let searchBar: SearchBar
+    public func body(content: Content) -> some View {
+      content
+        .overlay(
+          ViewControllerResolver { viewController in
+            viewController.navigationItem.searchController = self.searchBar.searchController
+          }
+          .frame(width: 0, height: 0)
+        )
     }
+  }
 }
 
 public extension View {
-    func add(_ searchBar: SearchBar) -> some View {
-        self.modifier(SearchBar.Modifier(searchBar: searchBar))
-    }
+  func add(_ searchBar: SearchBar) -> some View {
+    self.modifier(SearchBar.Modifier(searchBar: searchBar))
+  }
 }
 #endif

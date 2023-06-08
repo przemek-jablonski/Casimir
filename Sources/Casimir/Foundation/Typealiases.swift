@@ -1,5 +1,7 @@
 import Foundation
 
+// TODO: this all is a bad idea
+
 // Files
 public typealias FileNameNoExtension = String
 public typealias AssetNameNoExtension = String

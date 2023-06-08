@@ -53,11 +53,11 @@ Enable testing library (`Testimir`):
 
 ## Platform Availability
 
- iOS 14.0</br>
- iPadOS 14.0</br>
- tvOS 14.0</br>
- macOS 11.0</br>
- watchOS 7.0</br>
+ iOS 15.0</br>
+ iPadOS 15.0</br>
+ tvOS 15.0</br>
+ macOS 12.0</br>
+ watchOS 8.0</br>
 
 also compliant with  Mac Catalyst
 
