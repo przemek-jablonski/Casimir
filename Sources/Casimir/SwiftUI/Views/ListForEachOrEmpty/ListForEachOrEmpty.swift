@@ -36,13 +36,11 @@ where Data: RandomAccessCollection, Data.Element: Identifiable, Id == Data.Eleme
 
 private extension ListForEachOrEmpty {
   private var emptyView: some View {
-    GeometryReader { geometry in
-      FullScreenView(basedOn: geometry) {
-        self.empty.frame(maxWidth: .infinity,
-                         maxHeight: .infinity,
-                         alignment: .center)
-      }
-    }
+    empty.frame(
+      maxWidth: .infinity,
+      maxHeight: .infinity,
+      alignment: .center
+    )
   }
 
   private var listForEach: some View {
