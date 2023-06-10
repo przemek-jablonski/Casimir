@@ -2,12 +2,13 @@ import Combine
 import CoreData
 
 public extension NSManagedObjectContext {
-
   /**
    Returns internal publisher (`ManagedObjectChangesPublisher`) delivering changes of elements
    from given fetch request over time.
    */
-  func changesPublisher<T: NSManagedObject>(from fetchRequest: NSFetchRequest<T>)
+  func changesPublisher<T: NSManagedObject>(
+    from fetchRequest: NSFetchRequest<T>
+  )
   -> ContextChangesPublisher<T> {
     ContextChangesPublisher(fetchRequest: fetchRequest, context: self)
   }
@@ -17,7 +18,9 @@ public extension NSManagedObjectContext {
    So, when fetch request update is triggered, underlying publisher publishes new event in which CHANGES
    of the collection are described (as in `CollectionDifference` protocol).
    */
-  func changes<T: NSManagedObject>(from fetchRequest: NSFetchRequest<T>)
+  func changes<T: NSManagedObject>(
+    from fetchRequest: NSFetchRequest<T>
+  )
   -> AnyPublisher<CollectionDifference<T>, Error> {
     changesPublisher(from: fetchRequest)
       .eraseToAnyPublisher()
@@ -28,8 +31,9 @@ public extension NSManagedObjectContext {
    So, when fetch request update is triggered, underlying publisher publishes new event
    in which new state of element collection is described.
    */
-  func updates<T: NSManagedObject>(from fetchRequest: NSFetchRequest<T>)
-  -> AnyPublisher<[T], Error> {
+  func updates<T: NSManagedObject>(
+    from fetchRequest: NSFetchRequest<T>
+  ) -> AnyPublisher<[T], Error> {
     changes(from: fetchRequest)
       .prepend([])
       .scan([]) { current, updates in
@@ -57,16 +61,25 @@ public struct ContextChangesPublisher<T: NSManagedObject>: Publisher {
   public typealias Output = CollectionDifference<T>
   public typealias Failure = Error
 
-  let fetchRequest: NSFetchRequest<T>
-  let context: NSManagedObjectContext
+  internal let fetchRequest: NSFetchRequest<T>
+  internal let context: NSManagedObjectContext
 
-  init(fetchRequest: NSFetchRequest<T>, context: NSManagedObjectContext) {
+  public init(
+    fetchRequest: NSFetchRequest<T>,
+    context: NSManagedObjectContext
+  ) {
     self.fetchRequest = fetchRequest
     self.context = context
   }
 
-  public func receive<S: Subscriber>(subscriber: S) where Failure == S.Failure, Output == S.Input {
-    let inner = Inner(downstream: subscriber, fetchRequest: fetchRequest, context: context)
+  public func receive<S: Subscriber>(
+    subscriber: S
+  ) where Failure == S.Failure, Output == S.Input {
+    let inner = Inner(
+      downstream: subscriber,
+      fetchRequest: fetchRequest,
+      context: context
+    )
     subscriber.receive(subscription: inner)
   }
 

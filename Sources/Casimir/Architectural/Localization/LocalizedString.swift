@@ -12,34 +12,68 @@ public struct LocalizedString {
   internal let string: String
   internal let error: Error?
 
+  /**
+   Returns string with all uppercase characters replaced with lowercased ones.
+   ```
+   "a regular string".lowercased --> "a regular string"
+   "A regular String".lowercased --> "a regular string"
+   "A Regular String".lowercased --> "a regular string"
+   "A REGULAR STRING".lowercased --> "a regular string"
+   ```
+   */
   public var lowercased: String {
     string.localizedLowercase
   }
 
-  // TODO: check usages of .localized.uppercased, because using this in my case is probably a mistake
+  /**
+   Returns string with all lowercase characters replaced with uppercased ones.
+   ```
+   "a regular string".lowercased --> "A REGULAR STRING"
+   "A regular String".lowercased --> "A REGULAR STRING"
+   "A Regular String".lowercased --> "A REGULAR STRING"
+   "A REGULAR STRING".lowercased --> "A REGULAR STRING"
+   ```
+   */
   public var uppercased: String {
     string.localizedUppercase
   }
 
+  /**
+   Returns string with all words starting with uppercase letter.
+   ```
+   "a regular string".lowercased --> "A Regular String"
+   "A regular String".lowercased --> "A Regular String"
+   "A Regular String".lowercased --> "A Regular String"
+   "A REGULAR STRING".lowercased --> "A Regular String"
+   ```
+   */
   public var capitalizedAllWords: String {
     string.localizedCapitalized.capitalized
   }
 
+  /**
+   Returns string with first character always uppercased.
+   ```
+   "a regular string".lowercased --> "A regular string"
+   "A regular String".lowercased --> "A regular string"
+   "A Regular String".lowercased --> "A regular string"
+   "A REGULAR STRING".lowercased --> "A regular string"
+   ```
+   */
   public var capitalized: String {
     string.uppercasedFirst
   }
 
+  /**
+   Returns string with no modifications.
+   ```
+   "a regular string".lowercased --> "a regular string"
+   "A regular String".lowercased --> "A regular String"
+   "A Regular String".lowercased --> "A Regular String"
+   "A REGULAR STRING".lowercased --> "A REGULAR STRING"
+   ```
+   */
   public var asIs: String {
     string
-  }
-}
-
-extension LocalizedString: Hashable {
-  public static func == (lhs: LocalizedString, rhs: LocalizedString) -> Bool {
-    lhs.string == rhs.string
-  }
-
-  public func hash(into hasher: inout Hasher) {
-    hasher.combine(string)
   }
 }

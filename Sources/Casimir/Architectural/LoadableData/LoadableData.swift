@@ -1,6 +1,8 @@
 import Foundation
 
-/// Wrapper for a set of data (models), meant to represent common data fetching states in type-safe way.
+/**
+ Wrapper for a set of data (models), meant to represent common data fetching states in type-safe way.
+ */
 public enum LoadableData<Model: Equatable>: Equatable {
   case loading
   case loaded(_ data: Model)
@@ -51,16 +53,13 @@ public enum LoadableData<Model: Equatable>: Equatable {
 public enum GenericLoadError: ErrorProtocol {
   case genericError(Error)
 
-}
+  public static func == (lhs: GenericLoadError, rhs: GenericLoadError) -> Bool {
+    lhs.localizedDescription == rhs.localizedDescription
+  }
 
-extension GenericLoadError {
   public static func random(
     _ randomNumberGenerator: inout RandomNumberGenerator
   ) -> Self {
     .genericError(GenericError(description: .random(&randomNumberGenerator)))
-  }
-
-  public static func == (lhs: GenericLoadError, rhs: GenericLoadError) -> Bool {
-    lhs.localizedDescription == rhs.localizedDescription
   }
 }

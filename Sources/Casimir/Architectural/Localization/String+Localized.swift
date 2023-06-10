@@ -1,11 +1,16 @@
 import Foundation
 
 public extension String {
+  /**
+   Returns the `LocalizedString`, treating the original String value as the localization key.
+   This method always returns value - if given key couldn't be found, then returned `LocalizedString` contains requested key.
+   The error is propagated through the `LocalizationError` API.
+   */
   var localized: LocalizedString {
     var localizedString = NSLocalizedString(self, comment: "")
     var error: LocalizationError?
-    if let localizationError = validateLocalized(string: localizedString, for: self) {
 
+    if let localizationError = validateLocalized(string: localizedString, for: self) {
       if isRunningAsSwiftUIPreview() {
         localizedString = self
       } else {
@@ -19,11 +24,21 @@ public extension String {
     return LocalizedString(string: localizedString, error: error)
   }
 
-  func localized(_ formattingArguments: String...) -> LocalizedString {
+  /**
+   Returns the `LocalizedString`, treating the original String value as the localization key, with `formattingArguments` used to format the result.
+   */
+  func localized(
+    _ formattingArguments: String...
+  ) -> LocalizedString {
     localized(unsafelyFormattedWith: formattingArguments)
   }
 
-  func localized(unsafelyFormattedWith formattingArguments: [CVarArg]) -> LocalizedString {
+  /**
+   Returns the `LocalizedString`, treating the original String value as the localization key, with `formattingArguments` used to format the result.
+   */
+  func localized(
+    unsafelyFormattedWith formattingArguments: [CVarArg]
+  ) -> LocalizedString {
     let localizedString = self.localized
     return LocalizedString(
       string: String(format: localizedString.string, arguments: formattingArguments),
