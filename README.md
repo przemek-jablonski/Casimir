@@ -1,7 +1,7 @@
 # Casimir
 > "Met it wooden 🪵 and made it brickwalled 🧱" (Casimir the Great)
 
-Complex extension suite for rapid development using the multiplatform Apple Stack (SwiftUI, Combine)
+Prebuilt and prepackaged code suite for rapid development using the multiplatform Apple Stack (SwiftUI, Combine, Concurrency)
 
 </br>
 
@@ -24,7 +24,7 @@ Add dependency to the project:
 ```swift
 dependencies: [
     ...
-    .package(url: "https://github.com/przemek-jablonski/Casimir.git", exact: "latest-tag-here")
+    .package(url: "https://github.com/przemek-jablonski/Casimir.git", exact: "6.0.0")
 ]
 ```
 
@@ -62,12 +62,3 @@ Enable testing library (`Testimir`):
 also compliant with  Mac Catalyst
 
 </br>
-
-## Configure Casimir as a global import
-
-1. Create new Objective-C header file (`.h`),
-2. Add `#import <Casimir/Casimir.h>` at the very top,
-3. Go to Project's `Build Settings`, set tab to `All | Combined`,
-4. In section `Swift Compiler - General` find entry `Objective-C Bridging Header` and add your new Header file (if placed in main project folder, then `appname/AppName-BridgingHeader.h`),
-5. Ensure that this entry is added for both `Debug` and `Release` and that `Precompile Bridging Header` is set to `YES`,
-6. Done!
