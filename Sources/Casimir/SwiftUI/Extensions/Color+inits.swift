@@ -1,6 +1,10 @@
 import SwiftUI
 
+// swiftlint:disable no_magic_numbers
 public extension Color {
+  /**
+   Creates a color from the hex, represented as a `hex` string.
+   */
   init(hex: String) {
     let red, green, blue: Double
 
@@ -26,6 +30,7 @@ public extension Color {
     self.init(red: 1.0, green: 0.35, blue: 0.5)
   }
 }
+// swiftlint:enable no_magic_numbers
 
 #if canImport(UIKit)
 @available(iOS 15, *)
@@ -33,8 +38,15 @@ public extension Color {
 @available(watchOS 8.0, *)
 @available(tvOS 15.0, *)
 public extension Color {
-  init(_ uiColor: UIColor) {
-    self.init(uiColor: uiColor)
+  /**
+   Creates a color from the hex, represented as a `hex` string.
+   */
+  init(
+    _ uiColor: UIColor
+  ) {
+    self.init(
+      uiColor: uiColor
+    )
   }
 }
 #endif

@@ -93,7 +93,7 @@ internal final class MKCoordinateSpanMathTestCase: XCTestCase {
     XCTAssertEqual(modifiedSpan.latitudeDelta, originalSpan.latitudeDelta / modificationValue)
   }
 
-  func test_comparingTwoSpans_resultsInAverageDeltasBeingCompared() {
+  internal func test_comparingTwoSpans_resultsInAverageDeltasBeingCompared() {
     let spanALatitudeDelta = 0.double
     let spanALongitudeDelta = 100.double
     let spanA = MKCoordinateSpan(

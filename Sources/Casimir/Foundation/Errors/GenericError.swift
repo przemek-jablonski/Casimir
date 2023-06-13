@@ -24,8 +24,8 @@ public struct GenericError: Error, Randomable {
   }
 }
 
-extension GenericError {
-  public static func random(
+public extension GenericError {
+  static func random(
     _ randomNumberGenerator: inout RandomNumberGenerator
   ) -> Self {
     GenericError(description: .random(&randomNumberGenerator))

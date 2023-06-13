@@ -1,8 +1,8 @@
 import Casimir
 import XCTest
 
-final class ArrayToDictionaryConversionTestCase: XCTestCase {
-  func test_convertingMultiElementArrayToDictionary_shouldResultInValidDictionary() {
+internal final class ArrayToDictionaryConversionTestCase: XCTestCase {
+  internal func test_convertingMultiElementArrayToDictionary_shouldResultInValidDictionary() {
     struct DummyIdentifiable: Identifiable, Equatable {
       let id: Int
       let string: String
@@ -26,7 +26,7 @@ final class ArrayToDictionaryConversionTestCase: XCTestCase {
     )
   }
 
-  func test_convertingMultiElementArrayWithDuplicatedIdsToDictionary_shouldResultInValidDictionary() {
+  internal func test_convertingMultiElementArrayWithDuplicatedIdsToDictionary_shouldResultInValidDictionary() {
     struct DummyIdentifiable: Identifiable, Equatable {
       let id: Int
       let string: String
@@ -52,7 +52,7 @@ final class ArrayToDictionaryConversionTestCase: XCTestCase {
     )
   }
 
-  func test_convertingArrayWithSharedIdToDictionary_shouldResultInOneElementDictionary() {
+  internal func test_convertingArrayWithSharedIdToDictionary_shouldResultInOneElementDictionary() {
     struct DummyIdentifiable: Identifiable, Equatable {
       let id: Int
       let string: String
@@ -74,7 +74,7 @@ final class ArrayToDictionaryConversionTestCase: XCTestCase {
     )
   }
 
-  func test_convertingEmptyArrayToDictionary_shouldResultInEmptyDictionary() {
+  internal func test_convertingEmptyArrayToDictionary_shouldResultInEmptyDictionary() {
     struct DummyIdentifiable: Identifiable, Equatable {
       let id: Int
       let string: String

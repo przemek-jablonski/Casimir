@@ -1,7 +1,14 @@
 import SwiftUI
 
 public extension AnyView {
-  init<WrappedView: View>(closure: () -> WrappedView) {
-    self.init(closure())
+  /**
+   Creates an instance that type-erases view.
+   */
+  init<WrappedView: View>(
+    closure: () -> WrappedView
+  ) {
+    self.init(
+      closure()
+    )
   }
 }

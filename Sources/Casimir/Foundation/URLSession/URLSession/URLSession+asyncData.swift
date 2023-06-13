@@ -13,8 +13,17 @@ public extension URLSession {
 }
 
 public extension URLSession {
-  typealias DataTaskResponse = (response: Data, request: URLRequest, metadata: URLResponse)
-  typealias DataTaskHTTPResponse = (response: Data, request: URLRequest, metadata: HTTPURLResponse)
+  typealias DataTaskResponse = (
+    response: Data,
+    request: URLRequest,
+    metadata: URLResponse
+  )
+
+  typealias DataTaskHTTPResponse = (
+    response: Data,
+    request: URLRequest,
+    metadata: HTTPURLResponse
+  )
 
   /**
    Convenience method for async loading of `Data` using `URLSessionDataTask`.
