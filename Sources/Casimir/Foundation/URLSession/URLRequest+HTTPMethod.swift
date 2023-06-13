@@ -13,7 +13,7 @@ public extension URLRequest {
     case trace
     case custom(String)
 
-    var rawValue: String {
+    internal var rawValue: String {
       switch self {
       case .get: return "GET"
       case .post: return "POST"

@@ -5,11 +5,14 @@ import SwiftUI
 import UIKit
 
 public struct ImagePickerView: UIViewControllerRepresentable {
-  @Environment(\.presentationMode) var presentationMode
-  @Binding var data: Data?
-  var cropToSquare = false
+  @Environment(\.presentationMode)
+  private var presentationMode
+  @Binding public var data: Data?
+  public var cropToSquare = false
 
-  public func makeUIViewController(context: UIViewControllerRepresentableContext<ImagePickerView>) -> UIImagePickerController {
+  public func makeUIViewController(
+    context: UIViewControllerRepresentableContext<ImagePickerView>
+  ) -> UIImagePickerController {
     let picker = UIImagePickerController()
     picker.delegate = context.coordinator
     //        picker.allowsEditing = cropToSquare
@@ -18,20 +21,26 @@ public struct ImagePickerView: UIViewControllerRepresentable {
     return picker
   }
 
-  public func updateUIViewController(_ uiViewController: UIImagePickerController,
-                                     context: UIViewControllerRepresentableContext<ImagePickerView>) {}
+  public func updateUIViewController(
+    _ uiViewController: UIImagePickerController,
+    context: UIViewControllerRepresentableContext<ImagePickerView>
+  ) {}
 }
 
-extension ImagePickerView {
-  public class Coordinator: NSObject, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
-    let parent: ImagePickerView
+public extension ImagePickerView {
+  class Coordinator: NSObject, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+    internal let parent: ImagePickerView
 
-    init(_ parent: ImagePickerView) {
+    public init(
+      _ parent: ImagePickerView
+    ) {
       self.parent = parent
     }
 
-    public func imagePickerController(_ picker: UIImagePickerController,
-                                      didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
+    public func imagePickerController(
+      _ picker: UIImagePickerController,
+      didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]
+    ) {
       if let uiImage = info[.originalImage] as? UIImage {
         parent.data = uiImage.pngData()
       }
@@ -40,7 +49,7 @@ extension ImagePickerView {
     }
   }
 
-  public func makeCoordinator() -> Coordinator {
+  func makeCoordinator() -> Coordinator {
     Coordinator(self)
   }
 }

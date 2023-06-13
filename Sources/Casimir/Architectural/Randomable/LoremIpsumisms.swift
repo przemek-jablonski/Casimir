@@ -2,7 +2,6 @@ import Foundation
 
 // swiftlint:disable force_unwrapping
 // swiftlint:disable no_magic_numbers
-
 public enum LoremIpsum {}
 
 // swiftlint:disable:next line_length
@@ -14,14 +13,14 @@ extension LoremIpsum {
   private static let sentences = LoremIpsum.full.components(separatedBy: ". ")
 }
 
-extension LoremIpsum {
-  public static var random: String {
+public extension LoremIpsum {
+  static var random: String {
     Bool.random() ? LoremIpsum.singleWord : Bool.random() ? LoremIpsum.short : LoremIpsum.regular
   }
 }
 
-extension LoremIpsum {
-  public static var singleWord: String {
+public extension LoremIpsum {
+  static var singleWord: String {
     LoremIpsum
       .words
       .filter({ $0.count > 4 })
@@ -30,14 +29,14 @@ extension LoremIpsum {
       .uppercasedFirst
   }
 
-  public static var short: String {
+  static var short: String {
     (1...3)
       .map({ _ in LoremIpsum.words.random().filter({ CharacterSet.letters.contains($0.unicodeScalars.first!) }) })
       .joined(separator: ", ")
       .uppercasedFirst
   }
 
-  public static var regular: String {
+  static var regular: String {
     (4...9)
       .map({ _ in LoremIpsum.words.random().filter({ CharacterSet.letters.contains($0.unicodeScalars.first!) }) })
       .joined(separator: ", ")
@@ -45,7 +44,7 @@ extension LoremIpsum {
       + "."
   }
 
-  public static var long: String {
+  static var long: String {
     let random = LoremIpsum.sentences.random()
     if !CharacterSet.letters.contains(random.last!.unicodeScalars.first!) {
       return random.dropLast() + "."
@@ -53,15 +52,17 @@ extension LoremIpsum {
     return random + "."
   }
 
-  public static var extraLong: String {
+  static var extraLong: String {
     (2...3)
       .map({ _ in LoremIpsum.long })
       .joined(separator: " ")
   }
 
-  public static var extraExtraLong: String {
+  static var extraExtraLong: String {
     (3...5)
       .map({ _ in LoremIpsum.long })
       .joined(separator: " ")
   }
 }
+// swiftlint:enable force_unwrapping
+// swiftlint:enable no_magic_numbers

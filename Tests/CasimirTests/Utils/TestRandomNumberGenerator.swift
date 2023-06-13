@@ -19,7 +19,7 @@ internal func withTestIncrementingRandomNumberGenerator(
 }
 
 extension TestIncrementingRandomNumberGenerator: RandomNumberGenerator {
-  func next() -> UInt64 {
+  internal func next() -> UInt64 {
     let number = startingNumber
     self.startingNumber += 1
     return number
