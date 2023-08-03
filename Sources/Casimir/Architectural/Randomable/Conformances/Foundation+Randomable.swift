@@ -57,10 +57,10 @@ extension Date: Randomable {
   public static func random(
     _ randomNumberGenerator: inout RandomNumberGenerator
   ) -> Self {
-    Date(
-      timeInterval: .random(&randomNumberGenerator),
-      since: .now
-    )
+    Double.random(
+      in: Date().byAdding(.year, -10).timeIntervalSince1970..<Date().byAdding(.year, 1).timeIntervalSince1970,
+      using: &randomNumberGenerator
+    ).date
   }
 }
 
@@ -170,6 +170,16 @@ extension Range: Randomable where Bound: Randomable {
     let boundA = Bound.random(&randomNumberGenerator)
     let boundB = Bound.random(&randomNumberGenerator)
     return Swift.min(boundA, boundB)..<Swift.max(boundA, boundB)
+  }
+}
+
+extension ClosedRange: Randomable where Bound: Randomable {
+  public static func random(
+    _ randomNumberGenerator: inout RandomNumberGenerator
+  ) -> Self {
+    let boundA = Bound.random(&randomNumberGenerator)
+    let boundB = Bound.random(&randomNumberGenerator)
+    return Swift.min(boundA, boundB)...Swift.max(boundA, boundB)
   }
 }
 

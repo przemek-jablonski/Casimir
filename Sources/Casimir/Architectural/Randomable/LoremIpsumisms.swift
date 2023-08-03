@@ -13,9 +13,9 @@ extension LoremIpsum {
   private static let sentences = LoremIpsum.full.components(separatedBy: ". ")
 }
 
-public extension LoremIpsum {
-  static var random: String {
-    Bool.random() ? LoremIpsum.singleWord : Bool.random() ? LoremIpsum.short : LoremIpsum.regular
+extension LoremIpsum {
+  public static var random: String {
+    Bool.random() ? LoremIpsum.singleWord : Bool.random() ? LoremIpsum.regular : LoremIpsum.extraLong
   }
 }
 
