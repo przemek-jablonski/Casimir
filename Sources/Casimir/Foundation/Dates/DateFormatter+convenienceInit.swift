@@ -1,14 +1,17 @@
 import Foundation
 
+// swiftlint:disable discouraged_optional_boolean
 public extension DateFormatter {
-  convenience init(calendar: Calendar,
-                   locale: Locale,
-                   timeZone: TimeZone,
-                   dateStyle: Style? = nil,
-                   timeStyle: Style? = nil,
-                   dateFormat: String? = nil,
-                   formattingContext: Context? = nil,
-                   doesRelativeDateFormatting: Bool? = nil) {
+  convenience init(
+    calendar: Calendar,
+    locale: Locale,
+    timeZone: TimeZone,
+    dateStyle: Style? = nil,
+    timeStyle: Style? = nil,
+    dateFormat: String? = nil,
+    formattingContext: Context? = nil,
+    doesRelativeDateFormatting: Bool? = nil
+  ) {
     self.init()
     self.calendar = calendar
     self.locale = locale
@@ -20,3 +23,4 @@ public extension DateFormatter {
     if let relative = doesRelativeDateFormatting { self.doesRelativeDateFormatting = relative }
   }
 }
+// swiftlint:enable discouraged_optional_boolean

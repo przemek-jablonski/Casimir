@@ -1,6 +1,7 @@
 import Foundation
 
 // swiftlint:disable discouraged_optional_boolean
+// swiftlint:disable discouraged_optional_collection
 @available(iOS 15.0, *)
 @available(macOS 12.0, *)
 @available(tvOS 15.0, *)
@@ -65,3 +66,4 @@ public extension JSONDecoder {
 }
 
 // swiftlint:enable discouraged_optional_boolean
+// swiftlint:enable discouraged_optional_collection

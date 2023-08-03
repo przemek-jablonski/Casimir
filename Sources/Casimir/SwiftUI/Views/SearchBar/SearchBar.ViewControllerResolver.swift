@@ -14,36 +14,48 @@
 import SwiftUI
 import UIKit
 
-internal extension SearchBar {
-  final class ViewControllerResolver: UIViewControllerRepresentable {
+extension SearchBar {
+  internal final class ViewControllerResolver: UIViewControllerRepresentable {
 
-    let onResolve: (UIViewController) -> Void
+    internal let onResolve: (UIViewController) -> Void
 
-    init(onResolve: @escaping (UIViewController) -> Void) {
+    internal init(
+      onResolve: @escaping (UIViewController) -> Void
+    ) {
       self.onResolve = onResolve
     }
 
-    func makeUIViewController(context: Context) -> ParentResolverViewController {
+    internal func makeUIViewController(
+      context: Context
+    ) -> ParentResolverViewController {
       ParentResolverViewController(onResolve: onResolve)
     }
 
-    func updateUIViewController(_ uiViewController: ParentResolverViewController, context: Context) { }
+    internal func updateUIViewController(
+      _ uiViewController: ParentResolverViewController,
+      context: Context
+    ) { }
   }
 
-  class ParentResolverViewController: UIViewController {
+  internal class ParentResolverViewController: UIViewController {
+    internal let onResolve: (UIViewController) -> Void
 
-    let onResolve: (UIViewController) -> Void
-
-    init(onResolve: @escaping (UIViewController) -> Void) {
+    internal init(
+      onResolve: @escaping (UIViewController) -> Void
+    ) {
       self.onResolve = onResolve
       super.init(nibName: nil, bundle: nil)
     }
 
-    required init?(coder: NSCoder) {
+    internal required init?(
+      coder: NSCoder
+    ) {
       fatalError("Use init(onResolve:) to instantiate ParentResolverViewController.")
     }
 
-    override func didMove(toParent parent: UIViewController?) {
+    internal override func didMove(
+      toParent parent: UIViewController?
+    ) {
       super.didMove(toParent: parent)
 
       if let parent = parent {

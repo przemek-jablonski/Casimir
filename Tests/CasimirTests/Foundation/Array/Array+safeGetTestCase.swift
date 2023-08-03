@@ -1,8 +1,8 @@
 import Casimir
 import XCTest
 
-final class ArraySafeGetTestCase: XCTestCase {
-  func test_safeGettingValidIndexOnMultipleElementsPrimitiveArray_shouldReturnCorrespondingPrimitive() {
+internal final class ArraySafeGetTestCase: XCTestCase {
+  internal func test_safeGettingValidIndexOnMultipleElementsPrimitiveArray_shouldReturnCorrespondingPrimitive() {
     performSafeGet(
       on: ["a", "b", "c", "d"],
       index: 1,
@@ -20,7 +20,7 @@ final class ArraySafeGetTestCase: XCTestCase {
     )
   }
 
-  func test_safeGettingValidIndexOnComplexTypeMultipleElementsArray_shouldReturnCorrespondingObject() {
+  internal func test_safeGettingValidIndexOnComplexTypeMultipleElementsArray_shouldReturnCorrespondingObject() {
     struct DummyStruct: Equatable {
       let wrapped1: Double
       let wrapped2: String
@@ -42,7 +42,7 @@ final class ArraySafeGetTestCase: XCTestCase {
     )
   }
 
-  func test_safeGettingLastIndexOnMultipleElementsArray_shouldReturnLastElement() {
+  internal func test_safeGettingLastIndexOnMultipleElementsArray_shouldReturnLastElement() {
     struct DummyStruct: Equatable {
       let wrapped1: Double
       let wrapped2: String
@@ -64,7 +64,7 @@ final class ArraySafeGetTestCase: XCTestCase {
     )
   }
 
-  func test_safeGetting0IndexOnMultipleElementsArray_shouldReturnFirstElement() {
+  internal func test_safeGetting0IndexOnMultipleElementsArray_shouldReturnFirstElement() {
     performSafeGet(
       on: [0, 1, 2, 3, 4, 5],
       index: 0,
@@ -74,7 +74,7 @@ final class ArraySafeGetTestCase: XCTestCase {
     )
   }
 
-  func test_safeGettingOverflowingIndexOnMultipleElementsArray_shouldReturnNil() {
+  internal func test_safeGettingOverflowingIndexOnMultipleElementsArray_shouldReturnNil() {
     performSafeGet(
       on: [0, 1, 2, 3, 4, 5],
       index: 6,
@@ -84,7 +84,7 @@ final class ArraySafeGetTestCase: XCTestCase {
     )
   }
 
-  func test_safeGettingIntMaxIndexOnMultipleElementsArray_shouldReturnNil() {
+  internal func test_safeGettingIntMaxIndexOnMultipleElementsArray_shouldReturnNil() {
     performSafeGet(
       on: [0, 1, 2, 3, 4, 5],
       index: Int.max,
@@ -94,7 +94,7 @@ final class ArraySafeGetTestCase: XCTestCase {
     )
   }
 
-  func test_safeGettingNegativeIndexOnMultipleElementsArray_shouldReturnNil() {
+  internal func test_safeGettingNegativeIndexOnMultipleElementsArray_shouldReturnNil() {
     performSafeGet(
       on: [0, 1, 2, 3, 4, 5],
       index: -1,
@@ -104,7 +104,7 @@ final class ArraySafeGetTestCase: XCTestCase {
     )
   }
 
-  func test_safeGettingIntMinIndexOnMultipleElementsArray_shouldReturnNil() {
+  internal func test_safeGettingIntMinIndexOnMultipleElementsArray_shouldReturnNil() {
     performSafeGet(
       on: [0, 1, 2, 3, 4, 5],
       index: Int.min,
@@ -114,7 +114,7 @@ final class ArraySafeGetTestCase: XCTestCase {
     )
   }
 
-  func test_safeGetting0IndexOnSingleElementArray_shouldReturnOnlyElement() {
+  internal func test_safeGetting0IndexOnSingleElementArray_shouldReturnOnlyElement() {
     performSafeGet(
       on: [0],
       index: 0,
@@ -124,7 +124,7 @@ final class ArraySafeGetTestCase: XCTestCase {
     )
   }
 
-  func test_safeGettingOverflowingIndexOnSingleElementArray_shouldReturnNil() {
+  internal func test_safeGettingOverflowingIndexOnSingleElementArray_shouldReturnNil() {
     performSafeGet(
       on: [0],
       index: 1,
@@ -134,7 +134,7 @@ final class ArraySafeGetTestCase: XCTestCase {
     )
   }
 
-  func test_safeGettingNegativeIndexOnSingleElementArray_shouldReturnNil() {
+  internal func test_safeGettingNegativeIndexOnSingleElementArray_shouldReturnNil() {
     performSafeGet(
       on: [0],
       index: -1,
@@ -144,7 +144,7 @@ final class ArraySafeGetTestCase: XCTestCase {
     )
   }
 
-  func test_safeGetting0IndexOnEmptyArray_shouldReturnNil() {
+  internal func test_safeGetting0IndexOnEmptyArray_shouldReturnNil() {
     performSafeGet(
       on: [Int](),
       index: 0,
@@ -154,7 +154,7 @@ final class ArraySafeGetTestCase: XCTestCase {
     )
   }
 
-  func test_safeGettingOverflowingIndexOnEmptyArray_shouldReturnNil() {
+  internal func test_safeGettingOverflowingIndexOnEmptyArray_shouldReturnNil() {
     performSafeGet(
       on: [Int](),
       index: 1,
@@ -164,7 +164,7 @@ final class ArraySafeGetTestCase: XCTestCase {
     )
   }
 
-  func test_safeGettingNegativeIndexOnEmptyArray_shouldReturnNil() {
+  internal func test_safeGettingNegativeIndexOnEmptyArray_shouldReturnNil() {
     performSafeGet(
       on: [Int](),
       index: -1,

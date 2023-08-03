@@ -35,7 +35,7 @@ public class SearchBar: NSObject, UISearchResultsUpdating, ObservableObject {
 }
 
 public extension SearchBar {
-  struct Modifier: ViewModifier {
+  internal struct Modifier: ViewModifier {
     let searchBar: SearchBar
     public func body(content: Content) -> some View {
       content

@@ -11,6 +11,7 @@ public extension URLRequest {
   }
 }
 
+// swiftlint:disable discouraged_optional_collection
 public extension URLRequest {
   /**
    Constructs the `URLRequest` with given parameters or fails with typed `URLRequestConstructionError`.
@@ -82,6 +83,7 @@ public extension URLRequest {
     return .success(request)
   }
 }
+// swiftlint:enable discouraged_optional_collection
 
 private extension Encodable {
   func data(using jsonEncoder: JSONEncoder = JSONEncoder()) throws -> Data {

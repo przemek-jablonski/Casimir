@@ -1,7 +1,5 @@
 import Foundation
 
-// TODO: search for all "random" properties and get them together here
-
 // MARK: - Foundation support
 extension Int: Randomable {
   public static func random(

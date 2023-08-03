@@ -1,5 +1,6 @@
 import CoreLocation
 
+// swiftlint:disable no_magic_numbers
 public extension CLLocationCoordinate2D {
   static var petersburg: CLLocationCoordinate2D { CLLocationCoordinate2D(latitude: 59.56, longitude: 30.18) }
   static var tokyo: CLLocationCoordinate2D { CLLocationCoordinate2D(latitude: 35.41, longitude: 139.41) }
@@ -8,3 +9,4 @@ public extension CLLocationCoordinate2D {
   static var santiago: CLLocationCoordinate2D { CLLocationCoordinate2D(latitude: 16.68, longitude: 121.55) }
   static var reykjavik: CLLocationCoordinate2D { CLLocationCoordinate2D(latitude: 64.08, longitude: 21.56) }
 }
+// swiftlint:enable no_magic_numbers

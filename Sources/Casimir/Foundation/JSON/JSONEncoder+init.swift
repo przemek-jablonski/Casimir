@@ -1,5 +1,6 @@
 import Foundation
 
+// swiftlint:disable discouraged_optional_collection
 public extension JSONEncoder {
   /**
    Initializes `JSONEncoder`, optionally applying additional settings fetched from `init` parameters.
@@ -39,3 +40,4 @@ public extension JSONEncoder {
     }
   }
 }
+// swiftlint:enable discouraged_optional_collection
