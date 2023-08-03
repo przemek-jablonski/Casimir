@@ -34,6 +34,7 @@ public protocol Randomable {
 
 // Default implementations
 public extension Randomable {
+  // TODO: add StringGenerationSuggestion like random(.fileName), random(.user) or something
   static func random() -> Self {
     var randomNumberGenerator: RandomNumberGenerator = SystemRandomNumberGenerator()
     return Self.random(&randomNumberGenerator)
@@ -43,7 +44,7 @@ public extension Randomable {
     _ randomNumberGenerator: inout RandomNumberGenerator
   ) -> [Self] {
     (0..<10).map { _ in
-      Self.random()
+      Self.random(&randomNumberGenerator)
     }
   }
 
@@ -53,4 +54,18 @@ public extension Randomable {
   }
 
   func random() -> Self { Self.random() }
+}
+
+public extension Randomable where Self: Identifiable & Hashable {
+  static func randoms(
+    _ randomNumberGenerator: inout RandomNumberGenerator
+  ) -> [Self] {
+    Array(
+      Set(
+        (10..<20).map { _ in
+          Self.random()
+        }
+      )
+    )
+  }
 }

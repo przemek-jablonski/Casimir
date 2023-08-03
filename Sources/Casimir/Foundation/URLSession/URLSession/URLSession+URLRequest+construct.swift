@@ -17,7 +17,7 @@ public extension URLSession {
    */
   func perform(
     requestTo url: String,
-    using httpMethod: URLRequest.HTTPMethod,
+    using httpMethod: String,
     headers: [String: String] = [:],
     queryItems: [String: String]  = [:],
     encoding body: Encodable? = nil,
@@ -41,7 +41,7 @@ public extension URLSession {
    */
   func perform(
     requestTo url: String,
-    using httpMethod: URLRequest.HTTPMethod,
+    using httpMethod: String,
     headers: [String: String] = [:],
     queryItems: [String: String] = [:],
     body: Data? = nil
@@ -64,7 +64,7 @@ private extension URLSession {
     request: Result<URLRequest, URLRequest.ConstructionError>
   ) async -> Result<DataTaskHTTPResponse, HTTPNetworkRequestError> {
     await request
-      .logRequest()
+      //      .logRequest()
       .mapError(HTTPNetworkRequestError.requestConstructionError)
       .flatMap { urlRequest in
         await self.data(urlRequest)

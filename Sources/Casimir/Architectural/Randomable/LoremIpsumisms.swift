@@ -16,7 +16,7 @@ extension LoremIpsum {
 
 extension LoremIpsum {
   public static var random: String {
-    Bool.random() ? LoremIpsum.singleWord : Bool.random() ? LoremIpsum.short : LoremIpsum.regular
+    Bool.random() ? LoremIpsum.singleWord : Bool.random() ? LoremIpsum.regular : LoremIpsum.extraLong
   }
 }
 

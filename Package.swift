@@ -25,7 +25,7 @@ let package = Package(
     )
   ],
   dependencies: [
-    .package(url: "https://github.com/tcldr/Entwine.git", .exact("0.9.1")),
+    .package(url: "https://github.com/tcldr/Entwine.git", .exact("0.9.1"))
   ],
   targets: [
     .target(

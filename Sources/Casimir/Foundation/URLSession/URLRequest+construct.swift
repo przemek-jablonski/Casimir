@@ -17,7 +17,7 @@ public extension URLRequest {
    */
   static func construct(
     requestTo url: String,
-    using httpMethod: HTTPMethod,
+    using httpMethod: String,
     headers: [String: String]? = nil,
     queryItems: [String: String]? = nil,
     encoding body: Encodable? = nil,
@@ -43,7 +43,7 @@ public extension URLRequest {
    */
   static func construct(
     requestTo url: String,
-    using httpMethod: HTTPMethod,
+    using httpMethod: String,
     headers: [String: String]? = nil,
     queryItems: [String: String]? = nil,
     body: Data? = nil
@@ -68,7 +68,7 @@ public extension URLRequest {
     }
 
     var request = URLRequest(url: url)
-    request.httpMethod = httpMethod.rawValue
+    request.httpMethod = httpMethod.uppercased()
 
     headers?
       .compactMap { $0 }
